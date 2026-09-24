@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沖繩 4 天 3 夜 11 人同事慢活放空之旅</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 360px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 340px;
+            }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-teal-100 selection:text-teal-800">
+
+    <!-- Chosen Palette: Okinawa Ocean Breeze & Warm Sand -->
+    <!-- Application Structure Plan:
+        Designed an interactive dashboard tailored for 11-person company trip planning:
+        1. Sticky Header & Hero: Key trip constraints (11 colleagues, <=3 spots/day, drive time <1 hr).
+        2. Visual Metrics & Dashboard: Chart.js bar chart for driving duration, doughnut chart for estimated budget share.
+        3. Dynamic Itinerary Explorer: Interactive day filtering (Day 1 to 4) displaying concise spots, driving times, highlights, and group travel tips.
+        4. Logistics & Budget Calculator: Comparison between 2-car rental vs 14-seater private bus, plus an interactive budget slider tool for 11 people.
+        5. Group Travel Survival Tips: Practical advice for large groups on reservations, car navigation, parking, and flexible grouping.
+    -->
+    <!-- Visualization & Content Choices:
+        - Drive Time Chart: Bar chart highlighting max drive times per day (all safely under 50 mins).
+        - Budget Breakdown Chart: Doughnut chart showing expected expense breakdown per person.
+        - Interactive Day Filter: Dynamic DOM manipulation for effortless exploration on mobile devices.
+        - Dynamic Budget Slider: Range inputs updating single & group (x11) total cost in real time.
+        - NO SVG or Mermaid JS used. Clean styling using standard Unicode icons and CSS components.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Header Navigation -->
+    <header class="bg-teal-700 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">🌺</span>
+                <div>
+                    <h1 class="font-bold text-lg sm:text-xl leading-tight">沖繩慢活放空之旅</h1>
+                    <p class="text-xs text-teal-100">11位同事 ‧ 4天3夜 ‧ 景點≤3個/天 ‧ 車程&lt;1小時</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#overview" class="hover:text-teal-200 transition">行程總覽</a>
+                <a href="#itinerary" class="hover:text-teal-200 transition">每日景點</a>
+                <a href="#logistics" class="hover:text-teal-200 transition">交通與預算</a>
+                <a href="#group-tips" class="hover:text-teal-200 transition">避坑指南</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-10">
+
+        <!-- Section 1: Overview & Highlights -->
+        <section id="overview" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
+            <div class="mb-6">
+                <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full">企劃核心原則</span>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2">11 人專屬「零壓力放空」行程規劃</h2>
+                <p class="text-slate-600 mt-1 leading-relaxed text-sm sm:text-base">
+                    多人出遊最忌諱點拉太遠與走馬看花。本行程嚴格控制單趟車程在 <strong>15 ~ 50 分鐘</strong> 內，每天安排 <strong>2 至 3 個精華景點</strong>，涵蓋蔚藍海景、知名地標、美式商圈與沖繩美食，保證全員都能輕鬆享受度假氛圍！
+                </p>
+            </div>
+
+            <!-- Metric Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-amber-50/70 p-4 rounded-xl border border-amber-100 text-center">
+                    <div class="text-2xl mb-1">⏱️</div>
+                    <div class="text-xs text-amber-800 font-medium">最長單趟車程</div>
+                    <div class="text-lg sm:text-xl font-bold text-amber-900 mt-1">45 ~ 50 分鐘</div>
+                    <div class="text-[11px] text-amber-700">遠低於 1 小時限制</div>
+                </div>
+                <div class="bg-teal-50/70 p-4 rounded-xl border border-teal-100 text-center">
+                    <div class="text-2xl mb-1">📍</div>
+                    <div class="text-xs text-teal-800 font-medium">每日景點數量</div>
+                    <div class="text-lg sm:text-xl font-bold text-teal-900 mt-1">2 ~ 3 個地點</div>
+                    <div class="text-[11px] text-teal-700">留足拍照放空時間</div>
+                </div>
+                <div class="bg-sky-50/70 p-4 rounded-xl border border-sky-100 text-center">
+                    <div class="text-2xl mb-1">🏖️</div>
+                    <div class="text-xs text-sky-800 font-medium">海景與沙灘</div>
+                    <div class="text-lg sm:text-xl font-bold text-sky-900 mt-1">3 大特色水岸</div>
+                    <div class="text-[11px] text-sky-700">瀨長島 / 萬座海灘 / 夕陽海灘</div>
+                </div>
+                <div class="bg-orange-50/70 p-4 rounded-xl border border-orange-100 text-center">
+                    <div class="text-2xl mb-1">🍱</div>
+                    <div class="text-xs text-orange-800 font-medium">在地美食</div>
+                    <div class="text-lg sm:text-xl font-bold text-orange-900 mt-1">精選高口碑</div>
+                    <div class="text-[11px] text-orange-700">阿古豬 / 石垣牛 / 濱海咖啡</div>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-t border-slate-100 pt-6">
+                <div>
+                    <h3 class="text-base font-semibold text-slate-800 mb-1 flex items-center gap-2">
+                        <span>🚗</span> 每日行車時間估算 (分鐘)
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-4">精確掌握每日拉車時長，不把時間浪費在車程上。</p>
+                    <div class="chart-container">
+                        <canvas id="driveTimeChart"></canvas>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-base font-semibold text-slate-800 mb-1 flex items-center gap-2">
+                        <span>💰</span> 預估每人費用結構占比
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-4">不含個人購物，均勻分配機票、住宿與餐飲預算。</p>
+                    <div class="chart-container">
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Interactive Itinerary Explorer -->
+        <section id="itinerary" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
+            <div class="mb-6">
+                <span class="bg-sky-100 text-sky-800 text-xs font-semibold px-3 py-1 rounded-full">行程細節探索</span>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2">四天三夜動態行程表</h2>
+                <p class="text-slate-600 mt-1 text-sm leading-relaxed">
+                    點選下方頁籤切換天數，查看每日精華景點、移動車程與 11 人團體旅行的互動建議。
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-4" id="day-filter-buttons">
+                <button onclick="filterDay('all')" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-teal-700 text-white shadow-sm">全部四天</button>
+                <button onclick="filterDay(1)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 1：抵達 & 浪漫海景開局</button>
+                <button onclick="filterDay(2)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 2：絕美海岸 & 萬座放空</button>
+                <button onclick="filterDay(3)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 3：美式風情 & 落日餘暉</button>
+                <button onclick="filterDay(4)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 4：最後採買 & 從容返程</button>
+            </div>
+
+            <!-- Itinerary Timeline Container -->
+            <div id="itinerary-cards-container" class="space-y-8">
+                <!-- Dynamically rendered via JS -->
+            </div>
+        </section>
+
+        <!-- Section 3: Group Logistics & Calculator -->
+        <section id="logistics" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
+            <div class="mb-6">
+                <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-3 py-1 rounded-full">團體交通與預算</span>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2">11 人交通方案比較與動態預算試算</h2>
+                <p class="text-slate-600 mt-1 text-sm leading-relaxed">
+                    11 人屬於中大型團體，交通是舒適度的關鍵。我們提供「自駕（兩台 8 人座）」與「包車（14 人座小巴）」的評估，並提供即時預算試算。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Transport Comparison Options -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                    <h3 class="font-bold text-slate-800 mb-3 text-lg flex items-center gap-2">
+                        <span>🚌</span> 交通方式方案對比 (11人)
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Option A -->
+                        <div class="p-4 bg-white rounded-xl border-2 border-teal-500 shadow-sm">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <span class="bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded font-bold">推薦首選</span>
+                                    <h4 class="font-bold text-slate-800 mt-1">租用 2 台 8 人座休旅車 (如 Serena / Voxy)</h4>
+                                </div>
+                                <span class="text-teal-700 font-bold text-sm">約 NT$ 1,800 /人</span>
+                            </div>
+                            <ul class="text-xs text-slate-600 space-y-1.5 list-disc list-inside">
+                                <li><strong>優勢：</strong> 空間寬敞（可放 11 個大行李箱）、行程彈性高、費用非常劃算。</li>
+                                <li><strong>注意：</strong> 需要 2 位駕駛（需準備台灣駕照原件 + 日文譯本）。</li>
+                                <li><strong>停車：</strong> 沖繩大部分景點停車位充足，兩台車好跟車與導航。</li>
+                            </ul>
+                        </div>
+
+                        <!-- Option B -->
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded font-bold">輕鬆無腦</span>
+                                    <h4 class="font-bold text-slate-800 mt-1">包車 14 人座小巴 (含專屬司機)</h4>
+                                </div>
+                                <span class="text-slate-700 font-bold text-sm">約 NT$ 4,500 /人</span>
+                            </div>
+                            <ul class="text-xs text-slate-600 space-y-1.5 list-disc list-inside">
+                                <li><strong>優勢：</strong> 全員上車即可睡覺放空，免找停車位、免看地圖導航。</li>
+                                <li><strong>注意：</strong> 費用較高，行程時間需較為固定（每日服務約 8-10 小時）。</li>
+                                <li><strong>適合：</strong> 全員都不想在國外開車的放空度假團。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Budget Calculator -->
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-slate-800 mb-3 text-lg flex items-center gap-2">
+                            <span>🧮</span> 11人團體預估費用計算器
+                        </h3>
+                        <p class="text-xs text-slate-500 mb-4">拖動下方滑桿調整人均預估花費，實時計算全團總預算：</p>
+
+                        <div class="space-y-4 text-xs">
+                            <div>
+                                <div class="flex justify-between font-medium mb-1">
+                                    <span>機票 (每人預估):</span>
+                                    <span id="flight-val" class="font-bold text-teal-700">NT$ 12,000</span>
+                                </div>
+                                <input type="range" id="flight-range" min="8000" max="20000" step="500" value="12000" oninput="updateBudgetCalc()" class="w-full accent-teal-600">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between font-medium mb-1">
+                                    <span>3晚住宿 (每人預估):</span>
+                                    <span id="hotel-val" class="font-bold text-teal-700">NT$ 9,000</span>
+                                </div>
+                                <input type="range" id="hotel-range" min="5000" max="18000" step="500" value="9000" oninput="updateBudgetCalc()" class="w-full accent-teal-600">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between font-medium mb-1">
+                                    <span>餐飲美食 (每人預估):</span>
+                                    <span id="food-val" class="font-bold text-teal-700">NT$ 6,000</span>
+                                </div>
+                                <input type="range" id="food-range" min="3000" max="12000" step="500" value="6000" oninput="updateBudgetCalc()" class="w-full accent-teal-600">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between font-medium mb-1">
+                                    <span>交通與門票 (每人預估):</span>
+                                    <span id="transport-val" class="font-bold text-teal-700">NT$ 2,500</span>
+                                </div>
+                                <input type="range" id="transport-range" min="1500" max="6000" step="500" value="2500" oninput="updateBudgetCalc()" class="w-full accent-teal-600">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs text-slate-500">預估個人花費總額：</span>
+                            <span id="per-person-total" class="text-lg font-extrabold text-teal-800">NT$ 29,500</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">11位同事全團總預算：</span>
+                            <span id="group-total" class="text-xl font-black text-orange-600">NT$ 324,500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Group Travel Survival Tips -->
+        <section id="group-tips" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
+            <div class="mb-6">
+                <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full">11人團體實用經驗</span>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2">同事出遊順暢避坑指南</h2>
+                <p class="text-slate-600 mt-1 text-sm leading-relaxed">
+                    多人團體出遊要玩得開心，關鍵在於事先做好這四項「流暢細節」的安排：
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <div class="text-2xl mb-2">🍽️</div>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">熱門餐廳提前預訂</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        沖繩熱門餐廳（如阿古豬涮涮鍋、石垣牛燒肉）位子有限，11 人臨時現場等位幾乎不可能。建議出發前 2~4 週先訂好大桌或拆 2 桌。
+                    </p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <div class="text-2xl mb-2">🅿️</div>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">停車與跟車導航</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        若選擇自駕 2 台車，設定導航時兩車駕駛需確認目的地 MAPCODE 或電話號碼一致，並在通訊軟體設立「導航群組」隨時回報進度。
+                    </p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <div class="text-2xl mb-2">🛍️</div>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">美國村與Outlet定點解散</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        逛街景點直接約定 1.5~2 小時後在指定咖啡廳或地標集合，不強制 11 人全程綁在一起，讓每個人都能逛得盡興。
+                    </p>
+                </div>
+
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <div class="text-2xl mb-2">💳</div>
+                    <h3 class="font-bold text-slate-800 text-sm mb-1">公費公款專人保管</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        建議推舉一位「總務同仁」預收每人一定金額的日幣公費，專門支付過路費、停車費與共同大餐，避免頻繁拆帳與找零。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 py-6 text-center text-xs mt-auto">
+        <p>沖繩 4 天 3 夜 11 人同事放空之旅 ‧ 祝大家旅途愉快！</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Itinerary Data
+        const itineraryData = [
+            {
+                day: 1,
+                title: "Day 1：抵達沖繩 ‧ 浪漫海景與居酒屋開局",
+                subtitle: "從那霸機場出發 ‧ 最長車程約 20 分鐘",
+                spots: [
+                    {
+                        name: "瀨長島 UMIKAJI TERRACE",
+                        tag: "海景 / 鬆餅 / 看飛機",
+                        drive: "機場取車後約 15 分鐘車程",
+                        desc: "純白階梯式建築面朝大海，氣氛極度放鬆。一邊喝咖啡吃鬆餅，一邊看飛機起降與蔚藍海景，非常適合同事第一天拍照合照醒腦。"
+                    },
+                    {
+                        name: "國際通商圈 & 屋台村",
+                        tag: "沖繩美食 / 居酒屋 / 購物",
+                        drive: "瀨長島至國際通約 20 分鐘車程",
+                        desc: "晚上入住那霸市區飯店後散步至國際通，推薦包場或分桌品嚐阿古豬涮涮鍋或石垣牛燒肉，飯後可至屋台村喝杯泡盛調酒。"
+                    }
+                ],
+                groupTip: "第一天租車取車時間約需 1 小時，建議提前把 11 人行李分配好放在 2 台車後廂。"
+            },
+            {
+                day: 2,
+                title: "Day 2：絕美象鼻岩與西海岸沙灘放空",
+                subtitle: "往恩納村海岸移動 ‧ 最長車程約 45 分鐘",
+                spots: [
+                    {
+                        name: "萬座毛 (Manzamo)",
+                        tag: "地標斷崖 / 壯麗海景",
+                        drive: "那霸出發約 45 ~ 50 分鐘車程",
+                        desc: "沖繩最具代表性的自然地標，遼闊的天然草原直面湛藍斷崖與著名的象鼻岩。新遊客中心設施完善，散步吹冷氣完全不費力。"
+                    },
+                    {
+                        name: "萬座海灘 (Manza Beach)",
+                        tag: "白沙灘 / 水上活動 / 躺平",
+                        drive: "萬座毛至萬座海灘約 10 分鐘車程",
+                        desc: "平緩清澈的白沙灘，同事可自由選擇體驗水上活動，或在陽傘下躺平聊天放空。設有完善的淋浴更衣設施，適合大團體。"
+                    }
+                ],
+                groupTip: "午餐建議在恩納村享用海葡萄丼或沖繩麵，大團體可以分兩桌坐更順暢。"
+            },
+            {
+                day: 3,
+                title: "Day 3：美式異國風情與落日餘暉",
+                subtitle: "前往北谷美式商圈 ‧ 最長車程約 35 分鐘",
+                spots: [
+                    {
+                        name: "美國村 (American Village)",
+                        tag: "異國街景 / 選物 / 塗鴉拍照",
+                        drive: "恩納村出發約 35 分鐘車程",
+                        desc: "融合美式複古與濱海度假氛圍，聚集大量特色餐飲與選物店。11 人可以解散自由逛街，隨處都有咖啡館，各自散步不緊繃。"
+                    },
+                    {
+                        name: "北谷 Sunset Beach",
+                        tag: "絕美日落 / 海邊酒吧",
+                        drive: "緊鄰美國村 ‧ 步行即可抵達",
+                        desc: "沖繩西海岸最知名的夕陽景點，落日染紅整片海面。傍晚散步看日落，晚上可直接挑一家面海的美式漢堡店或餐酒館聚餐。"
+                    }
+                ],
+                groupTip: "美國村範圍大，建議約定 2 小時後在摩天輪遺址附近的咖啡廳集合，自由度最高。"
+            },
+            {
+                day: 4,
+                title: "Day 4：最後採買戰利品與從容返程",
+                subtitle: "南部Outlet採買 ‧ 返程車程約 15 分鐘",
+                spots: [
+                    {
+                        name: "Ashibinaa Outlet 購物中心",
+                        tag: "品牌採買 / 免稅購物",
+                        drive: "北谷至 Outlet 約 40 分鐘車程",
+                        desc: "露天歐式造景，上百家國內外品牌齊全，非常適合回國前做最後的戰利品補貨與伴手禮採買。"
+                    },
+                    {
+                        name: "那霸機場返程",
+                        tag: "還車 / 搭機",
+                        drive: "Outlet 至機場/還車點約 15 分鐘車程",
+                        desc: "Outlet 距離機場與主要租車公司營業所極近，還車與搭機節奏完全不慌亂，為行程劃下完美句點。"
+                    }
+                ],
+                groupTip: "最後一天開車前確認 11 人的戰利品與行李箱是否都能妥善塞入兩台車後廂。"
+            }
+        ];
+
+        // Render Itinerary Function
+        function renderItinerary(filter) {
+            const container = document.getElementById('itinerary-cards-container');
+            container.innerHTML = '';
+
+            const filteredData = filter === 'all' 
+                ? itineraryData 
+                : itineraryData.filter(item => item.day === parseInt(filter));
+
+            filteredData.forEach(dayInfo => {
+                const dayCard = document.createElement('div');
+                dayCard.className = "bg-slate-50 rounded-2xl p-5 border border-slate-200 transition";
+
+                let spotsHTML = dayInfo.spots.map((spot, idx) => `
+                    <div class="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm">
+                        <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
+                            <h4 class="font-bold text-slate-800 text-base flex items-center gap-1.5">
+                                <span class="bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full font-bold">景點 ${idx + 1}</span>
+                                ${spot.name}
+                            </h4>
+                            <span class="text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded">
+                                ⏱️ ${spot.drive}
+                            </span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">${spot.tag}</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">${spot.desc}</p>
+                    </div>
+                `).join('');
+
+                dayCard.innerHTML = `
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-4 pb-3 border-b border-slate-200 gap-1">
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-lg">${dayInfo.title}</h3>
+                            <p class="text-xs text-slate-500">${dayInfo.subtitle}</p>
+                        </div>
+                        <span class="text-xs font-bold bg-teal-50 text-teal-700 px-3 py-1 rounded-full border border-teal-200 w-fit">
+                            每天不超過 3 個景點
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        ${spotsHTML}
+                    </div>
+
+                    <div class="bg-amber-50/80 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 flex items-start gap-2">
+                        <span>💡</span>
+                        <div><strong>11人團體貼心提醒：</strong> ${dayInfo.groupTip}</div>
+                    </div>
+                `;
+                container.appendChild(dayCard);
+            });
+        }
+
+        // Filter Button Toggle
+        function filterDay(day) {
+            renderItinerary(day);
+            const buttons = document.querySelectorAll('.day-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-teal-700', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+
+            event.currentTarget.classList.remove('bg-slate-100', 'text-slate-600');
+            event.currentTarget.classList.add('bg-teal-700', 'text-white', 'shadow-sm');
+        }
+
+        // Budget Calculator Function
+        function updateBudgetCalc() {
+            const flight = parseInt(document.getElementById('flight-range').value);
+            const hotel = parseInt(document.getElementById('hotel-range').value);
+            const food = parseInt(document.getElementById('food-range').value);
+            const transport = parseInt(document.getElementById('transport-range').value);
+
+            document.getElementById('flight-val').innerText = `NT$ ${flight.toLocaleString()}`;
+            document.getElementById('hotel-val').innerText = `NT$ ${hotel.toLocaleString()}`;
+            document.getElementById('food-val').innerText = `NT$ ${food.toLocaleString()}`;
+            document.getElementById('transport-val').innerText = `NT$ ${transport.toLocaleString()}`;
+
+            const perPerson = flight + hotel + food + transport;
+            const groupTotal = perPerson * 11;
+
+            document.getElementById('per-person-total').innerText = `NT$ ${perPerson.toLocaleString()}`;
+            document.getElementById('group-total').innerText = `NT$ ${groupTotal.toLocaleString()}`;
+        }
+
+        // Chart.js Initialization
+        window.addEventListener('DOMContentLoaded', () => {
+            renderItinerary('all');
+
+            // 1. Drive Time Chart
+            const driveCtx = document.getElementById('driveTimeChart').getContext('2d');
+            new Chart(driveCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Day 1 (那霸)', 'Day 2 (恩納村)', 'Day 3 (美國村)', 'Day 4 (Outlet)'],
+                    datasets: [{
+                        label: '單趟最長車程 (分鐘)',
+                        data: [20, 45, 35, 40],
+                        backgroundColor: ['#0d9488', '#0284c7', '#f59e0b', '#10b981'],
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `最長車程: ${context.raw} 分鐘 (符合<1小時原則)`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 60,
+                            title: { display: true, text: '車程時間 (分鐘)', font: { size: 11 } }
+                        }
+                    }
+                }
+            });
+
+            // 2. Budget Breakdown Chart
+            const budgetCtx = document.getElementById('budgetChart').getContext('2d');
+            new Chart(budgetCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['來回機票', '3晚住宿', '餐飲美食', '交通與門票'],
+                    datasets: [{
+                        data: [12000, 9000, 6000, 2500],
+                        backgroundColor: ['#0d9488', '#38bdf8', '#fbbf24', '#f97316'],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: NT$ ${context.raw.toLocaleString()}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
