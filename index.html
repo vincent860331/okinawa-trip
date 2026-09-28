@@ -84,7 +84,7 @@
                 <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full">企劃核心原則</span>
                 <h2 class="text-2xl font-bold text-slate-800 mt-2">11 人專屬「零壓力放空」行程規劃</h2>
                 <p class="text-slate-600 mt-1 leading-relaxed text-sm sm:text-base">
-                    多人出遊最忌諱點拉太遠與走馬看花。本行程嚴格控制單趟車程在 <strong>15 ~ 50 分鐘</strong> 內，每天安排 <strong>2 至 3 個精華景點</strong>，涵蓋蔚藍海景、知名地標、美式商圈與沖繩美食，保證全員都能輕鬆享受度假氛圍！
+                    多人出遊最忌諱點拉太遠與走馬看花。本行程嚴格控制單趟車程在 <strong>15 ~ 50 分鐘</strong> 內，每天安排 <strong>2 至 3 個精華景點</strong>，涵蓋蔚藍海景、知名地標、卡丁車競速、美式商圈與沖繩美食，保證全員都能輕鬆享受度假氛圍！
                 </p>
             </div>
 
@@ -154,7 +154,7 @@
                 <button onclick="filterDay('all')" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-teal-700 text-white shadow-sm">全部四天</button>
                 <button onclick="filterDay(1)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 1：抵達 & 浪漫海景開局</button>
                 <button onclick="filterDay(2)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 2：絕美海岸 & 萬座放空</button>
-                <button onclick="filterDay(3)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 3：美式風情 & 落日餘暉</button>
+                <button onclick="filterDay(3)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 3：卡丁車 & 美式落日</button>
                 <button onclick="filterDay(4)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 4：最後採買 & 從容返程</button>
             </div>
 
@@ -371,13 +371,19 @@
             },
             {
                 day: 3,
-                title: "Day 3：美式異國風情與落日餘暉",
-                subtitle: "前往北谷美式商圈 ‧ 最長車程約 35 分鐘",
+                title: "Day 3：卡丁車競速、美式風情與落日餘暉",
+                subtitle: "讀谷卡丁車 → 北谷美式商圈 ‧ 最長車程約 30 分鐘",
                 spots: [
+                    {
+                        name: "Kukuru 讀谷賽車場 (Kukuru Yomitan Circuit)",
+                        tag: "卡丁車 / 同事競速 / 刺激體驗",
+                        drive: "恩納村出發約 25 分鐘車程",
+                        desc: "封閉式賽道卡丁車，不必上路、不需另備駕照規定，11 人可分批上場比圈速，輸的人請喝飲料！早上涼爽時段去最舒服，玩完再南下北谷剛好接午餐。"
+                    },
                     {
                         name: "美國村 (American Village)",
                         tag: "異國街景 / 選物 / 塗鴉拍照",
-                        drive: "恩納村出發約 35 分鐘車程",
+                        drive: "讀谷至美國村約 30 分鐘車程",
                         desc: "融合美式複古與濱海度假氛圍，聚集大量特色餐飲與選物店。11 人可以解散自由逛街，隨處都有咖啡館，各自散步不緊繃。"
                     },
                     {
@@ -387,7 +393,7 @@
                         desc: "沖繩西海岸最知名的夕陽景點，落日染紅整片海面。傍晚散步看日落，晚上可直接挑一家面海的美式漢堡店或餐酒館聚餐。"
                     }
                 ],
-                groupTip: "美國村範圍大，建議約定 2 小時後在摩天輪遺址附近的咖啡廳集合，自由度最高。"
+                groupTip: "卡丁車請提前電話或網路預約 11 人時段並確認身高與服裝限制（穿包鞋、勿穿裙子）。若想改玩那霸市區「街頭卡丁車」上路版，需持日本駕照或國際駕照，台灣駕照 + 日文譯本是否可用請事先向業者確認。美國村範圍大，建議約定 2 小時後在摩天輪遺址附近的咖啡廳集合。"
             },
             {
                 day: 4,
@@ -507,10 +513,10 @@
             new Chart(driveCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Day 1 (那霸)', 'Day 2 (恩納村)', 'Day 3 (美國村)', 'Day 4 (Outlet)'],
+                    labels: ['Day 1 (那霸)', 'Day 2 (恩納村)', 'Day 3 (讀谷/北谷)', 'Day 4 (Outlet)'],
                     datasets: [{
                         label: '單趟最長車程 (分鐘)',
-                        data: [20, 45, 35, 40],
+                        data: [20, 45, 30, 40],
                         backgroundColor: ['#0d9488', '#0284c7', '#f59e0b', '#10b981'],
                         borderRadius: 8
                     }]
