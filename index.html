@@ -198,6 +198,9 @@
                                 <li><strong>駕駛：</strong> 至少需要 3 位駕駛，最好每台車再多 1 位備用駕駛輪流開（需準備台灣駕照正本 + 日文譯本）。</li>
                                 <li><strong>行李：</strong> 一般轎車後車廂約只能放 2 個大行李箱，3 台車放不下 11 個大箱子。建議大家帶中小型行李箱或登機箱，訂車時確認車款後車廂大小。</li>
                                 <li><strong>停車：</strong> 沖繩大部分景點停車位充足；那霸飯店停車位有限，需先確認 3 台車的停車方式。</li>
+                                <li><strong>高速公路：</strong> 只有 Day 2 去水族館來回會走沖繩自動車道（那霸 IC ↔ 許田 IC / 石川 IC），其他天都走一般道路。過路費可付現金，或租車時加租 ETC 卡直接過。</li>
+                                <li><strong>3 車移動：</strong> 每台車固定 1 位駕駛 + 1 位副駕負責導航與 LINE 回報，不必硬跟車，各自導航到同一個目的地停車場集合。</li>
+                                <li><strong>喝酒：</strong> 日本酒駕罰很重，同車乘客也會受罰。Day 1、Day 2 晚上車停飯店不開；Day 3 晚上要開車，駕駛滴酒不沾。</li>
                             </ul>
                         </div>
 
@@ -357,7 +360,8 @@
                     }
                 ],
                 groupTip: "第一天在機場搭 Car Rental Okinawa 接送車到營業所取車，加上排隊與手續約需 1 小時，營業所 18:00 關門，航班太晚抵達要先跟租車公司確認。建議提前把 11 人分成 3 車（4 + 4 + 3），行李也先分配好放在 3 台車後廂。晚上會喝酒，燒肉和酒吧都用走路或計程車移動。若抵達日剛好是週三（ぶち公休），可改到國際通一帶的阿古豬涮涮鍋。",
-                route: [{"time": "11:00", "leg": "抵達那霸機場", "dur": "", "mode": "stay", "note": "以 11:00 抵達為例，依實際航班調整"}, {"time": "11:30", "leg": "那霸機場 → Car Rental Okinawa 營業所", "dur": "約 10-15 分", "mode": "shuttle", "note": "租車公司免費接送車；取車手續約 1 小時"}, {"time": "12:45", "leg": "營業所 → 瀨長島 UMIKAJI TERRACE", "dur": "約 15 分", "mode": "drive", "note": "午餐在瀨長島吃，逛到下午"}, {"time": "15:30", "leg": "瀨長島 → Hotel Monterey La Soeur Naha", "dur": "約 20-25 分", "mode": "drive", "note": "check-in、停車，車子今晚不再開"}, {"time": "17:30", "leg": "飯店 → 炭火燒肉 ぶち 久茂地2號店（晚餐）", "dur": "約 5-10 分", "mode": "walk", "note": ""}, {"time": "19:30", "leg": "ぶち → El Lequio（續攤）", "dur": "約 5-10 分", "mode": "taxi", "note": "3 台計程車，或走 15-20 分鐘"}, {"time": "22:00", "leg": "El Lequio → 飯店", "dur": "約 5-10 分", "mode": "taxi", "note": "走國際通回去約 20 分鐘"}]
+                routeTotal: "今日開車合計約 40 分鐘（2 段），晚上全程步行/計程車",
+                route: [{"time": "11:00", "leg": "抵達那霸機場", "dur": "", "mode": "stay", "note": "以 11:00 抵達為例，依實際航班調整"}, {"time": "11:30", "leg": "那霸機場 → Car Rental Okinawa 營業所", "dur": "約 10-15 分", "mode": "shuttle", "note": "租車公司免費接送車；取車手續約 1 小時", "park": "出關後到租車公司接送櫃台/集合點報到，11 人分 3 車取車"}, {"time": "12:45", "leg": "營業所 → 瀨長島 UMIKAJI TERRACE", "dur": "約 15 分", "mode": "drive", "note": "午餐在瀨長島吃，逛到下午", "map": "https://www.google.com/maps/dir/?api=1&origin=那覇空港&destination=瀬長島ウミカジテラス&travelmode=driving", "park": "瀨長島有免費停車場，3 台車盡量停一起"}, {"time": "15:30", "leg": "瀨長島 → Hotel Monterey La Soeur Naha", "dur": "約 20-25 分", "mode": "drive", "note": "check-in、停車，車子今晚不再開", "map": "https://www.google.com/maps/dir/?api=1&origin=瀬長島ウミカジテラス&destination=ホテルモントレ ラ・スール那覇&travelmode=driving", "park": "飯店停車方式與費用請事先向飯店確認"}, {"time": "17:30", "leg": "飯店 → 炭火燒肉 ぶち 久茂地2號店（晚餐）", "dur": "約 5-10 分", "mode": "walk", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=炭火焼肉ぶち 久茂地2号店&travelmode=walking"}, {"time": "19:30", "leg": "ぶち → El Lequio（續攤）", "dur": "約 5-10 分", "mode": "taxi", "note": "3 台計程車，或走 15-20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=炭火焼肉ぶち 久茂地2号店&destination=El Lequio 那覇 安里&travelmode=driving"}, {"time": "22:00", "leg": "El Lequio → 飯店", "dur": "約 5-10 分", "mode": "taxi", "note": "走國際通回去約 20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=El Lequio 那覇 安里&destination=ホテルモントレ ラ・スール那覇&travelmode=driving"}]
             },
             {
                 day: 2,
@@ -384,7 +388,8 @@
                     }
                 ],
                 groupTip: "今天是全程開最多的一天（總車程約 3.5 小時），所以白天只排 2 個景點，晚上回那霸走路吃拉麵。各車駕駛記得在高速公路休息站休息或換手。水族館門票可事先網路購買，入館後各自逛、約定時間在出口集合。晚餐的ちゃんや週日公休，若 Day 2 是週日，可改到國際通其他拉麵店。",
-                route: [{"time": "07:45", "leg": "飯店 → 沖繩美麗海水族館", "dur": "約 1 小時 30 分", "mode": "drive", "note": "那霸 IC 上高速 → 許田 IC 下，中途可在休息站換手"}, {"time": "09:30", "leg": "水族館 & 翡翠海灘", "dur": "停留約 3 小時", "mode": "stay", "note": "黑潮之海、海豚秀、海灘散步"}, {"time": "12:30", "leg": "水族館 → 本部町午餐（沖繩麵）", "dur": "約 10-15 分", "mode": "drive", "note": "例如岸本食堂等老字號沖繩麵店"}, {"time": "13:45", "leg": "本部町 → 萬座毛", "dur": "約 50 分", "mode": "drive", "note": ""}, {"time": "15:30", "leg": "萬座毛 → 飯店", "dur": "約 1 小時", "mode": "drive", "note": "石川 IC 上高速 → 那霸 IC；回飯店停車休息"}, {"time": "19:00", "leg": "飯店 → ラーメン ちゃんや（晚餐）", "dur": "約 10 分", "mode": "walk", "note": "國際通上，19:00 開門"}, {"time": "20:30", "leg": "ちゃんや → 飯店", "dur": "約 10 分", "mode": "walk", "note": ""}]
+                routeTotal: "今日開車合計約 3 小時 35 分（4 段，含高速公路來回），晚餐步行",
+                route: [{"time": "07:45", "leg": "飯店 → 沖繩美麗海水族館", "dur": "約 1 小時 30 分", "mode": "drive", "note": "那霸 IC 上高速 → 許田 IC 下，中途可在休息站換手", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=沖縄美ら海水族館&travelmode=driving", "park": "海洋博公園停車場免費，P7 最靠近水族館", "road": "那霸 IC → 沖繩自動車道 → 許田 IC → 國道 58/449 號，高速公路需付過路費"}, {"time": "09:30", "leg": "水族館 & 翡翠海灘", "dur": "停留約 3 小時", "mode": "stay", "note": "黑潮之海、海豚秀、海灘散步"}, {"time": "12:30", "leg": "水族館 → 本部町午餐（沖繩麵）", "dur": "約 10-15 分", "mode": "drive", "note": "例如岸本食堂等老字號沖繩麵店", "map": "https://www.google.com/maps/dir/?api=1&origin=沖縄美ら海水族館&destination=岸本食堂 本部&travelmode=driving", "park": "老店車位少，3 台車可分散停附近"}, {"time": "13:45", "leg": "本部町 → 萬座毛", "dur": "約 50 分", "mode": "drive", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=岸本食堂 本部&destination=万座毛&travelmode=driving", "park": "萬座毛有停車場，入場另收少量清潔費，請現場確認", "road": "走國道 58 號沿海岸線南下"}, {"time": "15:30", "leg": "萬座毛 → 飯店", "dur": "約 1 小時", "mode": "drive", "note": "石川 IC 上高速 → 那霸 IC；回飯店停車休息", "map": "https://www.google.com/maps/dir/?api=1&origin=万座毛&destination=ホテルモントレ ラ・スール那覇&travelmode=driving", "road": "屋嘉 IC 或石川 IC 上沖繩自動車道 → 那霸 IC，需付過路費"}, {"time": "19:00", "leg": "飯店 → ラーメン ちゃんや（晚餐）", "dur": "約 10 分", "mode": "walk", "note": "國際通上，19:00 開門", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=ラーメン ちゃんや 那覇 牧志&travelmode=walking"}, {"time": "20:30", "leg": "ちゃんや → 飯店", "dur": "約 10 分", "mode": "walk", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=ラーメン ちゃんや 那覇 牧志&destination=ホテルモントレ ラ・スール那覇&travelmode=walking"}]
             },
             {
                 day: 3,
@@ -411,7 +416,8 @@
                     }
                 ],
                 groupTip: "卡丁車請提前預約 11 人時段並確認身高與服裝限制（穿包鞋、勿穿裙子）。若想改玩那霸市區「街頭卡丁車」上路版，需持日本駕照或國際駕照，台灣駕照 + 日文譯本是否可用請事先向業者確認。美國村範圍大，建議約定 2 小時後在摩天輪遺址附近的咖啡廳集合。晚上要開車回那霸，駕駛記得不能喝酒。",
-                route: [{"time": "09:00", "leg": "飯店 → Kukuru 讀谷賽車場", "dur": "約 50 分", "mode": "drive", "note": "走 58 號或沖繩自動車道"}, {"time": "10:00", "leg": "卡丁車", "dur": "停留約 1.5 小時", "mode": "stay", "note": ""}, {"time": "11:30", "leg": "讀谷 → 美國村", "dur": "約 30 分", "mode": "drive", "note": "午餐在美國村，下午自由逛"}, {"time": "17:30", "leg": "美國村 → 北谷 Sunset Beach", "dur": "約 5 分", "mode": "walk", "note": "看日落，晚餐在美國村"}, {"time": "20:00", "leg": "美國村 → 飯店", "dur": "約 30-40 分", "mode": "drive", "note": "駕駛不能喝酒"}]
+                routeTotal: "今日開車合計約 2 小時（3 段），全走一般道路",
+                route: [{"time": "09:00", "leg": "飯店 → Kukuru 讀谷賽車場", "dur": "約 50 分", "mode": "drive", "note": "走 58 號或沖繩自動車道", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=Kukuru Yomitan Circuit&travelmode=driving", "park": "賽車場有停車場", "road": "國道 58 號一路北上（不走高速，免過路費）"}, {"time": "10:00", "leg": "卡丁車", "dur": "停留約 1.5 小時", "mode": "stay", "note": ""}, {"time": "11:30", "leg": "讀谷 → 美國村", "dur": "約 30 分", "mode": "drive", "note": "午餐在美國村，下午自由逛", "map": "https://www.google.com/maps/dir/?api=1&origin=Kukuru Yomitan Circuit&destination=美浜アメリカンビレッジ&travelmode=driving", "park": "美國村有多個大型免費停車場，約好停同一區方便集合", "road": "國道 58 號南下"}, {"time": "17:30", "leg": "美國村 → 北谷 Sunset Beach", "dur": "約 5 分", "mode": "walk", "note": "看日落，晚餐在美國村", "map": "https://www.google.com/maps/dir/?api=1&origin=美浜アメリカンビレッジ&destination=サンセットビーチ 北谷&travelmode=walking"}, {"time": "20:00", "leg": "美國村 → 飯店", "dur": "約 30-40 分", "mode": "drive", "note": "駕駛不能喝酒", "map": "https://www.google.com/maps/dir/?api=1&origin=美浜アメリカンビレッジ&destination=ホテルモントレ ラ・スール那覇&travelmode=driving", "road": "國道 58 號南下，傍晚那霸市區可能塞車"}]
             },
             {
                 day: 4,
@@ -432,7 +438,8 @@
                     }
                 ],
                 groupTip: "最後一天開車前確認 11 人的戰利品與行李箱是否都能妥善塞入 3 台車後廂。還車後要搭接送車回機場，建議在航班起飛前 3 小時還車（營業所 9:00-18:00），記得先加滿油。",
-                route: [{"time": "10:00", "leg": "飯店退房 → Ashibinaa Outlet", "dur": "約 25 分", "mode": "drive", "note": "午餐在 Outlet 解決"}, {"time": "14:00", "leg": "Outlet → 加油站 → Car Rental Okinawa 營業所", "dur": "約 15 分", "mode": "drive", "note": "加滿油後還車"}, {"time": "14:30", "leg": "營業所 → 那霸機場", "dur": "約 10-15 分", "mode": "shuttle", "note": "租車公司接送車；以傍晚航班為例，起飛前 2 小時到機場"}]
+                routeTotal: "今日開車合計約 40 分鐘（2 段）",
+                route: [{"time": "10:00", "leg": "飯店退房 → Ashibinaa Outlet", "dur": "約 25 分", "mode": "drive", "note": "午餐在 Outlet 解決", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=沖縄アウトレットモール あしびなー&travelmode=driving", "park": "Outlet 停車場免費"}, {"time": "14:00", "leg": "Outlet → 加油站 → Car Rental Okinawa 營業所", "dur": "約 15 分", "mode": "drive", "note": "加滿油後還車", "park": "還車前在營業所附近加滿油，保留加油收據"}, {"time": "14:30", "leg": "營業所 → 那霸機場", "dur": "約 10-15 分", "mode": "shuttle", "note": "租車公司接送車；以傍晚航班為例，起飛前 2 小時到機場"}]
             }
         ];
 
@@ -485,6 +492,9 @@
                                     <span class="font-semibold text-slate-800">${leg.leg}</span>
                                 </div>
                                 ${leg.note ? `<div class="text-slate-500 mt-0.5">${leg.note}</div>` : ''}
+                                ${leg.road ? `<div class="text-slate-600 mt-0.5">🛣️ 路線：${leg.road}</div>` : ''}
+                                ${leg.park ? `<div class="text-slate-600 mt-0.5">🅿️ ${leg.park}</div>` : ''}
+                                ${leg.map ? `<a href="${encodeURI(leg.map)}" target="_blank" rel="noopener" class="inline-block mt-1 text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ Google 地圖導航</a>` : ''}
                             </div>
                         </li>`;
                 }).join('');
@@ -506,7 +516,8 @@
 
                     <div class="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm mb-4">
                         <h4 class="font-bold text-slate-800 text-sm mb-1">🧭 交通明細（點到點）</h4>
-                        <p class="text-[11px] text-slate-500 mb-3">時間與車程皆為預估，實際依航班與交通狀況調整。</p>
+                        <p class="text-xs font-semibold text-teal-800 bg-teal-50 border border-teal-200 rounded px-2 py-1 mb-1 w-fit">🚗 ${dayInfo.routeTotal}</p>
+                        <p class="text-[11px] text-slate-500 mb-3">時間與車程皆為預估，實際依航班與交通狀況調整。點「Google 地圖導航」可直接開啟路線，3 台車用同一個目的地。</p>
                         <ol class="space-y-2">${routeHTML}</ol>
                     </div>
 
