@@ -8,6 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Leaflet (maps) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
         .chart-container {
             position: relative;
@@ -23,6 +26,13 @@
                 height: 340px;
             }
         }
+        .trip-map { height: 320px; border-radius: 0.75rem; z-index: 0; }
+        @media (min-width: 768px) { .trip-map { height: 400px; } }
+        .day-map { height: 260px; border-radius: 0.75rem; z-index: 0; }
+        @media (min-width: 768px) { .day-map { height: 320px; } }
+        .stop-pin { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 9999px; color: #fff; font-size: 12px; font-weight: 700; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.35); }
+        .leg-label { background: rgba(255,255,255,.95); border: 1px solid #cbd5e1; border-radius: 6px; padding: 1px 5px; font-size: 11px; font-weight: 600; color: #334155; white-space: nowrap; box-shadow: none; }
+        .leg-label::before { display: none; }
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -68,6 +78,7 @@
             </div>
             <nav class="hidden md:flex space-x-6 text-sm font-medium">
                 <a href="#overview" class="hover:text-teal-200 transition">行程總覽</a>
+                <a href="#trip-map" class="hover:text-teal-200 transition">全程地圖</a>
                 <a href="#itinerary" class="hover:text-teal-200 transition">每日景點</a>
                 <a href="#logistics" class="hover:text-teal-200 transition">交通與預算</a>
                 <a href="#group-tips" class="hover:text-teal-200 transition">避坑指南</a>
@@ -137,6 +148,20 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Section: Whole-trip Map -->
+        <section id="trip-map" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
+            <div class="mb-4">
+                <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full">全程路線地圖</span>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2">四天點到點路線一覽</h2>
+                <p class="text-slate-600 mt-1 text-sm leading-relaxed">
+                    每天一種顏色，數字是當天停靠順序，線上標示該段的交通方式與時間。3 晚都住那霸國際通旁的飯店（🏨）。
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3 text-xs font-semibold" id="map-legend"></div>
+            <div id="overview-map" class="trip-map border border-slate-200"></div>
+            <p class="text-[11px] text-slate-500 mt-2">地圖上的位置與直線路線為示意，實際開車請用每日行程裡的「Google 地圖導航」按鈕。</p>
         </section>
 
         <!-- Section 2: Interactive Itinerary Explorer -->
@@ -400,7 +425,7 @@
                         name: "Kukuru 讀谷賽車場 (Kukuru Yomitan Circuit)",
                         tag: "卡丁車 / 同事競速 / 刺激體驗",
                         drive: "那霸出發約 50 分鐘車程",
-                        desc: "封閉式賽道卡丁車，不必上路、不需另備駕照規定，11 人可分批上場比圈速，輸的人請喝飲料！早上涼爽時段去最舒服，玩完再南下北谷剛好接午餐。"
+                        desc: "封閉式賽道卡丁車（讀谷村高志保 1020-1），不必上路、不需另備駕照規定，11 人可分批上場比圈速，輸的人請喝飲料！營業 10:00-17:00，<strong>週一公休</strong>，成人約 ¥1,200 起。早上開門就去最涼爽，玩完再南下北谷剛好接午餐。"
                     },
                     {
                         name: "美國村 (American Village)",
@@ -442,6 +467,116 @@
                 route: [{"time": "10:00", "leg": "飯店退房 → Ashibinaa Outlet", "dur": "約 25 分", "mode": "drive", "note": "午餐在 Outlet 解決", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=沖縄アウトレットモール あしびなー&travelmode=driving", "park": "Outlet 停車場免費"}, {"time": "14:00", "leg": "Outlet → 加油站 → Car Rental Okinawa 營業所", "dur": "約 15 分", "mode": "drive", "note": "加滿油後還車", "park": "還車前在營業所附近加滿油，保留加油收據"}, {"time": "14:30", "leg": "營業所 → 那霸機場", "dur": "約 10-15 分", "mode": "shuttle", "note": "租車公司接送車；以傍晚航班為例，起飛前 2 小時到機場"}]
             }
         ];
+
+        // Map Data: places (approximate coordinates) and daily stop order
+        const places = {
+            airport: { name: '那霸機場', q: '那覇空港', lat: 26.2064, lng: 127.6465 },
+            senaga: { name: '瀨長島 UMIKAJI TERRACE', q: '瀬長島ウミカジテラス', lat: 26.1755, lng: 127.6414 },
+            hotel: { name: 'Hotel Monterey La Soeur Naha', q: 'ホテルモントレ ラ・スール那覇', lat: 26.2143, lng: 127.6810, hotel: true },
+            buchi: { name: '炭火燒肉 ぶち 久茂地2號店', q: '炭火焼肉ぶち 久茂地2号店', lat: 26.2163, lng: 127.6788 },
+            lequio: { name: 'El Lequio', q: 'El Lequio 那覇 安里', lat: 26.2197, lng: 127.6950 },
+            churaumi: { name: '美麗海水族館 & 翡翠海灘', q: '沖縄美ら海水族館', lat: 26.6943, lng: 127.8779 },
+            motobu: { name: '本部町午餐（沖繩麵）', q: '岸本食堂 本部', lat: 26.6555, lng: 127.8825 },
+            manzamo: { name: '萬座毛', q: '万座毛', lat: 26.5050, lng: 127.8505 },
+            chanya: { name: 'ラーメン ちゃんや', q: 'ラーメン ちゃんや 那覇 牧志', lat: 26.2152, lng: 127.6868 },
+            kukuru: { name: 'Kukuru 讀谷賽車場', q: 'ククル読谷サーキット', lat: 26.3935, lng: 127.7300 },
+            av: { name: '美國村', q: '美浜アメリカンビレッジ', lat: 26.3163, lng: 127.7569 },
+            sunset: { name: '北谷 Sunset Beach', q: 'サンセットビーチ 北谷', lat: 26.3177, lng: 127.7541 },
+            ashibinaa: { name: 'Ashibinaa Outlet', q: '沖縄アウトレットモール あしびなー', lat: 26.1673, lng: 127.6595 }
+        };
+        // [place, arrive, leave, how you got there from the previous stop]
+        const dayStops = {
+            1: [['airport', '11:00', '11:30', ''], ['senaga', '12:45', '15:30', '🚐 接送車 + 取車後 🚗 約 15 分'], ['hotel', '15:55', '17:30', '🚗 約 20-25 分'], ['buchi', '17:40', '19:30', '🚶 約 5-10 分'], ['lequio', '19:40', '22:00', '🚕 約 5-10 分'], ['hotel', '22:10', '', '🚕 約 5-10 分']],
+            2: [['hotel', '', '07:45', ''], ['churaumi', '09:15', '12:30', '🚗 約 1 小時 30 分（高速）'], ['motobu', '12:45', '13:45', '🚗 約 10-15 分'], ['manzamo', '14:35', '15:30', '🚗 約 50 分'], ['hotel', '16:30', '19:00', '🚗 約 1 小時（高速）'], ['chanya', '19:10', '20:30', '🚶 約 10 分'], ['hotel', '20:40', '', '🚶 約 10 分']],
+            3: [['hotel', '', '09:00', ''], ['kukuru', '09:50', '11:30', '🚗 約 50 分'], ['av', '12:00', '17:30', '🚗 約 30 分'], ['sunset', '17:35', '20:00', '🚶 約 5 分'], ['hotel', '20:35', '', '🚗 約 30-40 分']],
+            4: [['hotel', '', '10:00', ''], ['ashibinaa', '10:25', '14:00', '🚗 約 25 分'], ['airport', '14:45', '', '🚗 還車約 15 分 + 🚐 約 10-15 分']]
+        };
+        const dayColors = { 1: '#0d9488', 2: '#0284c7', 3: '#f59e0b', 4: '#e11d48' };
+
+        function addTiles(map) {
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+        }
+
+        function pinIcon(label, color) {
+            return L.divIcon({ className: '', html: `<div class="stop-pin" style="background:${color}">${label}</div>`, iconSize: [24, 24], iconAnchor: [12, 12] });
+        }
+
+        // Draw one day's stops + legs onto a map; returns the bounds of the points
+        function drawDay(map, day, showLegLabels) {
+            const color = dayColors[day];
+            const stops = dayStops[day];
+            const numbered = {};
+            stops.forEach(([key, arrive, leave], i) => {
+                if (!numbered[key]) numbered[key] = [];
+                const t = [arrive && `${arrive} 抵達`, leave && `${leave} 出發`].filter(Boolean).join('，');
+                numbered[key].push(`${i + 1}. ${t}`);
+            });
+            Object.keys(numbered).forEach(key => {
+                const pl = places[key];
+                const first = stops.findIndex(st => st[0] === key) + 1;
+                const label = pl.hotel ? '🏨' : first;
+                L.marker([pl.lat, pl.lng], { icon: pinIcon(label, pl.hotel ? '#475569' : color) })
+                    .addTo(map)
+                    .bindPopup(`<strong>Day ${day}｜${pl.name}</strong><br>${numbered[key].join('<br>')}<br><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(pl.q)}" target="_blank" rel="noopener">在 Google 地圖開啟</a>`);
+            });
+            const pts = stops.map(([key]) => [places[key].lat, places[key].lng]);
+            const spanKm = map.distance(L.latLngBounds(pts).getSouthWest(), L.latLngBounds(pts).getNorthEast()) / 1000;
+            for (let i = 1; i < stops.length; i++) {
+                const a = places[stops[i - 1][0]], b = places[stops[i][0]];
+                const how = stops[i][3];
+                const walk = how.startsWith('🚶');
+                const line = L.polyline([[a.lat, a.lng], [b.lat, b.lng]], { color, weight: 4, opacity: 0.8, dashArray: walk ? '4 6' : null }).addTo(map);
+                const text = `${stops[i - 1][2]} → ${stops[i][1]}｜${how}`;
+                // Spread labels along the line so out/back legs don't overlap; skip tiny city legs on wide maps
+                const legKm = map.distance([a.lat, a.lng], [b.lat, b.lng]) / 1000;
+                if (showLegLabels && (legKm >= 3 || spanKm < 15)) {
+                    const t = i % 2 ? 0.3 : 0.7;
+                    L.marker([a.lat + (b.lat - a.lat) * t, a.lng + (b.lng - a.lng) * t], { opacity: 0, interactive: false })
+                        .addTo(map)
+                        .bindTooltip(text, { permanent: true, direction: 'center', className: 'leg-label' });
+                    line.bindTooltip(text);
+                } else if (showLegLabels) {
+                    line.bindTooltip(text);
+                } else {
+                    line.bindTooltip(`Day ${day}：${a.name} → ${b.name}<br>${stops[i - 1][2]} 出發 → ${stops[i][1]} 抵達｜${how}`);
+                }
+            }
+            return L.latLngBounds(stops.map(([key]) => [places[key].lat, places[key].lng]));
+        }
+
+        function fullDayMapLink(day) {
+            const stops = dayStops[day].map(([key]) => places[key].q);
+            return 'https://www.google.com/maps/dir/' + stops.map(encodeURIComponent).join('/');
+        }
+
+        function initOverviewMap() {
+            if (!window.L) return;
+            const map = L.map('overview-map', { scrollWheelZoom: false });
+            addTiles(map);
+            let bounds = null;
+            [1, 2, 3, 4].forEach(day => {
+                const b = drawDay(map, day, false);
+                bounds = bounds ? bounds.extend(b) : b;
+            });
+            map.fitBounds(bounds, { padding: [20, 20] });
+            document.getElementById('map-legend').innerHTML = [1, 2, 3, 4].map(day =>
+                `<span class="px-2 py-1 rounded-full text-white" style="background:${dayColors[day]}">Day ${day}</span>`).join('') +
+                '<span class="px-2 py-1 rounded-full bg-slate-100 text-slate-600">實線＝開車／計程車　虛線＝步行</span>';
+        }
+
+        function initDayMaps(days) {
+            if (!window.L) return;
+            days.forEach(day => {
+                const el = document.getElementById(`day-map-${day}`);
+                if (!el) return;
+                const map = L.map(el, { scrollWheelZoom: false });
+                addTiles(map);
+                map.fitBounds(drawDay(map, day, true), { padding: [30, 30] });
+            });
+        }
 
         // Render Itinerary Function
         function renderItinerary(filter) {
@@ -515,6 +650,15 @@
                     </div>
 
                     <div class="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm mb-4">
+                        <div class="flex flex-wrap justify-between items-center gap-2 mb-2">
+                            <h4 class="font-bold text-slate-800 text-sm">🗺️ Day ${dayInfo.day} 路線地圖</h4>
+                            <a href="${fullDayMapLink(dayInfo.day)}" target="_blank" rel="noopener" class="text-[11px] font-semibold text-white bg-teal-700 px-2 py-1 rounded hover:bg-teal-800">在 Google 地圖開啟全日路線</a>
+                        </div>
+                        <div id="day-map-${dayInfo.day}" class="day-map border border-slate-200"></div>
+                        <p class="text-[11px] text-slate-500 mt-2">數字＝停靠順序，🏨＝飯店，線上標示「出發時間 → 抵達時間｜交通方式與車程」。點圖釘可看抵達/出發時間；那霸市區內的短程步行請看下方交通明細或放大地圖。</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm mb-4">
                         <h4 class="font-bold text-slate-800 text-sm mb-1">🧭 交通明細（點到點）</h4>
                         <p class="text-xs font-semibold text-teal-800 bg-teal-50 border border-teal-200 rounded px-2 py-1 mb-1 w-fit">🚗 ${dayInfo.routeTotal}</p>
                         <p class="text-[11px] text-slate-500 mb-3">時間與車程皆為預估，實際依航班與交通狀況調整。點「Google 地圖導航」可直接開啟路線，3 台車用同一個目的地。</p>
@@ -528,6 +672,7 @@
                 `;
                 container.appendChild(dayCard);
             });
+            initDayMaps(filteredData.map(d => d.day));
         }
 
         // Filter Button Toggle
@@ -564,6 +709,7 @@
 
         // Chart.js Initialization
         window.addEventListener('DOMContentLoaded', () => {
+            initOverviewMap();
             renderItinerary('all');
 
             // 1. Drive Time Chart
