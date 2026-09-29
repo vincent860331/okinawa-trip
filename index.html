@@ -28,8 +28,6 @@
         }
         .trip-map { height: 320px; border-radius: 0.75rem; z-index: 0; }
         @media (min-width: 768px) { .trip-map { height: 400px; } }
-        .day-map { height: 260px; border-radius: 0.75rem; z-index: 0; }
-        @media (min-width: 768px) { .day-map { height: 320px; } }
         .stop-pin { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 9999px; color: #fff; font-size: 12px; font-weight: 700; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.35); }
         .leg-label { background: rgba(255,255,255,.95); border: 1px solid #cbd5e1; border-radius: 6px; padding: 1px 5px; font-size: 11px; font-weight: 600; color: #334155; white-space: nowrap; box-shadow: none; }
         .leg-label::before { display: none; }
@@ -78,7 +76,7 @@
             </div>
             <nav class="hidden md:flex space-x-6 text-sm font-medium">
                 <a href="#overview" class="hover:text-teal-200 transition">行程總覽</a>
-                <a href="#trip-map" class="hover:text-teal-200 transition">全程地圖</a>
+                <a href="#itinerary" class="hover:text-teal-200 transition">路線地圖</a>
                 <a href="#itinerary" class="hover:text-teal-200 transition">每日景點</a>
                 <a href="#logistics" class="hover:text-teal-200 transition">交通與預算</a>
                 <a href="#group-tips" class="hover:text-teal-200 transition">避坑指南</a>
@@ -150,37 +148,36 @@
             </div>
         </section>
 
-        <!-- Section: Whole-trip Map -->
-        <section id="trip-map" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
-            <div class="mb-4">
-                <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full">全程路線地圖</span>
-                <h2 class="text-2xl font-bold text-slate-800 mt-2">四天點到點路線一覽</h2>
-                <p class="text-slate-600 mt-1 text-sm leading-relaxed">
-                    每天一種顏色，數字是當天停靠順序，線上標示該段的交通方式與時間。3 晚都住那霸國際通旁的飯店（🏨）。
-                </p>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-3 text-xs font-semibold" id="map-legend"></div>
-            <div id="overview-map" class="trip-map border border-slate-200"></div>
-            <p class="text-[11px] text-slate-500 mt-2">地圖上的位置與直線路線為示意，實際開車請用每日行程裡的「Google 地圖導航」按鈕。</p>
-        </section>
-
         <!-- Section 2: Interactive Itinerary Explorer -->
         <section id="itinerary" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
             <div class="mb-6">
                 <span class="bg-sky-100 text-sky-800 text-xs font-semibold px-3 py-1 rounded-full">行程細節探索</span>
-                <h2 class="text-2xl font-bold text-slate-800 mt-2">四天三夜動態行程表</h2>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2">四天三夜行程與路線地圖</h2>
                 <p class="text-slate-600 mt-1 text-sm leading-relaxed">
-                    點選下方頁籤切換天數，查看每日精華景點、移動車程與 11 人團體旅行的互動建議。
+                    點選下方的天數，地圖與行程只會顯示那一天：包含機場、租車點、飯店、每個景點與餐廳，以及點到點的交通方式與時間。
                 </p>
             </div>
 
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-4" id="day-filter-buttons">
-                <button onclick="filterDay('all')" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-teal-700 text-white shadow-sm">全部四天</button>
-                <button onclick="filterDay(1)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 1：海景 & 燒肉酒吧夜</button>
-                <button onclick="filterDay(2)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 2：水族館 & 萬座毛 & 拉麵</button>
-                <button onclick="filterDay(3)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 3：卡丁車 & 美式落日</button>
-                <button onclick="filterDay(4)" class="day-btn px-4 py-2 rounded-xl text-sm font-medium transition bg-slate-100 text-slate-600 hover:bg-slate-200">Day 4：最後採買 & 從容返程</button>
+            <!-- Day Tabs (sticky) -->
+            <div class="sticky top-[60px] z-40 -mx-6 px-6 py-3 bg-white/95 backdrop-blur border-b border-slate-200 mb-4">
+                <div class="flex gap-2 overflow-x-auto custom-scrollbar pb-1" id="day-filter-buttons">
+                    <button data-day="1" onclick="filterDay(1)" class="day-btn shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition"><span class="block font-bold">Day 1</span><span class="block text-[11px] opacity-80">機場 ‧ 瀨長島 ‧ 燒肉 ‧ 酒吧</span></button>
+                    <button data-day="2" onclick="filterDay(2)" class="day-btn shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition"><span class="block font-bold">Day 2</span><span class="block text-[11px] opacity-80">水族館 ‧ 萬座毛 ‧ 拉麵</span></button>
+                    <button data-day="3" onclick="filterDay(3)" class="day-btn shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition"><span class="block font-bold">Day 3</span><span class="block text-[11px] opacity-80">卡丁車 ‧ 美國村 ‧ 夕陽</span></button>
+                    <button data-day="4" onclick="filterDay(4)" class="day-btn shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition"><span class="block font-bold">Day 4</span><span class="block text-[11px] opacity-80">Outlet ‧ 還車 ‧ 機場</span></button>
+                    <button data-day="all" onclick="filterDay('all')" class="day-btn shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition"><span class="block font-bold">全程總覽</span><span class="block text-[11px] opacity-80">四天路線一次看</span></button>
+                </div>
+            </div>
+
+            <!-- Route Map (follows selected day) -->
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 mb-6">
+                <div class="flex flex-wrap justify-between items-center gap-2 mb-2">
+                    <h3 class="font-bold text-slate-800 text-base" id="map-title">🗺️ 路線地圖</h3>
+                    <a id="map-gmaps-link" href="#" target="_blank" rel="noopener" class="text-[11px] font-semibold text-white bg-teal-700 px-2 py-1 rounded hover:bg-teal-800">在 Google 地圖開啟全日路線</a>
+                </div>
+                <div class="flex flex-wrap gap-1.5 mb-2 text-[11px] font-semibold" id="map-legend"></div>
+                <div id="route-map" class="trip-map border border-slate-200"></div>
+                <p class="text-[11px] text-slate-500 mt-2" id="map-hint"></p>
             </div>
 
             <!-- Itinerary Timeline Container -->
@@ -386,7 +383,7 @@
                 ],
                 groupTip: "第一天在機場搭 Car Rental Okinawa 接送車到營業所取車，加上排隊與手續約需 1 小時，營業所 18:00 關門，航班太晚抵達要先跟租車公司確認。建議提前把 11 人分成 3 車（4 + 4 + 3），行李也先分配好放在 3 台車後廂。晚上會喝酒，燒肉和酒吧都用走路或計程車移動。若抵達日剛好是週三（ぶち公休），可改到國際通一帶的阿古豬涮涮鍋。",
                 routeTotal: "今日開車合計約 40 分鐘（2 段），晚上全程步行/計程車",
-                route: [{"time": "11:00", "leg": "抵達那霸機場", "dur": "", "mode": "stay", "note": "以 11:00 抵達為例，依實際航班調整"}, {"time": "11:30", "leg": "那霸機場 → Car Rental Okinawa 營業所", "dur": "約 10-15 分", "mode": "shuttle", "note": "租車公司免費接送車；取車手續約 1 小時", "park": "出關後到租車公司接送櫃台/集合點報到，11 人分 3 車取車"}, {"time": "12:45", "leg": "營業所 → 瀨長島 UMIKAJI TERRACE", "dur": "約 15 分", "mode": "drive", "note": "午餐在瀨長島吃，逛到下午", "map": "https://www.google.com/maps/dir/?api=1&origin=那覇空港&destination=瀬長島ウミカジテラス&travelmode=driving", "park": "瀨長島有免費停車場，3 台車盡量停一起"}, {"time": "15:30", "leg": "瀨長島 → Hotel Monterey La Soeur Naha", "dur": "約 20-25 分", "mode": "drive", "note": "check-in、停車，車子今晚不再開", "map": "https://www.google.com/maps/dir/?api=1&origin=瀬長島ウミカジテラス&destination=ホテルモントレ ラ・スール那覇&travelmode=driving", "park": "飯店停車方式與費用請事先向飯店確認"}, {"time": "17:30", "leg": "飯店 → 炭火燒肉 ぶち 久茂地2號店（晚餐）", "dur": "約 5-10 分", "mode": "walk", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=炭火焼肉ぶち 久茂地2号店&travelmode=walking"}, {"time": "19:30", "leg": "ぶち → El Lequio（續攤）", "dur": "約 5-10 分", "mode": "taxi", "note": "3 台計程車，或走 15-20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=炭火焼肉ぶち 久茂地2号店&destination=El Lequio 那覇 安里&travelmode=driving"}, {"time": "22:00", "leg": "El Lequio → 飯店", "dur": "約 5-10 分", "mode": "taxi", "note": "走國際通回去約 20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=El Lequio 那覇 安里&destination=ホテルモントレ ラ・スール那覇&travelmode=driving"}]
+                route: [{"time": "11:00", "leg": "抵達那霸機場", "dur": "", "mode": "stay", "note": "以 11:00 抵達為例，依實際航班調整"}, {"time": "11:30", "leg": "那霸機場 → Car Rental Okinawa 營業所", "dur": "約 10-15 分", "mode": "shuttle", "note": "租車公司免費接送車到豐見城市名嘉地 256-5 營業所；取車手續約 45 分-1 小時", "park": "出關後到租車公司接送櫃台/集合點報到，11 人分 3 車取車"}, {"time": "12:45", "leg": "Car Rental Okinawa 營業所 → 瀨長島 UMIKAJI TERRACE", "dur": "約 15 分", "mode": "drive", "note": "午餐在瀨長島吃，逛到下午", "map": "https://www.google.com/maps/dir/?api=1&origin=カーレンタル沖縄 那覇空港店&destination=瀬長島ウミカジテラス&travelmode=driving", "park": "瀨長島有免費停車場，3 台車盡量停一起"}, {"time": "15:30", "leg": "瀨長島 → Hotel Monterey La Soeur Naha", "dur": "約 20-25 分", "mode": "drive", "note": "check-in、停車，車子今晚不再開", "map": "https://www.google.com/maps/dir/?api=1&origin=瀬長島ウミカジテラス&destination=ホテルモントレ ラ・スール那覇&travelmode=driving", "park": "飯店停車方式與費用請事先向飯店確認"}, {"time": "17:30", "leg": "飯店 → 炭火燒肉 ぶち 久茂地2號店（晚餐）", "dur": "約 5-10 分", "mode": "walk", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=炭火焼肉ぶち 久茂地2号店&travelmode=walking"}, {"time": "19:30", "leg": "ぶち → El Lequio（續攤）", "dur": "約 5-10 分", "mode": "taxi", "note": "3 台計程車，或走 15-20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=炭火焼肉ぶち 久茂地2号店&destination=El Lequio 那覇 安里&travelmode=driving"}, {"time": "22:00", "leg": "El Lequio → 飯店", "dur": "約 5-10 分", "mode": "taxi", "note": "走國際通回去約 20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=El Lequio 那覇 安里&destination=ホテルモントレ ラ・スール那覇&travelmode=driving"}]
             },
             {
                 day: 2,
@@ -464,15 +461,16 @@
                 ],
                 groupTip: "最後一天開車前確認 11 人的戰利品與行李箱是否都能妥善塞入 3 台車後廂。還車後要搭接送車回機場，建議在航班起飛前 3 小時還車（營業所 9:00-18:00），記得先加滿油。",
                 routeTotal: "今日開車合計約 40 分鐘（2 段）",
-                route: [{"time": "10:00", "leg": "飯店退房 → Ashibinaa Outlet", "dur": "約 25 分", "mode": "drive", "note": "午餐在 Outlet 解決", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=沖縄アウトレットモール あしびなー&travelmode=driving", "park": "Outlet 停車場免費"}, {"time": "14:00", "leg": "Outlet → 加油站 → Car Rental Okinawa 營業所", "dur": "約 15 分", "mode": "drive", "note": "加滿油後還車", "park": "還車前在營業所附近加滿油，保留加油收據"}, {"time": "14:30", "leg": "營業所 → 那霸機場", "dur": "約 10-15 分", "mode": "shuttle", "note": "租車公司接送車；以傍晚航班為例，起飛前 2 小時到機場"}]
+                route: [{"time": "10:00", "leg": "飯店退房 → Ashibinaa Outlet", "dur": "約 25 分", "mode": "drive", "note": "午餐在 Outlet 解決", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=沖縄アウトレットモール あしびなー&travelmode=driving", "park": "Outlet 停車場免費"}, {"time": "14:00", "leg": "Outlet → 加油站 → Car Rental Okinawa 營業所", "dur": "約 15 分", "mode": "drive", "note": "加滿油後還車（豐見城市名嘉地 256-5）", "map": "https://www.google.com/maps/dir/?api=1&origin=沖縄アウトレットモール あしびなー&destination=カーレンタル沖縄 那覇空港店&travelmode=driving", "park": "還車前在營業所附近加滿油，保留加油收據"}, {"time": "14:30", "leg": "營業所 → 那霸機場", "dur": "約 10-15 分", "mode": "shuttle", "note": "租車公司接送車；以傍晚航班為例，起飛前 2 小時到機場"}]
             }
         ];
 
         // Map Data: places (approximate coordinates) and daily stop order
         const places = {
-            airport: { name: '那霸機場', q: '那覇空港', lat: 26.2064, lng: 127.6465 },
+            airport: { name: '那霸機場', q: '那覇空港', lat: 26.2064, lng: 127.6465, icon: '✈️', pin: '#1e293b' },
+            rental: { name: 'Car Rental Okinawa 那霸機場店（取/還車）', q: 'カーレンタル沖縄 那覇空港店', lat: 26.1890, lng: 127.6590, icon: '🚙', pin: '#7c3aed', note: '豐見城市名嘉地 256-5 ‧ 營業 9:00-18:00 ‧ ☎ 098-850-8070' },
             senaga: { name: '瀨長島 UMIKAJI TERRACE', q: '瀬長島ウミカジテラス', lat: 26.1755, lng: 127.6414 },
-            hotel: { name: 'Hotel Monterey La Soeur Naha', q: 'ホテルモントレ ラ・スール那覇', lat: 26.2143, lng: 127.6810, hotel: true },
+            hotel: { name: 'Hotel Monterey La Soeur Naha', q: 'ホテルモントレ ラ・スール那覇', lat: 26.2143, lng: 127.6810, icon: '🏨', pin: '#475569', note: '那霸市松尾 1-1-2 ‧ 3 晚都住這裡' },
             buchi: { name: '炭火燒肉 ぶち 久茂地2號店', q: '炭火焼肉ぶち 久茂地2号店', lat: 26.2163, lng: 127.6788 },
             lequio: { name: 'El Lequio', q: 'El Lequio 那覇 安里', lat: 26.2197, lng: 127.6950 },
             churaumi: { name: '美麗海水族館 & 翡翠海灘', q: '沖縄美ら海水族館', lat: 26.6943, lng: 127.8779 },
@@ -486,10 +484,10 @@
         };
         // [place, arrive, leave, how you got there from the previous stop]
         const dayStops = {
-            1: [['airport', '11:00', '11:30', ''], ['senaga', '12:45', '15:30', '🚐 接送車 + 取車後 🚗 約 15 分'], ['hotel', '15:55', '17:30', '🚗 約 20-25 分'], ['buchi', '17:40', '19:30', '🚶 約 5-10 分'], ['lequio', '19:40', '22:00', '🚕 約 5-10 分'], ['hotel', '22:10', '', '🚕 約 5-10 分']],
+            1: [['airport', '11:00', '11:30', ''], ['rental', '11:45', '12:30', '🚐 接送車 約 10-15 分'], ['senaga', '12:45', '15:30', '🚗 約 15 分'], ['hotel', '15:55', '17:30', '🚗 約 20-25 分'], ['buchi', '17:40', '19:30', '🚶 約 5-10 分'], ['lequio', '19:40', '22:00', '🚕 約 5-10 分'], ['hotel', '22:10', '', '🚕 約 5-10 分']],
             2: [['hotel', '', '07:45', ''], ['churaumi', '09:15', '12:30', '🚗 約 1 小時 30 分（高速）'], ['motobu', '12:45', '13:45', '🚗 約 10-15 分'], ['manzamo', '14:35', '15:30', '🚗 約 50 分'], ['hotel', '16:30', '19:00', '🚗 約 1 小時（高速）'], ['chanya', '19:10', '20:30', '🚶 約 10 分'], ['hotel', '20:40', '', '🚶 約 10 分']],
             3: [['hotel', '', '09:00', ''], ['kukuru', '09:50', '11:30', '🚗 約 50 分'], ['av', '12:00', '17:30', '🚗 約 30 分'], ['sunset', '17:35', '20:00', '🚶 約 5 分'], ['hotel', '20:35', '', '🚗 約 30-40 分']],
-            4: [['hotel', '', '10:00', ''], ['ashibinaa', '10:25', '14:00', '🚗 約 25 分'], ['airport', '14:45', '', '🚗 還車約 15 分 + 🚐 約 10-15 分']]
+            4: [['hotel', '', '10:00', ''], ['ashibinaa', '10:25', '14:00', '🚗 約 25 分'], ['rental', '14:15', '14:30', '🚗 約 15 分（先加滿油）'], ['airport', '14:45', '', '🚐 接送車 約 10-15 分']]
         };
         const dayColors = { 1: '#0d9488', 2: '#0284c7', 3: '#f59e0b', 4: '#e11d48' };
 
@@ -505,7 +503,7 @@
         }
 
         // Draw one day's stops + legs onto a map; returns the bounds of the points
-        function drawDay(map, day, showLegLabels) {
+        function drawDay(map, layer, day, showLegLabels) {
             const color = dayColors[day];
             const stops = dayStops[day];
             const numbered = {};
@@ -517,10 +515,10 @@
             Object.keys(numbered).forEach(key => {
                 const pl = places[key];
                 const first = stops.findIndex(st => st[0] === key) + 1;
-                const label = pl.hotel ? '🏨' : first;
-                L.marker([pl.lat, pl.lng], { icon: pinIcon(label, pl.hotel ? '#475569' : color) })
-                    .addTo(map)
-                    .bindPopup(`<strong>Day ${day}｜${pl.name}</strong><br>${numbered[key].join('<br>')}<br><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(pl.q)}" target="_blank" rel="noopener">在 Google 地圖開啟</a>`);
+                const label = pl.icon || first;
+                L.marker([pl.lat, pl.lng], { icon: pinIcon(label, pl.pin || color), zIndexOffset: pl.icon ? 500 : 0 })
+                    .addTo(layer)
+                    .bindPopup(`<strong>Day ${day}｜${pl.name}</strong><br>${pl.note ? pl.note + '<br>' : ''}${numbered[key].join('<br>')}<br><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(pl.q)}" target="_blank" rel="noopener">在 Google 地圖開啟</a>`);
             });
             const pts = stops.map(([key]) => [places[key].lat, places[key].lng]);
             const spanKm = map.distance(L.latLngBounds(pts).getSouthWest(), L.latLngBounds(pts).getNorthEast()) / 1000;
@@ -528,14 +526,14 @@
                 const a = places[stops[i - 1][0]], b = places[stops[i][0]];
                 const how = stops[i][3];
                 const walk = how.startsWith('🚶');
-                const line = L.polyline([[a.lat, a.lng], [b.lat, b.lng]], { color, weight: 4, opacity: 0.8, dashArray: walk ? '4 6' : null }).addTo(map);
+                const line = L.polyline([[a.lat, a.lng], [b.lat, b.lng]], { color, weight: 4, opacity: 0.8, dashArray: walk ? '4 6' : null }).addTo(layer);
                 const text = `${stops[i - 1][2]} → ${stops[i][1]}｜${how}`;
                 // Spread labels along the line so out/back legs don't overlap; skip tiny city legs on wide maps
                 const legKm = map.distance([a.lat, a.lng], [b.lat, b.lng]) / 1000;
                 if (showLegLabels && (legKm >= 3 || spanKm < 15)) {
                     const t = i % 2 ? 0.3 : 0.7;
                     L.marker([a.lat + (b.lat - a.lat) * t, a.lng + (b.lng - a.lng) * t], { opacity: 0, interactive: false })
-                        .addTo(map)
+                        .addTo(layer)
                         .bindTooltip(text, { permanent: true, direction: 'center', className: 'leg-label' });
                     line.bindTooltip(text);
                 } else if (showLegLabels) {
@@ -552,30 +550,36 @@
             return 'https://www.google.com/maps/dir/' + stops.map(encodeURIComponent).join('/');
         }
 
-        function initOverviewMap() {
+        let routeMap = null, routeLayer = null;
+        function updateRouteMap(filter) {
+            const days = filter === 'all' ? [1, 2, 3, 4] : [parseInt(filter)];
+            const link = document.getElementById('map-gmaps-link');
+            document.getElementById('map-title').textContent = filter === 'all' ? '🗺️ 全程路線地圖（四天）' : `🗺️ Day ${filter} 路線地圖`;
+            link.style.display = filter === 'all' ? 'none' : '';
+            if (filter !== 'all') link.href = fullDayMapLink(parseInt(filter));
+            document.getElementById('map-legend').innerHTML =
+                days.map(day => `<span class="px-2 py-0.5 rounded-full text-white" style="background:${dayColors[day]}">Day ${day}</span>`).join('') +
+                '<span class="px-2 py-0.5 rounded-full bg-slate-800 text-white">✈️ 機場</span>' +
+                '<span class="px-2 py-0.5 rounded-full bg-violet-600 text-white">🚙 租車點</span>' +
+                '<span class="px-2 py-0.5 rounded-full bg-slate-500 text-white">🏨 飯店</span>' +
+                '<span class="px-2 py-0.5 rounded-full bg-white border border-slate-200 text-slate-600">實線＝開車/計程車/接送　虛線＝步行</span>';
+            document.getElementById('map-hint').textContent = filter === 'all'
+                ? '每天一種顏色，數字＝當天停靠順序。點上方 Day 1～4 可只看那一天並顯示每段時間。位置為示意，開車請用 Google 地圖導航。'
+                : '數字＝停靠順序，線上標示「出發時間 → 抵達時間｜交通方式與時間」。點圖釘看地址與時間；那霸市區短程步行請放大地圖或看下方交通明細。位置為示意，開車請用 Google 地圖導航。';
             if (!window.L) return;
-            const map = L.map('overview-map', { scrollWheelZoom: false });
-            addTiles(map);
+            if (!routeMap) {
+                routeMap = L.map('route-map', { scrollWheelZoom: false });
+                addTiles(routeMap);
+                routeLayer = L.layerGroup().addTo(routeMap);
+            }
+            routeLayer.clearLayers();
             let bounds = null;
-            [1, 2, 3, 4].forEach(day => {
-                const b = drawDay(map, day, false);
+            days.forEach(day => {
+                const b = drawDay(routeMap, routeLayer, day, filter !== 'all');
                 bounds = bounds ? bounds.extend(b) : b;
             });
-            map.fitBounds(bounds, { padding: [20, 20] });
-            document.getElementById('map-legend').innerHTML = [1, 2, 3, 4].map(day =>
-                `<span class="px-2 py-1 rounded-full text-white" style="background:${dayColors[day]}">Day ${day}</span>`).join('') +
-                '<span class="px-2 py-1 rounded-full bg-slate-100 text-slate-600">實線＝開車／計程車　虛線＝步行</span>';
-        }
-
-        function initDayMaps(days) {
-            if (!window.L) return;
-            days.forEach(day => {
-                const el = document.getElementById(`day-map-${day}`);
-                if (!el) return;
-                const map = L.map(el, { scrollWheelZoom: false });
-                addTiles(map);
-                map.fitBounds(drawDay(map, day, true), { padding: [30, 30] });
-            });
+            routeMap.invalidateSize();
+            routeMap.fitBounds(bounds, { padding: [30, 30] });
         }
 
         // Render Itinerary Function
@@ -650,15 +654,6 @@
                     </div>
 
                     <div class="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm mb-4">
-                        <div class="flex flex-wrap justify-between items-center gap-2 mb-2">
-                            <h4 class="font-bold text-slate-800 text-sm">🗺️ Day ${dayInfo.day} 路線地圖</h4>
-                            <a href="${fullDayMapLink(dayInfo.day)}" target="_blank" rel="noopener" class="text-[11px] font-semibold text-white bg-teal-700 px-2 py-1 rounded hover:bg-teal-800">在 Google 地圖開啟全日路線</a>
-                        </div>
-                        <div id="day-map-${dayInfo.day}" class="day-map border border-slate-200"></div>
-                        <p class="text-[11px] text-slate-500 mt-2">數字＝停靠順序，🏨＝飯店，線上標示「出發時間 → 抵達時間｜交通方式與車程」。點圖釘可看抵達/出發時間；那霸市區內的短程步行請看下方交通明細或放大地圖。</p>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm mb-4">
                         <h4 class="font-bold text-slate-800 text-sm mb-1">🧭 交通明細（點到點）</h4>
                         <p class="text-xs font-semibold text-teal-800 bg-teal-50 border border-teal-200 rounded px-2 py-1 mb-1 w-fit">🚗 ${dayInfo.routeTotal}</p>
                         <p class="text-[11px] text-slate-500 mb-3">時間與車程皆為預估，實際依航班與交通狀況調整。點「Google 地圖導航」可直接開啟路線，3 台車用同一個目的地。</p>
@@ -672,20 +667,20 @@
                 `;
                 container.appendChild(dayCard);
             });
-            initDayMaps(filteredData.map(d => d.day));
         }
 
-        // Filter Button Toggle
+        // Day Tabs: show only the selected day (map + itinerary)
         function filterDay(day) {
             renderItinerary(day);
-            const buttons = document.querySelectorAll('.day-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-teal-700', 'text-white', 'shadow-sm');
-                btn.classList.add('bg-slate-100', 'text-slate-600');
+            updateRouteMap(day);
+            document.querySelectorAll('.day-btn').forEach(btn => {
+                const active = btn.dataset.day === String(day);
+                btn.classList.toggle('bg-teal-700', active);
+                btn.classList.toggle('text-white', active);
+                btn.classList.toggle('shadow-sm', active);
+                btn.classList.toggle('bg-slate-100', !active);
+                btn.classList.toggle('text-slate-600', !active);
             });
-
-            event.currentTarget.classList.remove('bg-slate-100', 'text-slate-600');
-            event.currentTarget.classList.add('bg-teal-700', 'text-white', 'shadow-sm');
         }
 
         // Budget Calculator Function
@@ -709,8 +704,14 @@
 
         // Chart.js Initialization
         window.addEventListener('DOMContentLoaded', () => {
-            initOverviewMap();
-            renderItinerary('all');
+            // Keep the sticky day tabs right under the sticky header
+            const stickTabs = () => {
+                const tabs = document.getElementById('day-filter-buttons').parentElement;
+                tabs.style.top = document.querySelector('header').offsetHeight + 'px';
+            };
+            stickTabs();
+            window.addEventListener('resize', stickTabs);
+            filterDay(1);
 
             // 1. Drive Time Chart
             const driveCtx = document.getElementById('driveTimeChart').getContext('2d');
