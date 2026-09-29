@@ -50,16 +50,14 @@
     <!-- Application Structure Plan:
         Designed an interactive dashboard tailored for 11-person company trip planning:
         1. Sticky Header & Hero: Key trip constraints (11 colleagues, <=3 spots/day, drive time <1 hr).
-        2. Visual Metrics & Dashboard: Chart.js bar chart for driving duration, doughnut chart for estimated budget share.
+        2. Visual Metrics & Dashboard: Chart.js bar chart for driving duration.
         3. Dynamic Itinerary Explorer: Interactive day filtering (Day 1 to 4) displaying concise spots, driving times, highlights, and group travel tips.
-        4. Logistics & Budget Calculator: Comparison between 2-car rental vs 14-seater private bus, plus an interactive budget slider tool for 11 people.
+        4. Logistics: 3 rented sedans (decided) vs 14-seater private bus.
         5. Group Travel Survival Tips: Practical advice for large groups on reservations, car navigation, parking, and flexible grouping.
     -->
     <!-- Visualization & Content Choices:
         - Drive Time Chart: Bar chart highlighting max drive times per day (all safely under 50 mins).
-        - Budget Breakdown Chart: Doughnut chart showing expected expense breakdown per person.
         - Interactive Day Filter: Dynamic DOM manipulation for effortless exploration on mobile devices.
-        - Dynamic Budget Slider: Range inputs updating single & group (x11) total cost in real time.
         - NO SVG or Mermaid JS used. Clean styling using standard Unicode icons and CSS components.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
@@ -78,7 +76,7 @@
                 <a href="#overview" class="hover:text-teal-200 transition">行程總覽</a>
                 <a href="#itinerary" class="hover:text-teal-200 transition">路線地圖</a>
                 <a href="#itinerary" class="hover:text-teal-200 transition">每日景點</a>
-                <a href="#logistics" class="hover:text-teal-200 transition">交通與預算</a>
+                <a href="#logistics" class="hover:text-teal-200 transition">交通方式</a>
                 <a href="#group-tips" class="hover:text-teal-200 transition">避坑指南</a>
             </nav>
         </div>
@@ -126,7 +124,7 @@
             </div>
 
             <!-- Charts Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-t border-slate-100 pt-6">
+            <div class="border-t border-slate-100 pt-6">
                 <div>
                     <h3 class="text-base font-semibold text-slate-800 mb-1 flex items-center gap-2">
                         <span>🚗</span> 每日行車時間估算 (分鐘)
@@ -134,15 +132,6 @@
                     <p class="text-xs text-slate-500 mb-4">精確掌握每日拉車時長，不把時間浪費在車程上。</p>
                     <div class="chart-container">
                         <canvas id="driveTimeChart"></canvas>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-base font-semibold text-slate-800 mb-1 flex items-center gap-2">
-                        <span>💰</span> 預估每人費用結構占比
-                    </h3>
-                    <p class="text-xs text-slate-500 mb-4">不含個人購物，均勻分配機票、住宿與餐飲預算。</p>
-                    <div class="chart-container">
-                        <canvas id="budgetChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -189,14 +178,14 @@
         <!-- Section 3: Group Logistics & Calculator -->
         <section id="logistics" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
             <div class="mb-6">
-                <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-3 py-1 rounded-full">團體交通與預算</span>
-                <h2 class="text-2xl font-bold text-slate-800 mt-2">11 人交通方案比較與動態預算試算</h2>
+                <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-3 py-1 rounded-full">團體交通</span>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2">11 人交通方案</h2>
                 <p class="text-slate-600 mt-1 text-sm leading-relaxed">
-                    11 人屬於中大型團體，交通是舒適度的關鍵。本次已決定<strong>自駕租 3 台一般轎車</strong>（4 + 4 + 3 人），下方也保留「包車（14 人座小巴）」作為參考，並提供即時預算試算。
+                    11 人屬於中大型團體，交通是舒適度的關鍵。本次已決定<strong>自駕租 3 台一般轎車</strong>（4 + 4 + 3 人），下方也保留「包車（14 人座小巴）」作為參考。
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
                 <!-- Transport Comparison Options -->
                 <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
                     <h3 class="font-bold text-slate-800 mb-3 text-lg flex items-center gap-2">
@@ -244,60 +233,6 @@
                     </div>
                 </div>
 
-                <!-- Interactive Budget Calculator -->
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-bold text-slate-800 mb-3 text-lg flex items-center gap-2">
-                            <span>🧮</span> 11人團體預估費用計算器
-                        </h3>
-                        <p class="text-xs text-slate-500 mb-4">拖動下方滑桿調整人均預估花費，實時計算全團總預算：</p>
-
-                        <div class="space-y-4 text-xs">
-                            <div>
-                                <div class="flex justify-between font-medium mb-1">
-                                    <span>機票 (每人預估):</span>
-                                    <span id="flight-val" class="font-bold text-teal-700">NT$ 12,000</span>
-                                </div>
-                                <input type="range" id="flight-range" min="8000" max="20000" step="500" value="12000" oninput="updateBudgetCalc()" class="w-full accent-teal-600">
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between font-medium mb-1">
-                                    <span>3晚住宿 (每人預估):</span>
-                                    <span id="hotel-val" class="font-bold text-teal-700">NT$ 9,000</span>
-                                </div>
-                                <input type="range" id="hotel-range" min="5000" max="18000" step="500" value="9000" oninput="updateBudgetCalc()" class="w-full accent-teal-600">
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between font-medium mb-1">
-                                    <span>餐飲美食 (每人預估):</span>
-                                    <span id="food-val" class="font-bold text-teal-700">NT$ 6,000</span>
-                                </div>
-                                <input type="range" id="food-range" min="3000" max="12000" step="500" value="6000" oninput="updateBudgetCalc()" class="w-full accent-teal-600">
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between font-medium mb-1">
-                                    <span>交通與門票 (每人預估):</span>
-                                    <span id="transport-val" class="font-bold text-teal-700">NT$ 2,500</span>
-                                </div>
-                                <input type="range" id="transport-range" min="1500" max="6000" step="500" value="2500" oninput="updateBudgetCalc()" class="w-full accent-teal-600">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 pt-4 border-t border-slate-200 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="text-xs text-slate-500">預估個人花費總額：</span>
-                            <span id="per-person-total" class="text-lg font-extrabold text-teal-800">NT$ 29,500</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-slate-500">11位同事全團總預算：</span>
-                            <span id="group-total" class="text-xl font-black text-orange-600">NT$ 324,500</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -684,25 +619,6 @@
             });
         }
 
-        // Budget Calculator Function
-        function updateBudgetCalc() {
-            const flight = parseInt(document.getElementById('flight-range').value);
-            const hotel = parseInt(document.getElementById('hotel-range').value);
-            const food = parseInt(document.getElementById('food-range').value);
-            const transport = parseInt(document.getElementById('transport-range').value);
-
-            document.getElementById('flight-val').innerText = `NT$ ${flight.toLocaleString()}`;
-            document.getElementById('hotel-val').innerText = `NT$ ${hotel.toLocaleString()}`;
-            document.getElementById('food-val').innerText = `NT$ ${food.toLocaleString()}`;
-            document.getElementById('transport-val').innerText = `NT$ ${transport.toLocaleString()}`;
-
-            const perPerson = flight + hotel + food + transport;
-            const groupTotal = perPerson * 11;
-
-            document.getElementById('per-person-total').innerText = `NT$ ${perPerson.toLocaleString()}`;
-            document.getElementById('group-total').innerText = `NT$ ${groupTotal.toLocaleString()}`;
-        }
-
         // Chart.js Initialization
         window.addEventListener('DOMContentLoaded', () => {
             // Keep the sticky day tabs right under the sticky header
@@ -750,34 +666,6 @@
                 }
             });
 
-            // 2. Budget Breakdown Chart
-            const budgetCtx = document.getElementById('budgetChart').getContext('2d');
-            new Chart(budgetCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['來回機票', '3晚住宿', '餐飲美食', '交通與門票'],
-                    datasets: [{
-                        data: [12000, 9000, 6000, 2500],
-                        backgroundColor: ['#0d9488', '#38bdf8', '#fbbf24', '#f97316'],
-                        borderWidth: 2,
-                        borderColor: '#ffffff'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.label}: NT$ ${context.raw.toLocaleString()}`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
         });
     </script>
 </body>
