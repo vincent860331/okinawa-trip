@@ -80,6 +80,7 @@
                 <a href="#food" class="hover:text-teal-200 transition">燒肉海鮮</a>
                 <a href="#logistics" class="hover:text-teal-200 transition">交通方式</a>
                 <a href="#group-tips" class="hover:text-teal-200 transition">避坑指南</a>
+                <a href="#nightlife" class="text-amber-300 hover:text-amber-200 transition">🌙 夜生活</a>
             </nav>
         </div>
     </header>
@@ -87,8 +88,14 @@
     <!-- Main Content Container -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-10">
 
+        <!-- Page switcher -->
+        <div class="flex gap-2" id="page-switcher">
+            <a href="#overview" data-target="main" class="page-btn flex-1 sm:flex-none text-center px-5 py-2.5 rounded-xl text-sm font-bold transition">📋 主要行程</a>
+            <a href="#nightlife" data-target="night" class="page-btn flex-1 sm:flex-none text-center px-5 py-2.5 rounded-xl text-sm font-bold transition">🌙 夜生活</a>
+        </div>
+
         <!-- Section 1: Overview & Highlights -->
-        <section id="overview" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
+        <section id="overview" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
             <div class="mb-6">
                 <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full">企劃核心原則</span>
                 <h2 class="text-2xl font-bold text-slate-800 mt-2">11 人專屬「零壓力放空」行程規劃</h2>
@@ -140,7 +147,7 @@
         </section>
 
         <!-- Section: Booking Checklist -->
-        <section id="booking" class="bg-white rounded-2xl p-6 shadow-sm border border-rose-200">
+        <section id="booking" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-rose-200">
             <div class="mb-4">
                 <span class="bg-rose-100 text-rose-800 text-xs font-semibold px-3 py-1 rounded-full">📞 出發前一定要處理</span>
                 <h2 class="text-2xl font-bold text-slate-800 mt-2">事先預約清單</h2>
@@ -169,7 +176,7 @@
         </section>
 
         <!-- Section 2: Interactive Itinerary Explorer -->
-        <section id="itinerary" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
+        <section id="itinerary" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
             <div class="mb-6">
                 <span class="bg-sky-100 text-sky-800 text-xs font-semibold px-3 py-1 rounded-full">行程細節探索</span>
                 <h2 class="text-2xl font-bold text-slate-800 mt-2">四天三夜行程與路線地圖</h2>
@@ -207,7 +214,7 @@
         </section>
 
         <!-- Section: Optional stops near the route -->
-        <section id="spare" class="bg-white rounded-2xl p-6 shadow-sm border border-violet-200">
+        <section id="spare" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-violet-200">
             <div class="mb-4">
                 <span class="bg-violet-100 text-violet-800 text-xs font-semibold px-3 py-1 rounded-full">⭐ 隨機想去</span>
                 <h2 class="text-2xl font-bold text-slate-800 mt-2">順路 10 分鐘內的 10 個點</h2>
@@ -360,7 +367,7 @@
         </section>
 
         <!-- Section: Yakiniku & seafood list -->
-        <section id="food" class="bg-white rounded-2xl p-6 shadow-sm border border-orange-200">
+        <section id="food" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-orange-200">
             <div class="mb-2">
                 <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-3 py-1 rounded-full">🍖🐟 燒肉 & 海鮮</span>
                 <h2 class="text-2xl font-bold text-slate-800 mt-2">行程沿路燒肉、生魚片、海鮮 20 家</h2>
@@ -681,7 +688,7 @@
         </section>
 
         <!-- Section 3: Group Logistics & Calculator -->
-        <section id="logistics" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
+        <section id="logistics" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
             <div class="mb-6">
                 <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-3 py-1 rounded-full">團體交通</span>
                 <h2 class="text-2xl font-bold text-slate-800 mt-2">11 人交通方案</h2>
@@ -743,7 +750,7 @@
         </section>
 
         <!-- Section 4: Group Travel Survival Tips -->
-        <section id="group-tips" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
+        <section id="group-tips" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
             <div class="mb-6">
                 <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full">11人團體實用經驗</span>
                 <h2 class="text-2xl font-bold text-slate-800 mt-2">同事出遊順暢避坑指南</h2>
@@ -787,6 +794,150 @@
             </div>
         </section>
 
+
+        <!-- Sub-page: Nightlife -->
+        <section id="nightlife" data-page="night" class="hidden bg-slate-900 text-slate-100 rounded-2xl p-6 shadow-sm border border-slate-800">
+            <div class="mb-2">
+                <span class="bg-amber-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">🌙 夜生活</span>
+                <h2 class="text-2xl font-bold text-white mt-2">那霸夜生活：民謠居酒屋、舟盛り、酒吧、卡拉 OK</h2>
+                <p class="text-slate-300 mt-1 text-sm leading-relaxed">
+                    都在飯店走路或短程計程車範圍，晚上車子停飯店不開。三晚的建議：
+                    <strong class="text-amber-300">Day 1</strong> ぶち燒肉 → El Lequio（已排）、
+                    <strong class="text-amber-300">Day 2</strong> 民謠居酒屋 + 卡拉 OK、
+                    <strong class="text-amber-300">Day 3</strong> 水族館回來吃拉麵 → 酒吧續攤。
+                    營業時間與價格會變動，出發前用 Google 地圖確認。
+                </p>
+                <div class="mt-3 p-3 rounded-xl bg-slate-800 border border-amber-400/40 text-xs text-amber-100">
+                    ⚠️ Day 2 早上要開卡丁車上路：Day 1 晚上請節制。Day 4 要早起還車搭機：Day 3 晚上別續到太晚。
+                </div>
+            </div>
+            <h3 class="font-bold text-white mt-6">🎶 民謠居酒屋（三線現場演唱，最後全場一起跳カチャーシー）</h3>
+            <p class="text-xs text-slate-400 mb-2">最推薦 Day 2 晚上（卡丁車那天晚上沒排晚餐）。演出時段開始前店裡最擠，提早 30 分入座。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col">
+                        <h4 class="font-bold text-white text-sm">島唄ライブ & 沖縄料理 かなぐすく</h4>
+                        <p class="text-xs text-amber-300 font-semibold mt-1">📍 國際通 ‧ 飯店步行約 10 分</p>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1 flex-grow">每晚 3 場島唄演出，最多可坐 60 人，有含演出費的團體套餐，公司旅遊和接待很常用。</p>
+                        <p class="text-[11px] text-slate-400 mt-2">🕒 可網路預約 ‧ 11 人建議先訂套餐</p>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=%E5%B3%B6%E5%94%84%E3%83%A9%E3%82%A4%E3%83%96%20%E3%81%8B%E3%81%AA%E3%81%90%E3%81%99%E3%81%8F%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A" target="_blank" rel="noopener" class="text-[11px] font-semibold text-amber-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">⭐ 看 Google 評分</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%A2%E3%83%B3%E3%83%88%E3%83%AC%20%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%BC%E3%83%AB%E9%82%A3%E8%A6%87&destination=%E5%B3%B6%E5%94%84%E3%83%A9%E3%82%A4%E3%83%96%20%E3%81%8B%E3%81%AA%E3%81%90%E3%81%99%E3%81%8F%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A&travelmode=walking" target="_blank" rel="noopener" class="text-[11px] font-semibold text-teal-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">🗺️ 從飯店導航</a>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col">
+                        <h4 class="font-bold text-white text-sm">島唄ライブ 沖縄民謡居酒屋 ORION</h4>
+                        <p class="text-xs text-amber-300 font-semibold mt-1">📍 國際通中段 ‧ 飯店步行約 10 分</p>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1 flex-grow">國際通正中間，常接家庭和員工旅遊團體；最後的カチャーシー是招牌。</p>
+                        <p class="text-[11px] text-slate-400 mt-2">🕒 90 分鐘喝到飽套餐約 ¥4,378 起 ‧ 可網路預約</p>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=%E5%B3%B6%E5%94%84%E3%83%A9%E3%82%A4%E3%83%96%20%E6%B2%96%E7%B8%84%E6%B0%91%E8%AC%A1%E5%B1%85%E9%85%92%E5%B1%8B%20ORION%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A" target="_blank" rel="noopener" class="text-[11px] font-semibold text-amber-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">⭐ 看 Google 評分</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%A2%E3%83%B3%E3%83%88%E3%83%AC%20%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%BC%E3%83%AB%E9%82%A3%E8%A6%87&destination=%E5%B3%B6%E5%94%84%E3%83%A9%E3%82%A4%E3%83%96%20%E6%B2%96%E7%B8%84%E6%B0%91%E8%AC%A1%E5%B1%85%E9%85%92%E5%B1%8B%20ORION%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A&travelmode=walking" target="_blank" rel="noopener" class="text-[11px] font-semibold text-teal-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">🗺️ 從飯店導航</a>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col">
+                        <h4 class="font-bold text-white text-sm">民謡島唄と沖縄料理 ちぬまん 國際通久茂地店</h4>
+                        <p class="text-xs text-amber-300 font-semibold mt-1">📍 久茂地 ‧ 飯店步行約 5-10 分</p>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1 flex-grow">民謠現場 + 沖繩料理和海鮮，有 6-20 人包廂，11 人可以坐在一起不用分桌。</p>
+                        <p class="text-[11px] text-slate-400 mt-2">🕒 包廂只接受電話預約</p>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=%E3%81%A1%E3%81%AC%E3%81%BE%E3%82%93%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E4%B9%85%E8%8C%82%E5%9C%B0%E5%BA%97" target="_blank" rel="noopener" class="text-[11px] font-semibold text-amber-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">⭐ 看 Google 評分</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%A2%E3%83%B3%E3%83%88%E3%83%AC%20%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%BC%E3%83%AB%E9%82%A3%E8%A6%87&destination=%E3%81%A1%E3%81%AC%E3%81%BE%E3%82%93%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E4%B9%85%E8%8C%82%E5%9C%B0%E5%BA%97&travelmode=walking" target="_blank" rel="noopener" class="text-[11px] font-semibold text-teal-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">🗺️ 從飯店導航</a>
+                        </div>
+                    </div>
+            </div>
+            <h3 class="font-bold text-white mt-6">🐟 舟盛り（大船生魚片拼盤）& 海鮮包廂</h3>
+            <p class="text-xs text-slate-400 mb-2">訂位時直接問「11 人份的舟盛り（刺身盛り合わせ）」能不能做、價格多少。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col">
+                        <h4 class="font-bold text-white text-sm">海鮮居酒屋 鰓呼吸 那覇久茂地店</h4>
+                        <p class="text-xs text-amber-300 font-semibold mt-1">📍 久茂地 ‧ 飯店步行約 5-10 分</p>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1 flex-grow">漁港直送生魚片，有喝到飽套餐（約 ¥4,500/人 起）。</p>
+                        <p class="text-[11px] text-slate-400 mt-2">🕒 完全包廂最多 10 人，11 人要先問能不能加位 ‧ 可網路預約</p>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=%E9%B0%93%E5%91%BC%E5%90%B8%20%E9%82%A3%E8%A6%87%E4%B9%85%E8%8C%82%E5%9C%B0%E5%BA%97" target="_blank" rel="noopener" class="text-[11px] font-semibold text-amber-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">⭐ 看 Google 評分</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%A2%E3%83%B3%E3%83%88%E3%83%AC%20%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%BC%E3%83%AB%E9%82%A3%E8%A6%87&destination=%E9%B0%93%E5%91%BC%E5%90%B8%20%E9%82%A3%E8%A6%87%E4%B9%85%E8%8C%82%E5%9C%B0%E5%BA%97&travelmode=walking" target="_blank" rel="noopener" class="text-[11px] font-semibold text-teal-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">🗺️ 從飯店導航</a>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col">
+                        <h4 class="font-bold text-white text-sm">琉炭（個室居酒屋）</h4>
+                        <p class="text-xs text-amber-300 font-semibold mt-1">📍 縣廳前站旁 ‧ 飯店步行約 2-5 分</p>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1 flex-grow">離飯店最近的包廂居酒屋，最大可坐 25 人的包廂，11 人一間剛好。</p>
+                        <p class="text-[11px] text-slate-400 mt-2">🕒 可網路預約、查空位</p>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=%E7%90%89%E7%82%AD%20%E9%82%A3%E8%A6%87%20%E4%B9%85%E8%8C%82%E5%9C%B0" target="_blank" rel="noopener" class="text-[11px] font-semibold text-amber-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">⭐ 看 Google 評分</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%A2%E3%83%B3%E3%83%88%E3%83%AC%20%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%BC%E3%83%AB%E9%82%A3%E8%A6%87&destination=%E7%90%89%E7%82%AD%20%E9%82%A3%E8%A6%87%20%E4%B9%85%E8%8C%82%E5%9C%B0&travelmode=walking" target="_blank" rel="noopener" class="text-[11px] font-semibold text-teal-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">🗺️ 從飯店導航</a>
+                        </div>
+                    </div>
+            </div>
+            <h3 class="font-bold text-white mt-6">🍸 續攤酒吧（都在飯店走路範圍）</h3>
+            <p class="text-xs text-slate-400 mb-2">小酒吧座位少，11 人建議分 2-3 批去不同間，最後再約回來。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col">
+                        <h4 class="font-bold text-white text-sm">El Lequio</h4>
+                        <p class="text-xs text-amber-300 font-semibold mt-1">📍 安里 ‧ 計程車約 5-10 分</p>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1 flex-grow">亞洲百大酒吧，琉球 × 拉丁創意調酒（已排 Day 1）。</p>
+                        <p class="text-[11px] text-slate-400 mt-2">🕒 19:00-02:00</p>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=El%20Lequio%20%E9%82%A3%E8%A6%87%20%E5%AE%89%E9%87%8C" target="_blank" rel="noopener" class="text-[11px] font-semibold text-amber-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">⭐ 看 Google 評分</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%A2%E3%83%B3%E3%83%88%E3%83%AC%20%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%BC%E3%83%AB%E9%82%A3%E8%A6%87&destination=El%20Lequio%20%E9%82%A3%E8%A6%87%20%E5%AE%89%E9%87%8C&travelmode=walking" target="_blank" rel="noopener" class="text-[11px] font-semibold text-teal-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">🗺️ 從飯店導航</a>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col">
+                        <h4 class="font-bold text-white text-sm">Ryukyu Mixology Style Bar Alchemist</h4>
+                        <p class="text-xs text-amber-300 font-semibold mt-1">📍 久茂地 ‧ 步行約 5-10 分</p>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1 flex-grow">沖繩在地食材做的原創調酒。</p>
+                        <p class="text-[11px] text-slate-400 mt-2">🕒 19:00-03:00 ‧ 週日不定休</p>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Bar%20Alchemist%20%E9%82%A3%E8%A6%87%20%E4%B9%85%E8%8C%82%E5%9C%B0" target="_blank" rel="noopener" class="text-[11px] font-semibold text-amber-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">⭐ 看 Google 評分</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%A2%E3%83%B3%E3%83%88%E3%83%AC%20%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%BC%E3%83%AB%E9%82%A3%E8%A6%87&destination=Bar%20Alchemist%20%E9%82%A3%E8%A6%87%20%E4%B9%85%E8%8C%82%E5%9C%B0&travelmode=walking" target="_blank" rel="noopener" class="text-[11px] font-semibold text-teal-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">🗺️ 從飯店導航</a>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col">
+                        <h4 class="font-bold text-white text-sm">泡盛倉庫</h4>
+                        <p class="text-xs text-amber-300 font-semibold mt-1">📍 久米 ‧ 步行約 10-15 分</p>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1 flex-grow">約 800 種泡盛的專門酒吧。</p>
+                        <p class="text-[11px] text-slate-400 mt-2">🕒 18:00-24:00 ‧ 週日公休 ‧ 會員制，先電話確認 ☎ 098-869-0808</p>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=%E6%B3%A1%E7%9B%9B%E5%80%89%E5%BA%AB%20%E9%82%A3%E8%A6%87%20%E4%B9%85%E7%B1%B3" target="_blank" rel="noopener" class="text-[11px] font-semibold text-amber-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">⭐ 看 Google 評分</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%A2%E3%83%B3%E3%83%88%E3%83%AC%20%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%BC%E3%83%AB%E9%82%A3%E8%A6%87&destination=%E6%B3%A1%E7%9B%9B%E5%80%89%E5%BA%AB%20%E9%82%A3%E8%A6%87%20%E4%B9%85%E7%B1%B3&travelmode=walking" target="_blank" rel="noopener" class="text-[11px] font-semibold text-teal-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">🗺️ 從飯店導航</a>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col">
+                        <h4 class="font-bold text-white text-sm">Bar Tasting Club</h4>
+                        <p class="text-xs text-amber-300 font-semibold mt-1">📍 泉崎 ‧ 步行約 5-10 分</p>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1 flex-grow">數百支泡盛、威士忌等蒸餾酒可以比較試飲。</p>
+                        <p class="text-[11px] text-slate-400 mt-2">🕒 20:00-01:00 ‧ 週二公休</p>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Bar%20Tasting%20Club%20%E9%82%A3%E8%A6%87%20%E6%B3%89%E5%B4%8E" target="_blank" rel="noopener" class="text-[11px] font-semibold text-amber-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">⭐ 看 Google 評分</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%A2%E3%83%B3%E3%83%88%E3%83%AC%20%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%BC%E3%83%AB%E9%82%A3%E8%A6%87&destination=Bar%20Tasting%20Club%20%E9%82%A3%E8%A6%87%20%E6%B3%89%E5%B4%8E&travelmode=walking" target="_blank" rel="noopener" class="text-[11px] font-semibold text-teal-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">🗺️ 從飯店導航</a>
+                        </div>
+                    </div>
+            </div>
+            <h3 class="font-bold text-white mt-6">🎤 卡拉 OK 大包廂（最後一攤）</h3>
+            <p class="text-xs text-slate-400 mb-2">大包廂週末很搶，確定哪晚要去就先打電話訂。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col">
+                        <h4 class="font-bold text-white text-sm">カラオケまねきねこ 那覇國際通店</h4>
+                        <p class="text-xs text-amber-300 font-semibold mt-1">📍 牧志站附近 ‧ 飯店步行約 15 分</p>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1 flex-grow">有 20 人以上的大包廂 / 派對包廂，可以自己帶食物飲料進去。</p>
+                        <p class="text-[11px] text-slate-400 mt-2">🕒 24 小時營業</p>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=%E3%82%AB%E3%83%A9%E3%82%AA%E3%82%B1%E3%81%BE%E3%81%AD%E3%81%8D%E3%81%AD%E3%81%93%20%E9%82%A3%E8%A6%87%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E5%BA%97" target="_blank" rel="noopener" class="text-[11px] font-semibold text-amber-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">⭐ 看 Google 評分</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%A2%E3%83%B3%E3%83%88%E3%83%AC%20%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%BC%E3%83%AB%E9%82%A3%E8%A6%87&destination=%E3%82%AB%E3%83%A9%E3%82%AA%E3%82%B1%E3%81%BE%E3%81%AD%E3%81%8D%E3%81%AD%E3%81%93%20%E9%82%A3%E8%A6%87%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E5%BA%97&travelmode=walking" target="_blank" rel="noopener" class="text-[11px] font-semibold text-teal-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">🗺️ 從飯店導航</a>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-slate-800 rounded-xl border border-slate-700 flex flex-col">
+                        <h4 class="font-bold text-white text-sm">カラオケ ビッグエコー 國際通店</h4>
+                        <p class="text-xs text-amber-300 font-semibold mt-1">📍 唐吉訶德斜對面 ‧ 飯店步行約 10-15 分</p>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1 flex-grow">有派對包廂，常用來辦聚會續攤。</p>
+                        <p class="text-[11px] text-slate-400 mt-2">🕒 全年無休（營業時間依星期不同）</p>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%83%83%E3%82%B0%E3%82%A8%E3%82%B3%E3%83%BC%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E5%BA%97" target="_blank" rel="noopener" class="text-[11px] font-semibold text-amber-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">⭐ 看 Google 評分</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&origin=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%A2%E3%83%B3%E3%83%88%E3%83%AC%20%E3%83%A9%E3%83%BB%E3%82%B9%E3%83%BC%E3%83%AB%E9%82%A3%E8%A6%87&destination=%E3%83%93%E3%83%83%E3%82%B0%E3%82%A8%E3%82%B3%E3%83%BC%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E5%BA%97&travelmode=walking" target="_blank" rel="noopener" class="text-[11px] font-semibold text-teal-200 bg-slate-700 border border-slate-600 px-2 py-0.5 rounded hover:bg-slate-600">🗺️ 從飯店導航</a>
+                        </div>
+                    </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -984,7 +1135,7 @@
             return 'https://www.google.com/maps/dir/' + stops.map(encodeURIComponent).join('/');
         }
 
-        let routeMap = null, routeLayer = null;
+        let routeMap = null, routeLayer = null, lastBounds = null;
         function updateRouteMap(filter) {
             const days = filter === 'all' ? [1, 2, 3, 4] : [parseInt(filter)];
             const link = document.getElementById('map-gmaps-link');
@@ -1019,6 +1170,7 @@
                     .bindPopup(`<strong>⭐ 隨機想去｜${x.icon} ${x.name}</strong><br>${x.dist}<br><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.q)}" target="_blank" rel="noopener">在 Google 地圖開啟</a>`);
             });
             routeMap.invalidateSize();
+            lastBounds = bounds;
             routeMap.fitBounds(bounds, { padding: [30, 30] });
         }
 
@@ -1054,6 +1206,30 @@
                     </div>
                 </label>`).join('');
         }
+
+
+        // Sub-page switching: main itinerary vs nightlife
+        function showPage(page) {
+            document.querySelectorAll('[data-page]').forEach(el => el.classList.toggle('hidden', el.dataset.page !== page));
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                const active = btn.dataset.target === page;
+                btn.classList.toggle('bg-slate-900', active && page === 'night');
+                btn.classList.toggle('bg-teal-700', active && page === 'main');
+                btn.classList.toggle('text-white', active);
+                btn.classList.toggle('bg-white', !active);
+                btn.classList.toggle('text-slate-600', !active);
+                btn.classList.toggle('border', !active);
+                btn.classList.toggle('border-slate-200', !active);
+            });
+            if (page === 'main' && routeMap) setTimeout(() => { routeMap.invalidateSize(); if (lastBounds) routeMap.fitBounds(lastBounds, { padding: [30, 30] }); }, 0);
+        }
+        function syncPageWithHash() {
+            const id = location.hash.slice(1);
+            const el = id && document.getElementById(id);
+            showPage(el && el.closest('[data-page="night"]') ? 'night' : 'main');
+            if (el) el.scrollIntoView();
+        }
+        window.addEventListener('hashchange', syncPageWithHash);
 
         // Render Itinerary Function
         function renderItinerary(filter) {
@@ -1169,6 +1345,7 @@
             window.addEventListener('resize', stickTabs);
             renderBookings();
             filterDay(1);
+            syncPageWithHash();
 
             // 1. Drive Time Chart
             const driveCtx = document.getElementById('driveTimeChart').getContext('2d');
