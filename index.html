@@ -156,6 +156,67 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="booking-list"></div>
+            <details class="mt-4 rounded-xl border border-rose-200 bg-rose-50/40 open:bg-white" id="booking-script">
+                <summary class="cursor-pointer select-none px-4 py-3 font-bold text-slate-800 text-sm">📞 打電話訂位用的日文稿（附中文翻譯）— 點開來看</summary>
+                <div class="px-4 pb-4 text-xs text-slate-600">
+                    <p class="mb-2">照著唸就好，<b>〇〇</b> 的地方換成自己的日期、時間、名字和電話。從台灣打日本：撥 <b>+81</b>，再撥電話號碼去掉開頭的 0（例如 佳風 098-917-2388 → <b>+81-98-917-2388</b>）。也可以請 Day 1 飯店櫃台幫忙打。</p>
+                    <h4 class="font-bold text-slate-700 mt-3">基本訂位</h4>
+                    <ul>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">もしもし、予約をお願いしたいのですが。</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 喂，你好，我想訂位。</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><b>〇月〇日（〇曜日）</b>の<b>〇時〇分</b>から、<b>11名</b>でお願いできますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 〇月〇日（星期〇）〇點〇分，11 位，可以嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">台湾からの社員旅行です。<b>11名一緒に座れる席</b>はありますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 我們是台灣來的員工旅遊，有 11 人可以坐在一起的位子嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><b>食べ放題</b>や<b>飲み放題</b>のコースはありますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 有吃到飽或喝到飽的套餐嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">なければ、<b>11名分の盛り合わせのコース</b>はできますか？おいくらですか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 沒有的話，可以做 11 人份的拼盤套餐嗎？多少錢？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">その日は<b>営業していますか</b>？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 那天有營業嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">名前は<b>〇〇（ローマ字）</b>、電話番号は<b>+886-〇〇〇〇</b>です。</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 名字是〇〇（英文拼音），電話是 +886-〇〇〇〇。</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">よろしくお願いします。ありがとうございます。</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 麻煩您了，謝謝。</div>
+                        </li>
+                    </ul>
+                    <h4 class="font-bold text-slate-700 mt-3">依店家加問</h4>
+                    <ul>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">海鮮居酒屋</span><b>舟盛り</b>（刺身の盛り合わせ）を11名分お願いできますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 可以做 11 人份的舟盛り（生魚片拼盤）嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">需要包廂時</span><b>個室</b>はありますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 有包廂嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">租車／卡丁車</span><b>運転免許証の日本語翻訳文</b>で大丈夫ですか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 台灣駕照日文譯本可以嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">卡丁車</span><b>11台</b>一緒に走れますか？二つのグループに分けますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 11 台可以一起跑嗎？還是要分兩梯？</div>
+                        </li>
+                    </ul>
+                    <p class="mt-3 p-2 rounded bg-amber-50 border border-amber-200 text-amber-900">💡 佳風（Day 2 午餐）：日期填 Day 2、時間 <b>12時20分</b>，一定要問「その日のランチは営業していますか？（那天中午有營業嗎？）」以及有沒有海鮮吃到飽或拼盤套餐。也可以試試 <a href="https://autoreserve.com/ja/restaurants/P1BVj27na3X1z1CK3wE4" target="_blank" rel="noopener" class="underline text-teal-700">AUTORESERVE 線上訂位</a>。</p>
+                </div>
+            </details>
             <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                     <strong class="text-slate-800">🙆 不用預約（現場排隊）</strong>
