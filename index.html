@@ -6,9 +6,7 @@
     <title>沖繩 4 天 3 夜 11 人同事慢活放空之旅</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Leaflet (maps) -->
+        <!-- Leaflet (maps) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
@@ -68,19 +66,18 @@
             <div class="flex items-center space-x-3">
                 <span class="text-2xl">🌺</span>
                 <div>
-                    <h1 class="font-bold text-lg sm:text-xl leading-tight">沖繩慢活放空之旅</h1>
-                    <p class="text-xs text-teal-100">11位同事 ‧ 4天3夜 ‧ 住那霸 3 晚 ‧ 景點≤3個/天 ‧ 車程多在 1 小時內</p>
+                    <h1 class="font-bold text-lg sm:text-xl leading-tight">沖繩同事旅遊 11/4–11/7</h1>
+                    <p class="text-xs text-teal-100">11 人 ‧ 自駕 5 台車 ‧ 3 晚都住那霸國際通旁</p>
                 </div>
             </div>
-            <nav class="hidden md:flex space-x-6 text-sm font-medium">
-                <a href="#overview" class="hover:text-teal-200 transition">行程總覽</a>
+            <nav class="hidden lg:flex space-x-5 text-sm font-medium">
+                <a href="#overview" class="hover:text-teal-200 transition">總覽</a>
+                <a href="#itinerary" class="hover:text-teal-200 transition">每日行程</a>
+                <a href="#food" class="hover:text-teal-200 transition">吃什麼</a>
+                <a href="#spare" class="hover:text-teal-200 transition">有空去哪</a>
                 <a href="#booking" class="hover:text-teal-200 transition">預約清單</a>
-                <a href="#itinerary" class="hover:text-teal-200 transition">每日行程 & 地圖</a>
-                <a href="#spare" class="hover:text-teal-200 transition">隨機想去</a>
-                <a href="#food" class="hover:text-teal-200 transition">燒肉海鮮</a>
-                <a href="#bbq-ayce" class="hover:text-teal-200 transition">燒肉吃到飽</a>
-                <a href="#logistics" class="hover:text-teal-200 transition">交通方式</a>
-                <a href="#group-tips" class="hover:text-teal-200 transition">避坑指南</a>
+                <a href="#logistics" class="hover:text-teal-200 transition">開車</a>
+                <a href="#group-tips" class="hover:text-teal-200 transition">注意事項</a>
                 <a href="#nightlife" class="text-amber-300 hover:text-amber-200 transition">🌙 夜生活</a>
             </nav>
         </div>
@@ -95,147 +92,108 @@
             <a href="#nightlife" data-target="night" class="page-btn flex-1 sm:flex-none text-center px-5 py-2.5 rounded-xl text-sm font-bold transition">🌙 夜生活</a>
         </div>
 
-        <!-- Section 1: Overview & Highlights -->
-        <section id="overview" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
-            <div class="mb-6">
-                <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full">企劃核心原則</span>
-                <h2 class="text-2xl font-bold text-slate-800 mt-2">11 人專屬「零壓力放空」行程規劃</h2>
-                <p class="text-slate-600 mt-1 leading-relaxed text-sm sm:text-base">
-                    多人出遊最忌諱點拉太遠與走馬看花。本行程 3 晚都住<strong>那霸國際通旁的 Hotel Monterey La Soeur Naha</strong>，單趟車程多控制在 <strong>1 小時內</strong>（只有去美麗海水族館約 1.5 小時），每天只排 <strong>1 個大行程</strong>（Day 2 卡丁車、Day 3 水族館），其他時間可以從「隨機想去」清單裡挑順路的點，保證全員都能輕鬆享受度假氛圍！
-                </p>
-            </div>
-
-            <!-- Metric Cards -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div class="bg-amber-50/70 p-4 rounded-xl border border-amber-100 text-center">
-                    <div class="text-2xl mb-1">⏱️</div>
-                    <div class="text-xs text-amber-800 font-medium">最長單趟車程</div>
-                    <div class="text-lg sm:text-xl font-bold text-amber-900 mt-1">約 1.5 小時</div>
-                    <div class="text-[11px] text-amber-700">只有水族館那段，其餘都 &lt; 1 小時</div>
-                </div>
-                <div class="bg-teal-50/70 p-4 rounded-xl border border-teal-100 text-center">
-                    <div class="text-2xl mb-1">📍</div>
-                    <div class="text-xs text-teal-800 font-medium">每日景點數量</div>
-                    <div class="text-lg sm:text-xl font-bold text-teal-900 mt-1">2 ~ 3 個地點</div>
-                    <div class="text-[11px] text-teal-700">留足拍照放空時間</div>
-                </div>
-                <div class="bg-sky-50/70 p-4 rounded-xl border border-sky-100 text-center">
-                    <div class="text-2xl mb-1">🏖️</div>
-                    <div class="text-xs text-sky-800 font-medium">海景與沙灘</div>
-                    <div class="text-lg sm:text-xl font-bold text-sky-900 mt-1">3 大特色水岸</div>
-                    <div class="text-[11px] text-sky-700">波之上海灘 / 翡翠海灘 / 豐崎海灘</div>
-                </div>
-                <div class="bg-orange-50/70 p-4 rounded-xl border border-orange-100 text-center">
-                    <div class="text-2xl mb-1">🍱</div>
-                    <div class="text-xs text-orange-800 font-medium">在地美食</div>
-                    <div class="text-lg sm:text-xl font-bold text-orange-900 mt-1">精選高口碑</div>
-                    <div class="text-[11px] text-orange-700">炭火燒肉 / 亞洲百大酒吧 / 濱海咖啡</div>
+        <!-- Section 1: First screen — the whole trip at a glance -->
+        <section id="overview" data-page="main" class="space-y-5">
+            <div class="rounded-2xl p-5 text-white shadow-sm" style="background:linear-gradient(135deg,#0f766e,#0284c7)">
+                <div class="text-xs font-semibold opacity-90">沖繩 4 天 3 夜 ‧ 同事旅遊</div>
+                <div class="text-2xl font-black mt-1 leading-tight">11/4（三）→ 11/7（六）</div>
+                <div class="flex flex-wrap gap-1.5 mt-3 text-xs font-semibold">
+                    <span class="bg-white/20 px-2 py-1 rounded-full">👥 11 人</span>
+                    <span class="bg-white/20 px-2 py-1 rounded-full">🚗 自駕 5 台車</span>
+                    <span class="bg-white/20 px-2 py-1 rounded-full">🏨 Hotel Monterey La Soeur Naha（國際通旁）</span>
+                    <span class="bg-white/20 px-2 py-1 rounded-full">✈️ 去程 12:30 抵達 ‧ 回程 14:00 起飛</span>
                 </div>
             </div>
 
-            <!-- Charts Grid -->
-            <div class="border-t border-slate-100 pt-6">
-                <div>
-                    <h3 class="text-base font-semibold text-slate-800 mb-1 flex items-center gap-2">
-                        <span>🚗</span> 每日行車時間估算 (分鐘)
-                    </h3>
-                    <p class="text-xs text-slate-500 mb-4">精確掌握每日拉車時長，不把時間浪費在車程上。</p>
-                    <div class="chart-container">
-                        <canvas id="driveTimeChart"></canvas>
+            <div id="top-menu">
+                <h2 class="text-lg font-bold text-slate-800 mb-2">🧭 這個頁面有什麼 <span class="text-xs font-normal text-slate-500">（點了直接跳過去）</span></h2>
+                <div class="grid grid-cols-4 gap-2">
+                <a href="#itinerary"  class="p-2 sm:p-3 rounded-2xl border bg-teal-50 border-teal-200 hover:shadow-md transition flex flex-col items-center text-center sm:items-start sm:text-left">
+                    <span class="text-2xl">📅</span>
+                    <span class="font-bold text-xs sm:text-sm mt-1 leading-tight text-slate-800">每日行程 & 地圖</span>
+                    <span class="hidden sm:block text-[11px] leading-snug mt-0.5 text-slate-500">每天幾點去哪、怎麼去、路線地圖</span>
+                </a>
+                <a href="#food"  class="p-2 sm:p-3 rounded-2xl border bg-orange-50 border-orange-200 hover:shadow-md transition flex flex-col items-center text-center sm:items-start sm:text-left">
+                    <span class="text-2xl">🍽️</span>
+                    <span class="font-bold text-xs sm:text-sm mt-1 leading-tight text-slate-800">吃什麼</span>
+                    <span class="hidden sm:block text-[11px] leading-snug mt-0.5 text-slate-500">魚市場、海鮮、燒肉、拉麵 20+ 家</span>
+                </a>
+                <a href="#food" onclick="setFoodFilter('market')" class="p-2 sm:p-3 rounded-2xl border bg-sky-50 border-sky-200 hover:shadow-md transition flex flex-col items-center text-center sm:items-start sm:text-left">
+                    <span class="text-2xl">🐟</span>
+                    <span class="font-bold text-xs sm:text-sm mt-1 leading-tight text-slate-800">魚市場</span>
+                    <span class="hidden sm:block text-[11px] leading-snug mt-0.5 text-slate-500">牧志市場、泊港漁市場</span>
+                </a>
+                <a href="#food" onclick="setFoodFilter('bbq')" class="p-2 sm:p-3 rounded-2xl border bg-red-50 border-red-200 hover:shadow-md transition flex flex-col items-center text-center sm:items-start sm:text-left">
+                    <span class="text-2xl">🔥</span>
+                    <span class="font-bold text-xs sm:text-sm mt-1 leading-tight text-slate-800">燒肉吃到飽</span>
+                    <span class="hidden sm:block text-[11px] leading-snug mt-0.5 text-slate-500">飯店走路 10 分內 4 家</span>
+                </a>
+                <a href="#spare"  class="p-2 sm:p-3 rounded-2xl border bg-violet-50 border-violet-200 hover:shadow-md transition flex flex-col items-center text-center sm:items-start sm:text-left">
+                    <span class="text-2xl">⭐</span>
+                    <span class="font-bold text-xs sm:text-sm mt-1 leading-tight text-slate-800">有空去哪</span>
+                    <span class="hidden sm:block text-[11px] leading-snug mt-0.5 text-slate-500">順路 10 分鐘內的景點、酒吧</span>
+                </a>
+                <a href="#nightlife"  class="p-2 sm:p-3 rounded-2xl border bg-slate-800 border-slate-700 text-white hover:shadow-md transition flex flex-col items-center text-center sm:items-start sm:text-left">
+                    <span class="text-2xl">🌙</span>
+                    <span class="font-bold text-xs sm:text-sm mt-1 leading-tight text-white">夜生活</span>
+                    <span class="hidden sm:block text-[11px] leading-snug mt-0.5 text-slate-300">民謠居酒屋、酒吧、卡拉 OK、海邊小酌</span>
+                </a>
+                <a href="#booking"  class="p-2 sm:p-3 rounded-2xl border bg-rose-50 border-rose-200 hover:shadow-md transition flex flex-col items-center text-center sm:items-start sm:text-left">
+                    <span class="text-2xl">📞</span>
+                    <span class="font-bold text-xs sm:text-sm mt-1 leading-tight text-slate-800">預約清單</span>
+                    <span class="hidden sm:block text-[11px] leading-snug mt-0.5 text-slate-500">哪些要先訂、誰訂好了、日文訂位稿</span>
+                </a>
+                <a href="#logistics"  class="p-2 sm:p-3 rounded-2xl border bg-slate-50 border-slate-200 hover:shadow-md transition flex flex-col items-center text-center sm:items-start sm:text-left">
+                    <span class="text-2xl">🚗</span>
+                    <span class="font-bold text-xs sm:text-sm mt-1 leading-tight text-slate-800">開車須知</span>
+                    <span class="hidden sm:block text-[11px] leading-snug mt-0.5 text-slate-500">5 台車、停車、喝酒規定</span>
+                </a>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">🗓️ 四天一眼看懂 <span class="text-xs font-normal text-slate-500">（點卡片看詳細）</span></h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <button type="button" onclick="goDay(1)" class="text-left p-4 rounded-2xl border-2 bg-white hover:shadow-md transition" style="border-color:#0d9488">
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-white text-sm font-black px-2 py-0.5 rounded-lg" style="background:#0d9488">Day 1</span>
+                        <span class="text-xs font-semibold text-slate-500">11/4（三）</span>
                     </div>
+                    <div class="font-bold text-slate-800 mt-1.5">抵達・市場・燒肉夜</div>
+                    <ul class="text-xs text-slate-600 mt-1 space-y-0.5"><li>12:30 抵達那霸、各組取車</li><li>🐟 牧志市場吃海鮮（遲午餐）</li><li>🥩 晚餐燒肉／海鮮 3 選 1</li><li>🍸 El Lequio 調酒續攤</li></ul>
+                    <div class="text-xs font-bold mt-2" style="color:#0d9488">看詳細時間表與地圖 →</div>
+                </button>
+                <button type="button" onclick="goDay(2)" class="text-left p-4 rounded-2xl border-2 bg-white hover:shadow-md transition" style="border-color:#0284c7">
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-white text-sm font-black px-2 py-0.5 rounded-lg" style="background:#0284c7">Day 2</span>
+                        <span class="text-xs font-semibold text-slate-500">11/5（四）</span>
+                    </div>
+                    <div class="font-bold text-slate-800 mt-1.5">卡丁車・魚市場・燒肉吃到飽</div>
+                    <ul class="text-xs text-slate-600 mt-1 space-y-0.5"><li>🏎️ 11:00 Gorilla 卡丁車 ✅已訂</li><li>🐟 泊港魚市場午餐</li><li>🌅 波之上海灘夕陽小酌</li><li>🔥 琉苑燒肉吃到飽 ✅已訂</li></ul>
+                    <div class="text-xs font-bold mt-2" style="color:#0284c7">看詳細時間表與地圖 →</div>
+                </button>
+                <button type="button" onclick="goDay(3)" class="text-left p-4 rounded-2xl border-2 bg-white hover:shadow-md transition" style="border-color:#f59e0b">
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-white text-sm font-black px-2 py-0.5 rounded-lg" style="background:#f59e0b">Day 3</span>
+                        <span class="text-xs font-semibold text-slate-500">11/6（五）</span>
+                    </div>
+                    <div class="font-bold text-slate-800 mt-1.5">美麗海水族館</div>
+                    <ul class="text-xs text-slate-600 mt-1 space-y-0.5"><li>🚗 開車到水族館（約 1.5 小時）</li><li>🐋 鯨鯊・海豚秀・翡翠海灘</li><li>🍜 本部午餐、晚上ちゃんや拉麵</li></ul>
+                    <div class="text-xs font-bold mt-2" style="color:#f59e0b">看詳細時間表與地圖 →</div>
+                </button>
+                <button type="button" onclick="goDay(4)" class="text-left p-4 rounded-2xl border-2 bg-white hover:shadow-md transition" style="border-color:#e11d48">
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-white text-sm font-black px-2 py-0.5 rounded-lg" style="background:#e11d48">Day 4</span>
+                        <span class="text-xs font-semibold text-slate-500">11/7（六）</span>
+                    </div>
+                    <div class="font-bold text-slate-800 mt-1.5">Outlet・回台灣</div>
+                    <ul class="text-xs text-slate-600 mt-1 space-y-0.5"><li>🛍️ Ashibinaa Outlet 最後採買</li><li>🚗 各組還車</li><li>✈️ 14:00 起飛</li></ul>
+                    <div class="text-xs font-bold mt-2" style="color:#e11d48">看詳細時間表與地圖 →</div>
+                </button>
                 </div>
             </div>
+
         </section>
 
-        <!-- Section: Booking Checklist -->
-        <section id="booking" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-rose-200">
-            <div class="mb-4">
-                <span class="bg-rose-100 text-rose-800 text-xs font-semibold px-3 py-1 rounded-full">📞 出發前一定要處理</span>
-                <h2 class="text-2xl font-bold text-slate-800 mt-2">事先預約清單</h2>
-                <p class="text-slate-600 mt-1 text-sm leading-relaxed">
-                    11 人團體臨時去很容易沒位子，下面這些請負責的同事先訂好，完成就打勾（打勾只記在你自己的手機/電腦上）。
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="booking-list"></div>
-            <details class="mt-4 rounded-xl border border-rose-200 bg-rose-50/40 open:bg-white" id="booking-script">
-                <summary class="cursor-pointer select-none px-4 py-3 font-bold text-slate-800 text-sm">📞 打電話訂位用的日文稿（附中文翻譯）— 點開來看</summary>
-                <div class="px-4 pb-4 text-xs text-slate-600">
-                    <p class="mb-2">照著唸就好，<b>〇〇</b> 的地方換成自己的日期、時間、名字和電話。從台灣打日本：撥 <b>+81</b>，再撥電話號碼去掉開頭的 0（例如 ぶち 098-975-7711 → <b>+81-98-975-7711</b>）。也可以請 Day 1 飯店櫃台幫忙打。</p>
-                    <h4 class="font-bold text-slate-700 mt-3">基本訂位</h4>
-                    <ul>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja">もしもし、予約をお願いしたいのですが。</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 喂，你好，我想訂位。</div>
-                        </li>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja"><b>〇月〇日（〇曜日）</b>の<b>〇時〇分</b>から、<b>11名</b>でお願いできますか？</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 〇月〇日（星期〇）〇點〇分，11 位，可以嗎？</div>
-                        </li>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja">台湾からの社員旅行です。<b>11名一緒に座れる席</b>はありますか？</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 我們是台灣來的員工旅遊，有 11 人可以坐在一起的位子嗎？</div>
-                        </li>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja"><b>食べ放題</b>や<b>飲み放題</b>のコースはありますか？</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 有吃到飽或喝到飽的套餐嗎？</div>
-                        </li>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja">なければ、<b>11名分の盛り合わせのコース</b>はできますか？おいくらですか？</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 沒有的話，可以做 11 人份的拼盤套餐嗎？多少錢？</div>
-                        </li>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja">その日は<b>営業していますか</b>？</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 那天有營業嗎？</div>
-                        </li>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja">名前は<b>〇〇（ローマ字）</b>、電話番号は<b>+886-〇〇〇〇</b>です。</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 名字是〇〇（英文拼音），電話是 +886-〇〇〇〇。</div>
-                        </li>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja">よろしくお願いします。ありがとうございます。</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 麻煩您了，謝謝。</div>
-                        </li>
-                    </ul>
-                    <h4 class="font-bold text-slate-700 mt-3">依店家加問</h4>
-                    <ul>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">海鮮居酒屋</span><b>舟盛り</b>（刺身の盛り合わせ）を11名分お願いできますか？</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 可以做 11 人份的舟盛り（生魚片拼盤）嗎？</div>
-                        </li>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">需要包廂時</span><b>個室</b>はありますか？</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 有包廂嗎？</div>
-                        </li>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">卡丁車</span><b>運転免許証の日本語翻訳文</b>で大丈夫ですか？</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 台灣駕照日文譯本可以嗎？</div>
-                        </li>
-                        <li class="py-2 border-b border-slate-200 last:border-0">
-                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">卡丁車</span><b>11台</b>一緒に走れますか？二つのグループに分けますか？</div>
-                            <div class="text-xs text-slate-500 mt-0.5">→ 11 台可以一起跑嗎？還是要分兩梯？</div>
-                        </li>
-                    </ul>
-                    <p class="mt-3 p-2 rounded bg-amber-50 border border-amber-200 text-amber-900">💡 Day 2 午餐（Harbor View 自助餐）可以直接在 <a href="https://www.tablecheck.com/en/shops/oka-hvh-printemps/reserve" target="_blank" rel="noopener" class="underline text-teal-700">TableCheck 線上訂位</a>，不用打電話。</p>
-                </div>
-            </details>
-            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <strong class="text-slate-800">🙆 不用預約（現場排隊）</strong>
-                    <ul class="mt-1 text-slate-600 space-y-1 list-disc list-inside">
-                        <li>第一牧志公設市場、波之上海灘、Ashibinaa Outlet，以及「隨機想去」清單裡的景點</li>
-                        <li>ラーメン ちゃんや（只有 18 席，Day 3 19:30 開門就到或分兩批）</li>
-                        <li>本部町沖繩麵午餐（老店多半不接受預約，排隊約 15-30 分）</li>
-                    </ul>
-                </div>
-                <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
-                    <strong class="text-amber-900">🪪 出發前準備（不是預約但一定要做）</strong>
-                    <ul class="mt-1 text-amber-900 space-y-1 list-disc list-inside">
-                        <li>開車和開卡丁車的人都到監理站申請「駕照日文譯本」，帶譯本 + 台灣駕照正本 + 護照；Gorilla Kart 確認信寫要「1949 日內瓦公約國際駕照」，請先向店家確認台灣駕照能不能用</li>
-                        <li>日期：11/4（三）～11/7（六）。Day 1 晚餐已改成 3 選 1（ぶち 週三公休）；ちゃんや 週五 20:00 才開（Day 3 已調整）</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
 
         <!-- Section 2: Interactive Itinerary Explorer -->
         <section id="itinerary" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
@@ -275,209 +233,31 @@
             </div>
         </section>
 
-        <!-- Section: Optional stops near the route -->
-        <section id="spare" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-violet-200">
-            <div class="mb-4">
-                <span class="bg-violet-100 text-violet-800 text-xs font-semibold px-3 py-1 rounded-full">⭐ 隨機想去</span>
-                <h2 class="text-2xl font-bold text-slate-800 mt-2">順路 10 分鐘內的 10 個點</h2>
-                <p class="text-slate-600 mt-1 text-sm leading-relaxed">
-                    不在固定行程裡，都在這趟路線（飯店、機場、Outlet、水族館）附近車程或走路 10 分鐘內，有空檔就隨時去。地圖上的 ⭐ 就是這些點；營業時間可能變動，出發前用 Google 地圖再確認。
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-2xl">🌳</span>
-                        <div>
-                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">景點</span>
-                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">Day 3 ‧ 美麗海水族館旁</span>
-                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">備瀨福木林道</h4>
-                        </div>
-                    </div>
-                    <p class="text-xs text-teal-800 font-semibold">📍 水族館車程約 5 分</p>
-                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">上千棵福木圍出的綠色隧道，老聚落安靜好拍，走到底就是海。看完水族館順路散步 30-40 分鐘剛好。</p>
-                    <p class="text-[11px] text-slate-600 mt-2">🕒 全天可逛 ‧ 附近有收費停車場</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&origin=沖縄美ら海水族館&destination=備瀬のフクギ並木&travelmode=driving" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-2xl">🐘</span>
-                        <div>
-                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">景點</span>
-                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">Day 3 ‧ 回程改走海線</span>
-                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">萬座毛</h4>
-                        </div>
-                    </div>
-                    <p class="text-xs text-teal-800 font-semibold">📍 回程改走國道 58 號海線會經過，整體多約 20-30 分</p>
-                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">沖繩代表性的象鼻岩斷崖，草原步道一圈約 20 分鐘。想看的話 Day 3 回程別上高速，沿西海岸南下順路停。</p>
-                    <p class="text-[11px] text-slate-600 mt-2">🕒 有停車場與遊客中心 ‧ 收少量入場清潔費</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&origin=岸本食堂 本部&destination=万座毛&travelmode=driving" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-2xl">🏖️</span>
-                        <div>
-                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">景點</span>
-                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">Day 1 / Day 4 ‧ 機場與 Outlet 一帶</span>
-                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">豐崎美らSUN海灘</h4>
-                        </div>
-                    </div>
-                    <p class="text-xs text-teal-800 font-semibold">📍 Outlet 開車約 5 分</p>
-                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">離機場最近的白沙海灘，看飛機起降和夕陽，Day 1 取車後或 Day 4 逛 Outlet 前後順路繞一下。</p>
-                    <p class="text-[11px] text-slate-600 mt-2">🕒 有大型停車場</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&origin=沖縄アウトレットモール あしびなー&destination=豊崎美らSUNビーチ&travelmode=driving" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-2xl">⛩️</span>
-                        <div>
-                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">景點</span>
-                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">任何一天 ‧ 那霸市區</span>
-                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">波上宮</h4>
-                        </div>
-                    </div>
-                    <p class="text-xs text-teal-800 font-semibold">📍 飯店開車約 5 分 / 步行約 20 分</p>
-                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">蓋在海邊斷崖上的神社，下面就是波之上海灘，是那霸最有名的拍照點之一。</p>
-                    <p class="text-[11px] text-slate-600 mt-2">🕒 白天參拜 ‧ 有小型停車場</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=波上宮&travelmode=driving" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-2xl">🛫</span>
-                        <div>
-                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">景點</span>
-                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">Day 1 / Day 4 ‧ 機場附近</span>
-                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">瀨長島 UMIKAJI TERRACE</h4>
-                        </div>
-                    </div>
-                    <p class="text-xs text-teal-800 font-semibold">📍 機場或 Outlet 開車約 10 分</p>
-                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">純白階梯式海景商場，看飛機起降、吃鬆餅喝咖啡。Day 2 的卡丁車路線也會經過瀨長島，想下車逛的話 Day 1 或 Day 4 開車順路繞過去。</p>
-                    <p class="text-[11px] text-slate-600 mt-2">🕒 白天到晚上都有店家營業 ‧ 有免費停車場</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&origin=那覇空港&destination=瀬長島ウミカジテラス&travelmode=driving" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-2xl">🏺</span>
-                        <div>
-                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">逛街</span>
-                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">任何一天 ‧ 國際通旁</span>
-                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">壺屋やちむん通り</h4>
-                        </div>
-                    </div>
-                    <p class="text-xs text-teal-800 font-semibold">📍 飯店步行約 15 分 / 計程車 5 分</p>
-                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">石疊小路兩旁都是沖繩陶器（やちむん）老店，買伴手禮、拍老街都很好。</p>
-                    <p class="text-[11px] text-slate-600 mt-2">🕒 多數店家白天營業</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=壺屋やちむん通り&travelmode=walking" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-2xl">🏮</span>
-                        <div>
-                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">美食</span>
-                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">晚上 ‧ 國際通旁</span>
-                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">國際通屋台村</h4>
-                        </div>
-                    </div>
-                    <p class="text-xs text-teal-800 font-semibold">📍 飯店步行約 10 分</p>
-                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">20 多間小攤聚在一起，沖繩料理、串燒、泡盛都有，11 人可以分散各點各的再一起喝。</p>
-                    <p class="text-[11px] text-slate-600 mt-2">🕒 中午到深夜 ‧ 不用預約</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=国際通り屋台村&travelmode=walking" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-2xl">🍸</span>
-                        <div>
-                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">酒吧</span>
-                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">晚上 ‧ 久茂地</span>
-                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">Bar Alchemist（琉球調酒）</h4>
-                        </div>
-                    </div>
-                    <p class="text-xs text-teal-800 font-semibold">📍 飯店步行約 5-10 分</p>
-                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">用沖繩在地食材做原創雞尾酒的名店，和 El Lequio 是不同路線的另一間。</p>
-                    <p class="text-[11px] text-slate-600 mt-2">🕒 19:00-03:00 ‧ 週日不定休 ‧ 小店建議分 2 批</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=Bar Alchemist 那覇 久茂地&travelmode=walking" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-2xl">🏺</span>
-                        <div>
-                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">酒吧</span>
-                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">晚上 ‧ 久米</span>
-                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">泡盛倉庫</h4>
-                        </div>
-                    </div>
-                    <p class="text-xs text-teal-800 font-semibold">📍 飯店步行約 10-15 分</p>
-                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">整面牆約 800 種泡盛，老闆會依口味推薦，想認真喝懂泡盛來這裡。</p>
-                    <p class="text-[11px] text-slate-600 mt-2">🕒 18:00-24:00 ‧ 週日公休 ‧ 會員制，先電話確認 ☎ 098-869-0808</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=泡盛倉庫 那覇 久米&travelmode=walking" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-2xl">🥃</span>
-                        <div>
-                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">酒吧</span>
-                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">晚上 ‧ 泉崎</span>
-                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">Bar Tasting Club</h4>
-                        </div>
-                    </div>
-                    <p class="text-xs text-teal-800 font-semibold">📍 飯店步行約 5-10 分</p>
-                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">泡盛、威士忌等數百支蒸餾酒可以比較試飲，氣氛安靜，適合飯後小酌。</p>
-                    <p class="text-[11px] text-slate-600 mt-2">🕒 20:00-01:00 ‧ 週二公休 ‧ 4 樓小店建議分批</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=Bar Tasting Club 那覇 泉崎&travelmode=walking" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
-                </div>
-            </div>
-        </section>
 
         <!-- Section: Yakiniku & seafood list -->
         <section id="food" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-orange-200">
             <div class="mb-2">
                 <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-3 py-1 rounded-full">🍖🐟🍜 燒肉・海鮮・拉麵</span>
-                <h2 class="text-2xl font-bold text-slate-800 mt-2">吃的清單：20 家（含營業時間、公休、類型與內幕）</h2>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2">🍽️ 吃什麼：魚市場・海鮮・燒肉・拉麵</h2>
                 <p class="text-slate-600 mt-1 text-sm leading-relaxed">
-                    每家都標了<b>餐廳 / 市場攤販 / 屋台</b>、營業時間、公休日、有沒有午餐、電話和「內幕」。資料整理自官網與訂位網站（2026 年查），
-                    <b>很多店各網站寫的時間不一樣，已在卡片上註明</b>，去之前請打電話或看 Google 地圖確認；每家都附 <b>📍 Google 地圖</b>、<b>🌐 官網或店家資訊</b>、<b>📸 IG 近期影片</b>（開 IG 的 hashtag 頁，看最新的貼文和 Reels）。
+                    先點下面的分類按鈕只看想吃的種類。每張卡片都有營業時間、公休、地點、電話，和 📍 Google 地圖、🌐 官網、📸 IG 連結；營業時間常變動，去之前再確認一次。
                 </p>
             </div>
-            <div class="mt-4 p-4 rounded-xl border-2 border-orange-300 bg-orange-50">
-                <h3 class="font-bold text-slate-800">🍽️ Day 2 中午「海鮮吃到飽」怎麼選？</h3>
-                <p class="text-xs text-slate-700 mt-1 leading-relaxed">查過國際通一帶，<b>沒有找到確定在做「中午海鮮吃到飽」的店</b>（海鮮吃到飽多半是晚上的居酒屋喝到飽套餐，或是飯店自助餐）。比較可行的是下面三個：</p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3 text-xs">
-                    <div class="p-3 bg-white rounded-lg border border-orange-200">
-                        <div class="font-bold text-slate-800">① 備選（吃到飽）：沖繩 Harbor View Hotel「Printemps」午餐自助餐</div>
-                        <ul class="mt-1 text-slate-600 space-y-0.5 list-disc list-inside">
-                            <li>那霸泉崎，卡丁車結束後計程車約 5 分</li>
-                            <li>11:30-15:00，<b>限時 90 分鐘、最後入場 13:30</b></li>
-                            <li>大人約 ¥4,000（連假會漲）</li>
-                            <li>約 50 道料理＋沙朗牛排；<b>有沒有壽司/生魚片要訂位時問</b></li>
-                        </ul>
-                        <a href="https://www.tablecheck.com/en/shops/oka-hvh-printemps/reserve" target="_blank" rel="noopener" class="inline-block mt-1 text-teal-700 underline">TableCheck 線上訂位</a>
-                    </div>
-                    <div class="p-3 bg-white rounded-lg border border-orange-200">
-                        <div class="font-bold text-slate-800">② 和食吃到飽：DoubleTree by Hilton 那霸首里城「富士」</div>
-                        <ul class="mt-1 text-slate-600 space-y-0.5 list-disc list-inside">
-                            <li>首里，計程車約 15 分</li>
-                            <li>和食自助餐有<b>海鮮丼、天婦羅、壽司類</b>吃到飽</li>
-                            <li>約 ¥3,800-4,200，只在特定星期幾舉辦</li>
-                            <li>⚠️ 官網曾公告「暫停營業」，<b>一定要先確認有沒有開</b> ☎ 098-886-5473</li>
-                        </ul>
-                        <a href="https://www.google.com/maps/search/?api=1&query=%E3%83%80%E3%83%96%E3%83%AB%E3%83%84%E3%83%AA%E3%83%BCby%E3%83%92%E3%83%AB%E3%83%88%E3%83%B3%E9%82%A3%E8%A6%87%E9%A6%96%E9%87%8C%E5%9F%8E%20%E5%AF%8C%E5%A3%AB" target="_blank" rel="noopener" class="inline-block mt-1 text-teal-700 underline">Google 地圖</a>
-                    </div>
-                    <div class="p-3 bg-white rounded-lg border border-orange-200">
-                        <div class="font-bold text-slate-800">③ ✅ 已排進 Day 2：泊いゆまち（泊港漁市場）</div>
-                        <ul class="mt-1 text-slate-600 space-y-0.5 list-disc list-inside">
-                            <li>港町，飯店開車約 10 分</li>
-                            <li>現切鮪魚、盒裝生魚片約市區半價</li>
-                            <li>食堂約 9:00-15:00，過中午貨變少</li>
-                            <li>原本的「佳風」已停止營業，已從行程移除</li>
-                        </ul>
-                    </div>
+            <div class="sticky z-30 -mx-6 px-6 py-2 bg-white/95 backdrop-blur border-b border-slate-200 mb-2" id="food-filter-bar">
+                <div class="flex gap-2 overflow-x-auto custom-scrollbar pb-1" id="food-filters">
+                    <button type="button" data-f="all" onclick="setFoodFilter('all')" class="food-chip shrink-0 px-3 py-1.5 rounded-full text-sm font-semibold border">全部</button>
+                    <button type="button" data-f="market" onclick="setFoodFilter('market')" class="food-chip shrink-0 px-3 py-1.5 rounded-full text-sm font-semibold border">🐟 魚市場</button>
+                    <button type="button" data-f="seafood" onclick="setFoodFilter('seafood')" class="food-chip shrink-0 px-3 py-1.5 rounded-full text-sm font-semibold border">🦞 海鮮居酒屋</button>
+                    <button type="button" data-f="bbq" onclick="setFoodFilter('bbq')" class="food-chip shrink-0 px-3 py-1.5 rounded-full text-sm font-semibold border">🔥 燒肉吃到飽</button>
+                    <button type="button" data-f="yakiniku" onclick="setFoodFilter('yakiniku')" class="food-chip shrink-0 px-3 py-1.5 rounded-full text-sm font-semibold border">🥩 燒肉・和牛</button>
+                    <button type="button" data-f="ramen" onclick="setFoodFilter('ramen')" class="food-chip shrink-0 px-3 py-1.5 rounded-full text-sm font-semibold border">🍜 拉麵・壽司</button>
+                    <button type="button" data-f="area" onclick="setFoodFilter('area')" class="food-chip shrink-0 px-3 py-1.5 rounded-full text-sm font-semibold border">🐠 水族館・機場一帶</button>
                 </div>
-                <p class="text-xs text-orange-900 mt-3"><b>目前安排：</b>Day 2 午餐是 ③ 泊港漁市場，晚餐是琉苑燒肉吃到飽。想改成 ① 或 ② 告訴我。</p>
             </div>
-            <div class="mt-6 p-4 rounded-xl border-2 border-red-300 bg-red-50/40" id="bbq-ayce">
+            <div class="food-group mt-4 p-4 rounded-xl border-2 border-red-300 bg-red-50/40" id="bbq-ayce" data-cat="bbq">
                 <h3 class="font-bold text-slate-800">🔥 燒肉吃到飽 4 選 1（都在飯店走路 10 分鐘內）</h3>
                 <p class="text-xs text-slate-700 mt-1 leading-relaxed">
-                    建議放在 <b>Day 1 晚餐（取代 ぶち）</b>或 <b>Day 2、Day 3 晚餐</b>。選好告訴我，我幫你排進行程並加進預約清單。
+                    <b>Day 2 晚餐已訂琉苑</b>；其他晚上想吃燒肉吃到飽，可以從這 4 家挑。
                     快速比較：<b>肉質最好、最近</b> → 琉苑；<b>最便宜、最熟悉</b> → 燒肉王；<b>最穩定</b> → 牛角；<b>在地內臟</b> → 我那覇。
                     價格會變動，訂位時再確認；11 人都建議先訂位。
                 </p>
@@ -564,6 +344,7 @@
                     </div>
                 </div>
             </div>
+            <div class="food-group" data-cat="yakiniku">
             <h3 class="font-bold text-slate-800 mb-2 mt-6">🥩 燒肉・和牛（飯店走路就到）</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
@@ -667,6 +448,8 @@
                         </div>
                     </div>
             </div>
+            </div>
+            <div class="food-group" data-cat="seafood">
             <h3 class="font-bold text-slate-800 mb-2 mt-6">🐟 生魚片・海鮮居酒屋（飯店走路就到，都是晚上營業）</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
@@ -870,6 +653,8 @@
                         </div>
                     </div>
             </div>
+            </div>
+            <div class="food-group" data-cat="ramen">
             <h3 class="font-bold text-slate-800 mb-2 mt-6">🍣🍜 壽司・拉麵</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
@@ -923,6 +708,8 @@
                         </div>
                     </div>
             </div>
+            </div>
+            <div class="food-group" data-cat="market">
             <h3 class="font-bold text-slate-800 mb-2 mt-6">🏪 市場（攤販買海鮮，不是一般餐廳）</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
@@ -976,6 +763,8 @@
                         </div>
                     </div>
             </div>
+            </div>
+            <div class="food-group" data-cat="area">
             <h3 class="font-bold text-slate-800 mb-2 mt-6">✈️🐠 Day 1/4 機場一帶・Day 3 水族館一帶</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
@@ -1079,13 +868,260 @@
                         </div>
                     </div>
             </div>
+            </div>
         </section>
+
+
+        <!-- Section: Optional stops near the route -->
+        <section id="spare" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-violet-200">
+            <div class="mb-4">
+                <span class="bg-violet-100 text-violet-800 text-xs font-semibold px-3 py-1 rounded-full">⭐ 隨機想去</span>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2">⭐ 有空去哪：順路 10 分鐘內的 10 個點</h2>
+                <p class="text-slate-600 mt-1 text-sm leading-relaxed">
+                    不在固定行程裡，都在這趟路線（飯店、機場、Outlet、水族館）附近車程或走路 10 分鐘內，有空檔就隨時去。地圖上的 ⭐ 就是這些點；營業時間可能變動，出發前用 Google 地圖再確認。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-2xl">🌳</span>
+                        <div>
+                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">景點</span>
+                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">Day 3 ‧ 美麗海水族館旁</span>
+                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">備瀨福木林道</h4>
+                        </div>
+                    </div>
+                    <p class="text-xs text-teal-800 font-semibold">📍 水族館車程約 5 分</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">上千棵福木圍出的綠色隧道，老聚落安靜好拍，走到底就是海。看完水族館順路散步 30-40 分鐘剛好。</p>
+                    <p class="text-[11px] text-slate-600 mt-2">🕒 全天可逛 ‧ 附近有收費停車場</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=沖縄美ら海水族館&destination=備瀬のフクギ並木&travelmode=driving" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-2xl">🐘</span>
+                        <div>
+                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">景點</span>
+                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">Day 3 ‧ 回程改走海線</span>
+                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">萬座毛</h4>
+                        </div>
+                    </div>
+                    <p class="text-xs text-teal-800 font-semibold">📍 回程改走國道 58 號海線會經過，整體多約 20-30 分</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">沖繩代表性的象鼻岩斷崖，草原步道一圈約 20 分鐘。想看的話 Day 3 回程別上高速，沿西海岸南下順路停。</p>
+                    <p class="text-[11px] text-slate-600 mt-2">🕒 有停車場與遊客中心 ‧ 收少量入場清潔費</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=岸本食堂 本部&destination=万座毛&travelmode=driving" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-2xl">🏖️</span>
+                        <div>
+                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">景點</span>
+                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">Day 1 / Day 4 ‧ 機場與 Outlet 一帶</span>
+                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">豐崎美らSUN海灘</h4>
+                        </div>
+                    </div>
+                    <p class="text-xs text-teal-800 font-semibold">📍 Outlet 開車約 5 分</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">離機場最近的白沙海灘，看飛機起降和夕陽，Day 1 取車後或 Day 4 逛 Outlet 前後順路繞一下。</p>
+                    <p class="text-[11px] text-slate-600 mt-2">🕒 有大型停車場</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=沖縄アウトレットモール あしびなー&destination=豊崎美らSUNビーチ&travelmode=driving" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-2xl">⛩️</span>
+                        <div>
+                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">景點</span>
+                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">任何一天 ‧ 那霸市區</span>
+                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">波上宮</h4>
+                        </div>
+                    </div>
+                    <p class="text-xs text-teal-800 font-semibold">📍 飯店開車約 5 分 / 步行約 20 分</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">蓋在海邊斷崖上的神社，下面就是波之上海灘，是那霸最有名的拍照點之一。</p>
+                    <p class="text-[11px] text-slate-600 mt-2">🕒 白天參拜 ‧ 有小型停車場</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=波上宮&travelmode=driving" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-2xl">🛫</span>
+                        <div>
+                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">景點</span>
+                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">Day 1 / Day 4 ‧ 機場附近</span>
+                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">瀨長島 UMIKAJI TERRACE</h4>
+                        </div>
+                    </div>
+                    <p class="text-xs text-teal-800 font-semibold">📍 機場或 Outlet 開車約 10 分</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">純白階梯式海景商場，看飛機起降、吃鬆餅喝咖啡。Day 2 的卡丁車路線也會經過瀨長島，想下車逛的話 Day 1 或 Day 4 開車順路繞過去。</p>
+                    <p class="text-[11px] text-slate-600 mt-2">🕒 白天到晚上都有店家營業 ‧ 有免費停車場</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=那覇空港&destination=瀬長島ウミカジテラス&travelmode=driving" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-2xl">🏺</span>
+                        <div>
+                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">逛街</span>
+                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">任何一天 ‧ 國際通旁</span>
+                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">壺屋やちむん通り</h4>
+                        </div>
+                    </div>
+                    <p class="text-xs text-teal-800 font-semibold">📍 飯店步行約 15 分 / 計程車 5 分</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">石疊小路兩旁都是沖繩陶器（やちむん）老店，買伴手禮、拍老街都很好。</p>
+                    <p class="text-[11px] text-slate-600 mt-2">🕒 多數店家白天營業</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=壺屋やちむん通り&travelmode=walking" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-2xl">🏮</span>
+                        <div>
+                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">美食</span>
+                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">晚上 ‧ 國際通旁</span>
+                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">國際通屋台村</h4>
+                        </div>
+                    </div>
+                    <p class="text-xs text-teal-800 font-semibold">📍 飯店步行約 10 分</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">20 多間小攤聚在一起，沖繩料理、串燒、泡盛都有，11 人可以分散各點各的再一起喝。</p>
+                    <p class="text-[11px] text-slate-600 mt-2">🕒 中午到深夜 ‧ 不用預約</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=国際通り屋台村&travelmode=walking" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-2xl">🍸</span>
+                        <div>
+                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">酒吧</span>
+                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">晚上 ‧ 久茂地</span>
+                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">Bar Alchemist（琉球調酒）</h4>
+                        </div>
+                    </div>
+                    <p class="text-xs text-teal-800 font-semibold">📍 飯店步行約 5-10 分</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">用沖繩在地食材做原創雞尾酒的名店，和 El Lequio 是不同路線的另一間。</p>
+                    <p class="text-[11px] text-slate-600 mt-2">🕒 19:00-03:00 ‧ 週日不定休 ‧ 小店建議分 2 批</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=Bar Alchemist 那覇 久茂地&travelmode=walking" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-2xl">🏺</span>
+                        <div>
+                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">酒吧</span>
+                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">晚上 ‧ 久米</span>
+                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">泡盛倉庫</h4>
+                        </div>
+                    </div>
+                    <p class="text-xs text-teal-800 font-semibold">📍 飯店步行約 10-15 分</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">整面牆約 800 種泡盛，老闆會依口味推薦，想認真喝懂泡盛來這裡。</p>
+                    <p class="text-[11px] text-slate-600 mt-2">🕒 18:00-24:00 ‧ 週日公休 ‧ 會員制，先電話確認 ☎ 098-869-0808</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=泡盛倉庫 那覇 久米&travelmode=walking" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-2xl">🥃</span>
+                        <div>
+                            <span class="text-[11px] bg-white border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">酒吧</span>
+                            <span class="text-[11px] bg-violet-100 text-violet-800 px-1.5 py-0.5 rounded font-semibold">晚上 ‧ 泉崎</span>
+                            <h4 class="font-bold text-slate-800 text-sm mt-0.5">Bar Tasting Club</h4>
+                        </div>
+                    </div>
+                    <p class="text-xs text-teal-800 font-semibold">📍 飯店步行約 5-10 分</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-1 flex-grow">泡盛、威士忌等數百支蒸餾酒可以比較試飲，氣氛安靜，適合飯後小酌。</p>
+                    <p class="text-[11px] text-slate-600 mt-2">🕒 20:00-01:00 ‧ 週二公休 ‧ 4 樓小店建議分批</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=Bar Tasting Club 那覇 泉崎&travelmode=walking" target="_blank" rel="noopener" class="mt-2 inline-block w-fit text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded hover:bg-teal-100">🗺️ 導航過去</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Section: Booking Checklist -->
+        <section id="booking" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-rose-200">
+            <div class="mb-4">
+                <span class="bg-rose-100 text-rose-800 text-xs font-semibold px-3 py-1 rounded-full">📞 出發前一定要處理</span>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2">事先預約清單</h2>
+                <p class="text-slate-600 mt-1 text-sm leading-relaxed">
+                    11 人團體臨時去很容易沒位子，下面這些請負責的同事先訂好，完成就打勾（打勾只記在你自己的手機/電腦上）。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="booking-list"></div>
+            <details class="mt-4 rounded-xl border border-rose-200 bg-rose-50/40 open:bg-white" id="booking-script">
+                <summary class="cursor-pointer select-none px-4 py-3 font-bold text-slate-800 text-sm">📞 打電話訂位用的日文稿（附中文翻譯）— 點開來看</summary>
+                <div class="px-4 pb-4 text-xs text-slate-600">
+                    <p class="mb-2">照著唸就好，<b>〇〇</b> 的地方換成自己的日期、時間、名字和電話。從台灣打日本：撥 <b>+81</b>，再撥電話號碼去掉開頭的 0（例如 ぶち 098-975-7711 → <b>+81-98-975-7711</b>）。也可以請 Day 1 飯店櫃台幫忙打。</p>
+                    <h4 class="font-bold text-slate-700 mt-3">基本訂位</h4>
+                    <ul>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">もしもし、予約をお願いしたいのですが。</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 喂，你好，我想訂位。</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><b>〇月〇日（〇曜日）</b>の<b>〇時〇分</b>から、<b>11名</b>でお願いできますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 〇月〇日（星期〇）〇點〇分，11 位，可以嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">台湾からの社員旅行です。<b>11名一緒に座れる席</b>はありますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 我們是台灣來的員工旅遊，有 11 人可以坐在一起的位子嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><b>食べ放題</b>や<b>飲み放題</b>のコースはありますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 有吃到飽或喝到飽的套餐嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">なければ、<b>11名分の盛り合わせのコース</b>はできますか？おいくらですか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 沒有的話，可以做 11 人份的拼盤套餐嗎？多少錢？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">その日は<b>営業していますか</b>？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 那天有營業嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">名前は<b>〇〇（ローマ字）</b>、電話番号は<b>+886-〇〇〇〇</b>です。</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 名字是〇〇（英文拼音），電話是 +886-〇〇〇〇。</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja">よろしくお願いします。ありがとうございます。</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 麻煩您了，謝謝。</div>
+                        </li>
+                    </ul>
+                    <h4 class="font-bold text-slate-700 mt-3">依店家加問</h4>
+                    <ul>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">海鮮居酒屋</span><b>舟盛り</b>（刺身の盛り合わせ）を11名分お願いできますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 可以做 11 人份的舟盛り（生魚片拼盤）嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">需要包廂時</span><b>個室</b>はありますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 有包廂嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">卡丁車</span><b>運転免許証の日本語翻訳文</b>で大丈夫ですか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 台灣駕照日文譯本可以嗎？</div>
+                        </li>
+                        <li class="py-2 border-b border-slate-200 last:border-0">
+                            <div class="text-sm text-slate-800" lang="ja"><span class="text-[10px] bg-slate-200 text-slate-600 px-1 rounded mr-1">卡丁車</span><b>11台</b>一緒に走れますか？二つのグループに分けますか？</div>
+                            <div class="text-xs text-slate-500 mt-0.5">→ 11 台可以一起跑嗎？還是要分兩梯？</div>
+                        </li>
+                    </ul>
+                    <p class="mt-3 p-2 rounded bg-amber-50 border border-amber-200 text-amber-900">💡 Day 2 午餐（Harbor View 自助餐）可以直接在 <a href="https://www.tablecheck.com/en/shops/oka-hvh-printemps/reserve" target="_blank" rel="noopener" class="underline text-teal-700">TableCheck 線上訂位</a>，不用打電話。</p>
+                </div>
+            </details>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                    <strong class="text-slate-800">🙆 不用預約（現場排隊）</strong>
+                    <ul class="mt-1 text-slate-600 space-y-1 list-disc list-inside">
+                        <li>第一牧志公設市場、波之上海灘、Ashibinaa Outlet，以及「隨機想去」清單裡的景點</li>
+                        <li>ラーメン ちゃんや（只有 18 席，Day 3 19:30 開門就到或分兩批）</li>
+                        <li>本部町沖繩麵午餐（老店多半不接受預約，排隊約 15-30 分）</li>
+                    </ul>
+                </div>
+                <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                    <strong class="text-amber-900">🪪 出發前準備（不是預約但一定要做）</strong>
+                    <ul class="mt-1 text-amber-900 space-y-1 list-disc list-inside">
+                        <li>開車和開卡丁車的人都到監理站申請「駕照日文譯本」，帶譯本 + 台灣駕照正本 + 護照；Gorilla Kart 確認信寫要「1949 日內瓦公約國際駕照」，請先向店家確認台灣駕照能不能用</li>
+                        <li>日期：11/4（三）～11/7（六）。Day 1 晚餐已改成 3 選 1（ぶち 週三公休）；ちゃんや 週五 20:00 才開（Day 3 已調整）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
 
         <!-- Section 3: Group Logistics & Calculator -->
         <section id="logistics" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
             <div class="mb-6">
                 <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-3 py-1 rounded-full">團體交通</span>
-                <h2 class="text-2xl font-bold text-slate-800 mt-2">11 人交通方式：自駕 3 台車</h2>
+                <h2 class="text-2xl font-bold text-slate-800 mt-2">11 人交通方式：自駕 5 台車</h2>
                 <p class="text-slate-600 mt-1 text-sm leading-relaxed">
                     租車由各組自行安排，這裡只整理開車需要注意的事。
                 </p>
@@ -1111,7 +1147,7 @@
                 <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
                     <h3 class="font-bold text-slate-800 text-sm mb-1">🅿️ 停車</h3>
                     <ul class="text-slate-600 space-y-1 list-disc list-inside">
-                        <li>飯店在國際通旁，車位可能有限，出發前先問清楚 3 台車停 3 晚的方式與費用</li>
+                        <li>飯店在國際通旁，車位可能有限，出發前先問清楚 5 台車停 3 晚的方式與費用</li>
                         <li>水族館（P7 最近）、泊港漁市場、Outlet 都有停車場</li>
                     </ul>
                 </div>
@@ -1125,6 +1161,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- Section 4: Group Travel Survival Tips -->
         <section id="group-tips" data-page="main" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
@@ -1149,7 +1186,7 @@
                     <div class="text-2xl mb-2">🅿️</div>
                     <h3 class="font-bold text-slate-800 text-sm mb-1">停車與跟車導航</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        3 台車設定導航時，用頁面上的「Google 地圖導航」按鈕或同一個目的地，在 LINE 設「導航群組」隨時回報進度。飯店停車方式出發前先確認。
+                        5 台車設定導航時，用頁面上的「Google 地圖導航」按鈕或同一個目的地，在 LINE 設「導航群組」隨時回報進度。飯店停車方式出發前先確認。
                     </p>
                 </div>
 
@@ -1331,6 +1368,9 @@
         </section>
     </main>
 
+    <!-- Floating "menu" button: jump back to the module overview -->
+    <a href="#top-menu" class="fixed bottom-5 right-4 z-50 bg-teal-700 text-white text-sm font-bold px-4 py-3 rounded-full shadow-lg hover:bg-teal-800">☰ 目錄</a>
+
     <!-- Footer -->
     <footer class="bg-slate-800 text-slate-400 py-6 text-center text-xs mt-auto">
         <p>沖繩 4 天 3 夜 11 人同事放空之旅 ‧ 祝大家旅途愉快！</p>
@@ -1364,9 +1404,9 @@
                         desc: "位於那霸安里（國際通另一端）的名店，以沖繩在地食材做出琉球 × 拉丁風格創意調酒，曾入選亞洲百大酒吧。營業 19:00-02:00，吃完燒肉剛好來續攤，回飯店搭計程車也很近。店內座位有限，11 人建議先訂位或分兩批入場。"
                     }
                 ],
-                groupTip: "12:30 抵達後約 13:00 出機場，各組依自己的租車安排取車，再開回那霸飯店停車、寄放行李，走路去牧志市場吃遲午餐（飛機上可先吃點東西）。11 人分 3 台車，先在 LINE 群組設好導航。晚餐 3 選 1，選好盡快訂 11 人。晚上會喝酒，燒肉和酒吧都走路或搭計程車，車子停飯店不開。隔天（11/5）11:00 要開卡丁車上路，今晚請少喝、早點回飯店。",
+                groupTip: "12:30 抵達後約 13:00 出機場，各組依自己的租車安排取車，再開回那霸飯店停車、寄放行李，走路去牧志市場吃遲午餐（飛機上可先吃點東西）。11 人分 5 台車，先在 LINE 群組設好導航。晚餐 3 選 1，選好盡快訂 11 人。晚上會喝酒，燒肉和酒吧都走路或搭計程車，車子停飯店不開。隔天（11/5）11:00 要開卡丁車上路，今晚請少喝、早點回飯店。",
                 routeTotal: "今日開車只有 1 段約 20-25 分鐘（機場一帶 → 飯店），之後全程步行/計程車",
-                route: [{"time": "12:30", "end": "13:00", "leg": "抵達那霸機場，入境、領行李", "dur": "約 30 分", "mode": "stay", "note": "11 人在入境大廳集合"}, {"time": "13:00", "end": "14:15", "leg": "各組取車", "dur": "約 1 小時", "mode": "stay", "note": "依各組自己的租車安排；分好 3 台車、放行李、設好導航群組"}, {"time": "14:15", "end": "14:40", "leg": "機場一帶 → Hotel Monterey La Soeur Naha", "dur": "約 20-25 分", "mode": "drive", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=那覇空港&destination=ホテルモントレ ラ・スール那覇&travelmode=driving", "park": "飯店停車方式與費用請事先向飯店確認；停好後今天車子都不再開"}, {"time": "14:40", "end": "14:50", "leg": "飯店停車、寄放行李（或 check-in）", "dur": "約 10 分", "mode": "stay", "note": "check-in 時間未到可以先寄放行李"}, {"time": "14:50", "end": "15:00", "leg": "飯店 → 第一牧志公設市場", "dur": "約 10 分", "mode": "walk", "note": "沿國際通走過去", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=第一牧志公設市場&travelmode=walking"}, {"time": "15:00", "end": "16:30", "leg": "牧志市場：1 樓挑海鮮、2 樓代客料理遲午餐", "dur": "約 1.5 小時", "mode": "stay", "note": "生魚片、龍蝦、夜光貝、沖繩魚；吃完逛國際通、買伴手禮"}, {"time": "16:30", "end": "18:00", "leg": "走回飯店 check-in、休息", "dur": "約 1.5 小時", "mode": "walk", "note": "步行約 10 分，回房間休息、洗澡換衣服", "map": "https://www.google.com/maps/dir/?api=1&origin=第一牧志公設市場&destination=ホテルモントレ ラ・スール那覇&travelmode=walking"}, {"time": "18:00", "end": "18:10", "leg": "飯店 → 晚餐（3 選 1）", "dur": "約 5-10 分", "mode": "walk", "note": "もとぶ牧場 / 琉球の牛 / 鰓呼吸 都在久茂地"}, {"time": "18:10", "end": "20:00", "leg": "晚餐：燒肉或海鮮（3 選 1）", "dur": "約 2 小時", "mode": "stay", "note": "11/4 週三；選好盡快訂 11 人", "book": "需預約"}, {"time": "20:00", "end": "20:10", "leg": "晚餐 → El Lequio", "dur": "約 5-10 分", "mode": "taxi", "note": "叫 3 台計程車，或走 15-20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=那覇 久茂地&destination=El Lequio 那覇 安里&travelmode=driving"}, {"time": "20:10", "end": "22:30", "leg": "El Lequio：調酒續攤", "dur": "約 2 小時 20 分", "mode": "stay", "note": "座位有限，建議先訂位或分兩批", "book": "建議訂位"}, {"time": "22:30", "end": "22:40", "leg": "El Lequio → 飯店", "dur": "約 5-10 分", "mode": "taxi", "note": "走國際通回去約 20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=El Lequio 那覇 安里&destination=ホテルモントレ ラ・スール那覇&travelmode=driving"}]
+                route: [{"time": "12:30", "end": "13:00", "leg": "抵達那霸機場，入境、領行李", "dur": "約 30 分", "mode": "stay", "note": "11 人在入境大廳集合"}, {"time": "13:00", "end": "14:15", "leg": "各組取車", "dur": "約 1 小時", "mode": "stay", "note": "依各組自己的租車安排；分好 5 台車、放行李、設好導航群組"}, {"time": "14:15", "end": "14:40", "leg": "機場一帶 → Hotel Monterey La Soeur Naha", "dur": "約 20-25 分", "mode": "drive", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=那覇空港&destination=ホテルモントレ ラ・スール那覇&travelmode=driving", "park": "飯店停車方式與費用請事先向飯店確認；停好後今天車子都不再開"}, {"time": "14:40", "end": "14:50", "leg": "飯店停車、寄放行李（或 check-in）", "dur": "約 10 分", "mode": "stay", "note": "check-in 時間未到可以先寄放行李"}, {"time": "14:50", "end": "15:00", "leg": "飯店 → 第一牧志公設市場", "dur": "約 10 分", "mode": "walk", "note": "沿國際通走過去", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=第一牧志公設市場&travelmode=walking"}, {"time": "15:00", "end": "16:30", "leg": "牧志市場：1 樓挑海鮮、2 樓代客料理遲午餐", "dur": "約 1.5 小時", "mode": "stay", "note": "生魚片、龍蝦、夜光貝、沖繩魚；吃完逛國際通、買伴手禮"}, {"time": "16:30", "end": "18:00", "leg": "走回飯店 check-in、休息", "dur": "約 1.5 小時", "mode": "walk", "note": "步行約 10 分，回房間休息、洗澡換衣服", "map": "https://www.google.com/maps/dir/?api=1&origin=第一牧志公設市場&destination=ホテルモントレ ラ・スール那覇&travelmode=walking"}, {"time": "18:00", "end": "18:10", "leg": "飯店 → 晚餐（3 選 1）", "dur": "約 5-10 分", "mode": "walk", "note": "もとぶ牧場 / 琉球の牛 / 鰓呼吸 都在久茂地"}, {"time": "18:10", "end": "20:00", "leg": "晚餐：燒肉或海鮮（3 選 1）", "dur": "約 2 小時", "mode": "stay", "note": "11/4 週三；選好盡快訂 11 人", "book": "需預約"}, {"time": "20:00", "end": "20:10", "leg": "晚餐 → El Lequio", "dur": "約 5-10 分", "mode": "taxi", "note": "叫 3 台計程車，或走 15-20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=那覇 久茂地&destination=El Lequio 那覇 安里&travelmode=driving"}, {"time": "20:10", "end": "22:30", "leg": "El Lequio：調酒續攤", "dur": "約 2 小時 20 分", "mode": "stay", "note": "座位有限，建議先訂位或分兩批", "book": "建議訂位"}, {"time": "22:30", "end": "22:40", "leg": "El Lequio → 飯店", "dur": "約 5-10 分", "mode": "taxi", "note": "走國際通回去約 20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=El Lequio 那覇 安里&destination=ホテルモントレ ラ・スール那覇&travelmode=driving"}]
             },
             {
                 day: 2,
@@ -1442,9 +1482,9 @@
                         desc: "Outlet 離機場很近，各組依自己的租車安排還車後到機場，搭機節奏不慌亂，為行程劃下完美句點。"
                     }
                 ],
-                groupTip: "退房前確認 11 人的行李和戰利品都塞得進 3 台車。14:00 起飛，各組依自己的租車安排抓好還車時間，建議 11:45 前到機場。Outlet 時間到就集合出發，不要拖。",
+                groupTip: "退房前確認 11 人的行李和戰利品都塞得進 5 台車。14:00 起飛，各組依自己的租車安排抓好還車時間，建議 11:45 前到機場。Outlet 時間到就集合出發，不要拖。",
                 routeTotal: "今日開車合計約 40 分鐘（2 段）＋各組還車",
-                route: [{"time": "08:00", "end": "09:15", "leg": "早餐、整理行李、退房", "dur": "約 1 小時 15 分", "mode": "stay", "note": "行李與戰利品先分配好 3 台車"}, {"time": "09:15", "end": "09:40", "leg": "飯店 → Ashibinaa Outlet", "dur": "約 25 分", "mode": "drive", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=沖縄アウトレットモール あしびなー&travelmode=driving", "park": "Outlet 停車場免費"}, {"time": "09:40", "end": "10:00", "leg": "停車、等 Outlet 開門", "dur": "約 20 分", "mode": "stay", "note": "10:00 開門"}, {"time": "10:00", "end": "11:00", "leg": "Ashibinaa Outlet 購物", "dur": "約 1 小時", "mode": "stay", "note": "11:00 準時在停車場集合；機場也有伴手禮店可補買"}, {"time": "11:00", "end": "11:45", "leg": "Outlet → 各組還車 → 那霸機場", "dur": "約 45 分", "mode": "drive", "note": "依各組自己的租車安排還車", "map": "https://www.google.com/maps/dir/?api=1&origin=沖縄アウトレットモール あしびなー&destination=那覇空港&travelmode=driving"}, {"time": "11:45", "end": "14:00", "leg": "機場報到、托運、出境", "dur": "約 2 小時 15 分", "mode": "stay", "note": "國際線建議起飛前 2 小時完成報到"}, {"time": "14:00", "end": "", "leg": "班機起飛，回台灣", "dur": "", "mode": "flight", "note": ""}]
+                route: [{"time": "08:00", "end": "09:15", "leg": "早餐、整理行李、退房", "dur": "約 1 小時 15 分", "mode": "stay", "note": "行李與戰利品先分配好 5 台車"}, {"time": "09:15", "end": "09:40", "leg": "飯店 → Ashibinaa Outlet", "dur": "約 25 分", "mode": "drive", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=沖縄アウトレットモール あしびなー&travelmode=driving", "park": "Outlet 停車場免費"}, {"time": "09:40", "end": "10:00", "leg": "停車、等 Outlet 開門", "dur": "約 20 分", "mode": "stay", "note": "10:00 開門"}, {"time": "10:00", "end": "11:00", "leg": "Ashibinaa Outlet 購物", "dur": "約 1 小時", "mode": "stay", "note": "11:00 準時在停車場集合；機場也有伴手禮店可補買"}, {"time": "11:00", "end": "11:45", "leg": "Outlet → 各組還車 → 那霸機場", "dur": "約 45 分", "mode": "drive", "note": "依各組自己的租車安排還車", "map": "https://www.google.com/maps/dir/?api=1&origin=沖縄アウトレットモール あしびなー&destination=那覇空港&travelmode=driving"}, {"time": "11:45", "end": "14:00", "leg": "機場報到、托運、出境", "dur": "約 2 小時 15 分", "mode": "stay", "note": "國際線建議起飛前 2 小時完成報到"}, {"time": "14:00", "end": "", "leg": "班機起飛，回台灣", "dur": "", "mode": "flight", "note": ""}]
             }
         ];
 
@@ -1585,7 +1625,7 @@
 
         // Booking checklist
         const bookings = [
-            { id: 'hotelpark', level: '最優先', when: '出發前', name: '飯店停車（3 台車 × 3 晚）', detail: 'Hotel Monterey La Soeur Naha 在國際通旁，先問有沒有車位、要不要預約、每晚費用；沒有的話請飯店推薦附近停車場。', contact: '直接聯絡飯店', link: 'https://www.hotelmonterey.co.jp/lasoeur_naha/' },
+            { id: 'hotelpark', level: '最優先', when: '出發前', name: '飯店停車（5 台車 × 3 晚）', detail: 'Hotel Monterey La Soeur Naha 在國際通旁，先問有沒有車位、要不要預約、每晚費用；沒有的話請飯店推薦附近停車場。', contact: '直接聯絡飯店', link: 'https://www.hotelmonterey.co.jp/lasoeur_naha/' },
             { id: 'dinner1', level: '必訂', when: '出發前 2-4 週', name: 'Day 1 晚餐（11/4 週三）3 選 1', detail: '從 焼肉もとぶ牧場 那覇店（☎ 098-943-3897）、焼肉 琉球の牛 那覇久茂地（☎ 098-987-6700）、海鮮居酒屋 鰓呼吸（☎ 098-868-8388，包廂最多 10 人）選一家，訂 11 人 18:10。', contact: '見 Day 1 景點 2', link: 'https://motobu-farm-naha.foodre.jp/' },
             { id: 'lequio', level: '建議先訂', when: '出發前 1-2 週', name: 'El Lequio 調酒酒吧', detail: 'Day 1 20:10 左右，11 人。店內座位有限，先詢問能否訂位，不行就分兩批入場。營業 19:00-02:00。', contact: '店家 IG／電話詢問', link: 'https://sg-management.jp/establishments/lequio/' },
             { id: 'gorilla', level: '✅ 已預約', booked: true, when: '已完成', name: 'Gorilla Kart（11/5 11:00，8 人）', detail: 'GetYourGuide 已預約：2026/11/5 11:00，8 位成人，約 61 分鐘，10:40 前到久茂地 2-6-12。⚠️ 確認信要求外國駕駛帶「1949 日內瓦公約國際駕照」，請向店家確認台灣駕照 + 日文譯本能不能用。', contact: 'info@gorillakartt.com ‧ ☎ 090-9782-3891', link: 'https://gorillakartt.com/' },
@@ -1668,6 +1708,28 @@
                 const html = placeLinksHTML(h.textContent, hasMaps);
                 if (html) card.insertAdjacentHTML('beforeend', html);
             });
+        }
+
+
+        // Food category filter
+        function setFoodFilter(cat) {
+            document.querySelectorAll('#food .food-group').forEach(g => g.classList.toggle('hidden', cat !== 'all' && g.dataset.cat !== cat));
+            document.querySelectorAll('.food-chip').forEach(c => {
+                const on = c.dataset.f === cat;
+                c.classList.toggle('bg-orange-600', on);
+                c.classList.toggle('text-white', on);
+                c.classList.toggle('border-orange-600', on);
+                c.classList.toggle('bg-white', !on);
+                c.classList.toggle('text-slate-700', !on);
+                c.classList.toggle('border-slate-300', !on);
+            });
+        }
+        // Day card on the first screen -> open that day in the itinerary
+        function goDay(d) {
+            if (location.hash !== '#itinerary') history.pushState(null, '', '#itinerary');
+            showPage('main');
+            filterDay(d);
+            document.getElementById('itinerary').scrollIntoView({ behavior: 'smooth' });
         }
 
         // Render Itinerary Function
@@ -1774,7 +1836,7 @@
             });
         }
 
-        // Chart.js Initialization
+        // Page initialization
         window.addEventListener('DOMContentLoaded', () => {
             // Keep the sticky day tabs right under the sticky header
             const stickTabs = () => {
@@ -1785,44 +1847,11 @@
             window.addEventListener('resize', stickTabs);
             renderBookings();
             decorateStaticCards();
+            setFoodFilter('all');
+            document.getElementById('food-filter-bar').style.top = document.querySelector('header').offsetHeight + 'px';
             filterDay(1);
             syncPageWithHash();
 
-            // 1. Drive Time Chart
-            const driveCtx = document.getElementById('driveTimeChart').getContext('2d');
-            new Chart(driveCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Day 1 (機場→飯店)', 'Day 2 (魚市場)', 'Day 3 (水族館)', 'Day 4 (Outlet)'],
-                    datasets: [{
-                        label: '單趟最長車程 (分鐘)',
-                        data: [25, 15, 90, 25],
-                        backgroundColor: ['#0d9488', '#0284c7', '#f59e0b', '#10b981'],
-                        borderRadius: 8
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return context.raw > 60 ? `最長車程: ${context.raw} 分鐘 (水族館在北部，住那霸必經)` : `最長車程: ${context.raw} 分鐘 (1 小時內)`;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            title: { display: true, text: '車程時間 (分鐘)', font: { size: 11 } }
-                        }
-                    }
-                }
-            });
 
         });
     </script>
