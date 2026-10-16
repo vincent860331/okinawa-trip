@@ -94,33 +94,81 @@
 
         <!-- Section 1: First screen — the whole trip at a glance -->
         <section id="overview" data-page="main" class="space-y-5">
-            <div class="rounded-2xl p-5 text-white shadow-sm" style="background:linear-gradient(135deg,#0f766e,#0284c7)">
+            <!-- Group activities: the first thing everyone sees -->
+            <div class="rounded-2xl border-4 border-amber-400 bg-amber-100 p-3 shadow-md" id="group-activities">
+                <div class="flex items-center justify-between gap-2">
+                    <h2 class="text-lg font-black text-amber-950 leading-tight">📌 全員一起的活動</h2>
+                    <span class="text-[11px] font-bold text-amber-900">卡丁車・水族館・吃飯</span>
+                </div>
+                <p class="text-[11px] text-amber-900 mb-2">這些時間大家一定要到，其他時間自由活動。Day 4 自由購物後各自還車、14:00 起飛。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div>
+                    <div class="text-xs font-black text-white inline-block px-2 py-0.5 rounded-md mb-1" style="background:#0d9488">Day 1 ‧ 11/4（三）</div>
+                    <ul class="space-y-1">
+                        <li class="flex items-center gap-2 bg-white rounded-lg px-2 py-1.5">
+                            <span class="font-mono font-black text-xs w-11 shrink-0 text-slate-700">15:00</span>
+                            <span class="flex-1 text-sm font-bold text-slate-800 leading-tight">🐟 牧志市場 午餐</span>
+                            <span class="shrink-0 text-[10px] font-black px-1.5 py-0.5 rounded bg-slate-200 text-slate-700">不用訂</span>
+                        </li>
+                        <li class="flex items-center gap-2 bg-white rounded-lg px-2 py-1.5">
+                            <span class="font-mono font-black text-xs w-11 shrink-0 text-slate-700">18:10</span>
+                            <span class="flex-1 text-sm font-bold text-slate-800 leading-tight">🥩 晚餐 3 選 1（燒肉／海鮮）</span>
+                            <span class="shrink-0 text-[10px] font-black px-1.5 py-0.5 rounded bg-rose-600 text-white">待訂位</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="text-xs font-black text-white inline-block px-2 py-0.5 rounded-md mb-1" style="background:#0284c7">Day 2 ‧ 11/5（四）</div>
+                    <ul class="space-y-1">
+                        <li class="flex items-center gap-2 bg-white rounded-lg px-2 py-1.5">
+                            <span class="font-mono font-black text-xs w-11 shrink-0 text-slate-700">10:40</span>
+                            <span class="flex-1 text-sm font-bold text-slate-800 leading-tight">🏎️ Gorilla 卡丁車（集合）</span>
+                            <span class="shrink-0 text-[10px] font-black px-1.5 py-0.5 rounded bg-emerald-600 text-white">✅ 已訂</span>
+                        </li>
+                        <li class="flex items-center gap-2 bg-white rounded-lg px-2 py-1.5">
+                            <span class="font-mono font-black text-xs w-11 shrink-0 text-slate-700">12:25</span>
+                            <span class="flex-1 text-sm font-bold text-slate-800 leading-tight">🐟 泊港魚市場 午餐</span>
+                            <span class="shrink-0 text-[10px] font-black px-1.5 py-0.5 rounded bg-slate-200 text-slate-700">不用訂</span>
+                        </li>
+                        <li class="flex items-center gap-2 bg-white rounded-lg px-2 py-1.5">
+                            <span class="font-mono font-black text-xs w-11 shrink-0 text-slate-700">19:10</span>
+                            <span class="flex-1 text-sm font-bold text-slate-800 leading-tight">🔥 琉苑 燒肉吃到飽</span>
+                            <span class="shrink-0 text-[10px] font-black px-1.5 py-0.5 rounded bg-emerald-600 text-white">✅ 已訂</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="text-xs font-black text-white inline-block px-2 py-0.5 rounded-md mb-1" style="background:#f59e0b">Day 3 ‧ 11/6（五）</div>
+                    <ul class="space-y-1">
+                        <li class="flex items-center gap-2 bg-white rounded-lg px-2 py-1.5">
+                            <span class="font-mono font-black text-xs w-11 shrink-0 text-slate-700">08:30</span>
+                            <span class="flex-1 text-sm font-bold text-slate-800 leading-tight">🐋 出發去美麗海水族館</span>
+                            <span class="shrink-0 text-[10px] font-black px-1.5 py-0.5 rounded bg-amber-500 text-white">門票待買</span>
+                        </li>
+                        <li class="flex items-center gap-2 bg-white rounded-lg px-2 py-1.5">
+                            <span class="font-mono font-black text-xs w-11 shrink-0 text-slate-700">13:15</span>
+                            <span class="flex-1 text-sm font-bold text-slate-800 leading-tight">🍜 本部町 沖繩麵 午餐</span>
+                            <span class="shrink-0 text-[10px] font-black px-1.5 py-0.5 rounded bg-slate-200 text-slate-700">不用訂</span>
+                        </li>
+                        <li class="flex items-center gap-2 bg-white rounded-lg px-2 py-1.5">
+                            <span class="font-mono font-black text-xs w-11 shrink-0 text-slate-700">20:00</span>
+                            <span class="flex-1 text-sm font-bold text-slate-800 leading-tight">🍜 ちゃんや 拉麵 晚餐</span>
+                            <span class="shrink-0 text-[10px] font-black px-1.5 py-0.5 rounded bg-slate-200 text-slate-700">不用訂</span>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <div class="rounded-2xl p-4 text-white shadow-sm" style="background:linear-gradient(135deg,#0f766e,#0284c7)">
                 <div class="text-xs font-semibold opacity-90">沖繩 4 天 3 夜 ‧ 同事旅遊</div>
-                <div class="text-2xl font-black mt-1 leading-tight">11/4（三）→ 11/7（六）</div>
-                <div class="flex flex-wrap gap-1.5 mt-3 text-xs font-semibold">
+                <div class="text-xl font-black mt-0.5 leading-tight">11/4（三）→ 11/7（六）</div>
+                <div class="flex flex-wrap gap-1.5 mt-2 text-xs font-semibold">
                     <span class="bg-white/20 px-2 py-1 rounded-full">👥 11 人</span>
                     <span class="bg-white/20 px-2 py-1 rounded-full">🚗 自駕 5 台車</span>
                     <span class="bg-white/20 px-2 py-1 rounded-full">🏨 Hotel Monterey La Soeur Naha（國際通旁）</span>
                     <span class="bg-white/20 px-2 py-1 rounded-full">✈️ 去程 12:30 抵達 ‧ 回程 14:00 起飛</span>
                 </div>
-            </div>
-
-            <div class="rounded-2xl border-4 border-amber-400 bg-amber-50 p-4">
-                <h2 class="text-lg font-black text-amber-900">👥 全員團體活動（一定要到）</h2>
-                <ul class="mt-2 space-y-2 text-sm">
-                    <li class="flex gap-2 items-start bg-white rounded-xl p-2.5 border border-amber-200">
-                        <span class="shrink-0 bg-sky-600 text-white text-xs font-black px-2 py-0.5 rounded">11/5 四</span>
-                        <div><b>🏎️ Gorilla Kart 公路卡丁車</b> <span class="text-xs font-bold text-emerald-700">✅ 已訂位</span><br><span class="text-xs text-slate-600">11:00 開始，<b>10:40 前</b>到久茂地 2-6-12 集合（8 人開，其他人可陪同）</span></div>
-                    </li>
-                    <li class="flex gap-2 items-start bg-white rounded-xl p-2.5 border border-amber-200">
-                        <span class="shrink-0 bg-sky-600 text-white text-xs font-black px-2 py-0.5 rounded">11/5 四</span>
-                        <div><b>🔥 琉苑 黑毛和牛燒肉吃到飽</b> <span class="text-xs font-bold text-emerald-700">✅ 已訂位</span><br><span class="text-xs text-slate-600"><b>19:10</b> 入座，飯店旁（松尾 1-3-1 2F）</span></div>
-                    </li>
-                    <li class="flex gap-2 items-start bg-white rounded-xl p-2.5 border border-amber-200">
-                        <span class="shrink-0 bg-amber-500 text-white text-xs font-black px-2 py-0.5 rounded">11/6 五</span>
-                        <div><b>🐋 沖繩美麗海水族館</b> <span class="text-xs font-bold text-amber-700">🎫 門票待買</span><br><span class="text-xs text-slate-600"><b>08:30</b> 飯店出發，10:00 入館，12:50 出口集合</span></div>
-                    </li>
-                </ul>
             </div>
 
             <div id="top-menu">
@@ -177,7 +225,7 @@
                         <span class="text-xs font-semibold text-slate-500">11/4（三）</span>
                     </div>
                     <div class="font-bold text-slate-800 mt-1.5">抵達・市場・燒肉夜</div>
-                    <ul class="text-xs text-slate-600 mt-1 space-y-0.5"><li>12:30 抵達那霸、各組取車</li><li>🐟 牧志市場吃海鮮（遲午餐）</li><li>🥩 晚餐燒肉／海鮮 3 選 1</li><li>🍸 El Lequio 調酒續攤</li></ul>
+                    <ul class="text-xs text-slate-600 mt-1 space-y-0.5"><li>12:30 抵達那霸、各組取車</li><li class="font-bold text-amber-800 bg-amber-100 rounded px-1">📌 🐟 15:00 牧志市場午餐</li><li class="font-bold text-amber-800 bg-amber-100 rounded px-1">📌 🥩 18:10 晚餐 3 選 1（待訂）</li><li>🍸 El Lequio 調酒續攤</li></ul>
                     <div class="text-xs font-bold mt-2" style="color:#0d9488">看詳細時間表與地圖 →</div>
                 </button>
                 <button type="button" onclick="goDay(2)" class="text-left p-4 rounded-2xl border-2 bg-white hover:shadow-md transition" style="border-color:#0284c7">
@@ -186,7 +234,7 @@
                         <span class="text-xs font-semibold text-slate-500">11/5（四）</span>
                     </div>
                     <div class="font-bold text-slate-800 mt-1.5">卡丁車・魚市場・燒肉吃到飽</div>
-                    <ul class="text-xs text-slate-600 mt-1 space-y-0.5"><li class="font-bold text-amber-800 bg-amber-100 rounded px-1">👥 🏎️ 11:00 Gorilla 卡丁車 ✅已訂</li><li>🐟 泊港魚市場午餐</li><li>🌅 波之上海灘夕陽小酌</li><li class="font-bold text-amber-800 bg-amber-100 rounded px-1">👥 🔥 19:10 琉苑燒肉吃到飽 ✅已訂</li></ul>
+                    <ul class="text-xs text-slate-600 mt-1 space-y-0.5"><li class="font-bold text-amber-800 bg-amber-100 rounded px-1">📌 🏎️ 11:00 Gorilla 卡丁車 ✅已訂</li><li class="font-bold text-amber-800 bg-amber-100 rounded px-1">📌 🐟 12:25 泊港魚市場午餐</li><li>🌅 波之上海灘夕陽小酌</li><li class="font-bold text-amber-800 bg-amber-100 rounded px-1">📌 🔥 19:10 琉苑燒肉吃到飽 ✅已訂</li></ul>
                     <div class="text-xs font-bold mt-2" style="color:#0284c7">看詳細時間表與地圖 →</div>
                 </button>
                 <button type="button" onclick="goDay(3)" class="text-left p-4 rounded-2xl border-2 bg-white hover:shadow-md transition" style="border-color:#f59e0b">
@@ -195,7 +243,7 @@
                         <span class="text-xs font-semibold text-slate-500">11/6（五）</span>
                     </div>
                     <div class="font-bold text-slate-800 mt-1.5">美麗海水族館</div>
-                    <ul class="text-xs text-slate-600 mt-1 space-y-0.5"><li>🚗 開車到水族館（約 1.5 小時）</li><li class="font-bold text-amber-800 bg-amber-100 rounded px-1">👥 🐋 美麗海水族館 10:00 入館</li><li>🍜 本部午餐、晚上ちゃんや拉麵</li></ul>
+                    <ul class="text-xs text-slate-600 mt-1 space-y-0.5"><li>🚗 開車到水族館（約 1.5 小時）</li><li class="font-bold text-amber-800 bg-amber-100 rounded px-1">📌 🐋 美麗海水族館 10:00 入館</li><li class="font-bold text-amber-800 bg-amber-100 rounded px-1">📌 🍜 本部午餐、20:00 ちゃんや拉麵</li></ul>
                     <div class="text-xs font-bold mt-2" style="color:#f59e0b">看詳細時間表與地圖 →</div>
                 </button>
                 <button type="button" onclick="goDay(4)" class="text-left p-4 rounded-2xl border-2 bg-white hover:shadow-md transition" style="border-color:#e11d48">
@@ -1405,12 +1453,14 @@
                 spots: [
                     {
                         name: "第一牧志公設市場（遲午餐）",
+                        group: "🍽️ 全員午餐 ‧ 11/4 15:00 ‧ 不用訂位",
                         tag: "海鮮市場 / 代客料理 / 國際通",
                         drive: "飯店停好車、放好行李後步行約 10 分鐘",
                         desc: "那霸的廚房。1 樓海鮮攤挑龍蝦、夜光貝、生魚片、沖繩魚，拿到 2 樓食堂代客料理（另收料理費），11 人可以點一大桌一起吃當第一餐。逛完順便看國際通、買伴手禮，再走回飯店休息。營業時間依店家不同，部分日子公休，出發前確認。"
                     },
                     {
                         name: "Day 1 晚餐 3 選 1（燒肉／海鮮）",
+                        group: "🍽️ 全員晚餐 ‧ 11/4 18:10 ‧ ⚠️ 待訂位",
                         tag: "晚餐 / 3 選 1 / 走路 5-10 分",
                         drive: "飯店步行約 5-10 分鐘",
                         desc: "11/4 是週三（原本的 ぶち 週三公休），晚餐從這 3 家選 1 家訂位，都在飯店走路 5-10 分鐘、週三有營業：<ul class=\"mt-1 space-y-1 list-disc list-inside\"><li><b>焼肉もとぶ牧場 那覇店</b>（本部牛燒肉，久茂地 2-1-3 3F，17:00-22:00，不定休，☎ 098-943-3897） <a href='https://www.google.com/maps/search/?api=1&query=%E7%84%BC%E8%82%89%E3%82%82%E3%81%A8%E3%81%B6%E7%89%A7%E5%A0%B4%20%E9%82%A3%E8%A6%87%E5%BA%97' target='_blank' rel='noopener' class='text-blue-700 underline'>📍地圖</a> <a href='https://motobu-farm-naha.foodre.jp/' target='_blank' rel='noopener' class='text-slate-700 underline'>🌐官網</a> <a href='https://www.instagram.com/explore/tags/%E3%82%82%E3%81%A8%E3%81%B6%E7%89%A7%E5%A0%B4/' target='_blank' rel='noopener' class='text-pink-700 underline'>📸IG</a></li><li><b>焼肉 琉球の牛 那覇久茂地</b>（沖繩縣產和牛，久茂地 3-16-1，16:30-23:00，無公休，☎ 098-987-6700） <a href='https://www.google.com/maps/search/?api=1&query=%E7%84%BC%E8%82%89%20%E7%90%89%E7%90%83%E3%81%AE%E7%89%9B%20%E9%82%A3%E8%A6%87%E4%B9%85%E8%8C%82%E5%9C%B0' target='_blank' rel='noopener' class='text-blue-700 underline'>📍地圖</a> <a href='https://www.u-shi.net/kumoji.html' target='_blank' rel='noopener' class='text-slate-700 underline'>🌐官網</a> <a href='https://www.instagram.com/explore/tags/%E7%90%89%E7%90%83%E3%81%AE%E7%89%9B/' target='_blank' rel='noopener' class='text-pink-700 underline'>📸IG</a></li><li><b>海鮮居酒屋 鰓呼吸 那覇久茂地店</b>（漁港直送生魚片，久茂地 2-6-16，17:00-23:45，無公休，☎ 098-868-8388；包廂最多 10 人） <a href='https://www.google.com/maps/search/?api=1&query=%E9%B0%93%E5%91%BC%E5%90%B8%20%E9%82%A3%E8%A6%87%E4%B9%85%E8%8C%82%E5%9C%B0%E5%BA%97' target='_blank' rel='noopener' class='text-blue-700 underline'>📍地圖</a> <a href='https://kumoji-erakokyuu.com/' target='_blank' rel='noopener' class='text-slate-700 underline'>🌐官網</a> <a href='https://www.instagram.com/explore/tags/%E9%B0%93%E5%91%BC%E5%90%B8/' target='_blank' rel='noopener' class='text-pink-700 underline'>📸IG</a></li></ul>其他店家在下方「燒肉海鮮」清單自由選。"
@@ -1424,7 +1474,7 @@
                 ],
                 groupTip: "12:30 抵達後約 13:00 出機場，各組依自己的租車安排取車，再開回那霸飯店停車、寄放行李，走路去牧志市場吃遲午餐（飛機上可先吃點東西）。11 人分 5 台車，先在 LINE 群組設好導航。晚餐 3 選 1，選好盡快訂 11 人。晚上會喝酒，燒肉和酒吧都走路或搭計程車，車子停飯店不開。隔天（11/5）11:00 要開卡丁車上路，今晚請少喝、早點回飯店。",
                 routeTotal: "今日開車只有 1 段約 20-25 分鐘（機場一帶 → 飯店），之後全程步行/計程車",
-                route: [{"time": "12:30", "end": "13:00", "leg": "抵達那霸機場，入境、領行李", "dur": "約 30 分", "mode": "stay", "note": "11 人在入境大廳集合"}, {"time": "13:00", "end": "14:15", "leg": "各組取車", "dur": "約 1 小時", "mode": "stay", "note": "依各組自己的租車安排；分好 5 台車、放行李、設好導航群組"}, {"time": "14:15", "end": "14:40", "leg": "機場一帶 → Hotel Monterey La Soeur Naha", "dur": "約 20-25 分", "mode": "drive", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=那覇空港&destination=ホテルモントレ ラ・スール那覇&travelmode=driving", "park": "飯店停車方式與費用請事先向飯店確認；停好後今天車子都不再開"}, {"time": "14:40", "end": "14:50", "leg": "飯店停車、寄放行李（或 check-in）", "dur": "約 10 分", "mode": "stay", "note": "check-in 時間未到可以先寄放行李"}, {"time": "14:50", "end": "15:00", "leg": "飯店 → 第一牧志公設市場", "dur": "約 10 分", "mode": "walk", "note": "沿國際通走過去", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=第一牧志公設市場&travelmode=walking"}, {"time": "15:00", "end": "16:30", "leg": "牧志市場：1 樓挑海鮮、2 樓代客料理遲午餐", "dur": "約 1.5 小時", "mode": "stay", "note": "生魚片、龍蝦、夜光貝、沖繩魚；吃完逛國際通、買伴手禮"}, {"time": "16:30", "end": "18:00", "leg": "走回飯店 check-in、休息", "dur": "約 1.5 小時", "mode": "walk", "note": "步行約 10 分，回房間休息、洗澡換衣服", "map": "https://www.google.com/maps/dir/?api=1&origin=第一牧志公設市場&destination=ホテルモントレ ラ・スール那覇&travelmode=walking"}, {"time": "18:00", "end": "18:10", "leg": "飯店 → 晚餐（3 選 1）", "dur": "約 5-10 分", "mode": "walk", "note": "もとぶ牧場 / 琉球の牛 / 鰓呼吸 都在久茂地"}, {"time": "18:10", "end": "20:00", "leg": "晚餐：燒肉或海鮮（3 選 1）", "dur": "約 2 小時", "mode": "stay", "note": "11/4 週三；選好盡快訂 11 人", "book": "需預約"}, {"time": "20:00", "end": "20:10", "leg": "晚餐 → El Lequio", "dur": "約 5-10 分", "mode": "taxi", "note": "叫 3 台計程車，或走 15-20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=那覇 久茂地&destination=El Lequio 那覇 安里&travelmode=driving"}, {"time": "20:10", "end": "22:30", "leg": "El Lequio：調酒續攤", "dur": "約 2 小時 20 分", "mode": "stay", "note": "座位有限，建議先訂位或分兩批", "book": "建議訂位"}, {"time": "22:30", "end": "22:40", "leg": "El Lequio → 飯店", "dur": "約 5-10 分", "mode": "taxi", "note": "走國際通回去約 20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=El Lequio 那覇 安里&destination=ホテルモントレ ラ・スール那覇&travelmode=driving"}]
+                route: [{"time": "12:30", "end": "13:00", "leg": "抵達那霸機場，入境、領行李", "dur": "約 30 分", "mode": "stay", "note": "11 人在入境大廳集合"}, {"time": "13:00", "end": "14:15", "leg": "各組取車", "dur": "約 1 小時", "mode": "stay", "note": "依各組自己的租車安排；分好 5 台車、放行李、設好導航群組"}, {"time": "14:15", "end": "14:40", "leg": "機場一帶 → Hotel Monterey La Soeur Naha", "dur": "約 20-25 分", "mode": "drive", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=那覇空港&destination=ホテルモントレ ラ・スール那覇&travelmode=driving", "park": "飯店停車方式與費用請事先向飯店確認；停好後今天車子都不再開"}, {"time": "14:40", "end": "14:50", "leg": "飯店停車、寄放行李（或 check-in）", "dur": "約 10 分", "mode": "stay", "note": "check-in 時間未到可以先寄放行李"}, {"time": "14:50", "end": "15:00", "leg": "飯店 → 第一牧志公設市場", "dur": "約 10 分", "mode": "walk", "note": "沿國際通走過去", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=第一牧志公設市場&travelmode=walking"}, {"time": "15:00", "end": "16:30", "leg": "牧志市場：1 樓挑海鮮、2 樓代客料理遲午餐", "dur": "約 1.5 小時", "mode": "stay", "note": "生魚片、龍蝦、夜光貝、沖繩魚；吃完逛國際通、買伴手禮", "group": "🍽️ 午餐"}, {"time": "16:30", "end": "18:00", "leg": "走回飯店 check-in、休息", "dur": "約 1.5 小時", "mode": "walk", "note": "步行約 10 分，回房間休息、洗澡換衣服", "map": "https://www.google.com/maps/dir/?api=1&origin=第一牧志公設市場&destination=ホテルモントレ ラ・スール那覇&travelmode=walking"}, {"time": "18:00", "end": "18:10", "leg": "飯店 → 晚餐（3 選 1）", "dur": "約 5-10 分", "mode": "walk", "note": "もとぶ牧場 / 琉球の牛 / 鰓呼吸 都在久茂地"}, {"time": "18:10", "end": "20:00", "leg": "晚餐：燒肉或海鮮（3 選 1）", "dur": "約 2 小時", "mode": "stay", "note": "11/4 週三；選好盡快訂 11 人", "group": "🍽️ 晚餐 ‧ ⚠️ 待訂位"}, {"time": "20:00", "end": "20:10", "leg": "晚餐 → El Lequio", "dur": "約 5-10 分", "mode": "taxi", "note": "叫 3 台計程車，或走 15-20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=那覇 久茂地&destination=El Lequio 那覇 安里&travelmode=driving"}, {"time": "20:10", "end": "22:30", "leg": "El Lequio：調酒續攤", "dur": "約 2 小時 20 分", "mode": "stay", "note": "座位有限，建議先訂位或分兩批", "book": "建議訂位"}, {"time": "22:30", "end": "22:40", "leg": "El Lequio → 飯店", "dur": "約 5-10 分", "mode": "taxi", "note": "走國際通回去約 20 分鐘", "map": "https://www.google.com/maps/dir/?api=1&origin=El Lequio 那覇 安里&destination=ホテルモントレ ラ・スール那覇&travelmode=driving"}]
             },
             {
                 day: 2,
@@ -1440,6 +1490,7 @@
                     },
                     {
                         name: "泊いゆまち（泊港漁市場）午餐",
+                        group: "🍽️ 全員午餐 ‧ 11/5 12:25 ‧ 不用訂位",
                         tag: "魚市場 / 現切鮪魚 / 生魚片",
                         drive: "卡丁車後回飯店取車，開車約 10-15 分",
                         desc: "那霸最大的魚市場（港町 1-1-18），約 24 間攤販，現切鮪魚生魚片、盒裝生魚片、海鮮丼價格約市區一半。買好可以在門口大桌直接吃，也有食堂（約 9:00-15:00）。<strong>過中午貨會變少，卡丁車結束就直接過去。</strong>"
@@ -1452,7 +1503,7 @@
                     },
                     {
                         name: "琉苑 國際通店（黑毛和牛燒肉吃到飽）",
-                        group: "✅ 已訂位 ‧ 11/5 19:10",
+                        group: "🍽️ 全員晚餐 ‧ 11/5 19:10 ‧ ✅ 已訂位",
                         tag: "晚餐 / 燒肉吃到飽 / 黑毛和牛",
                         drive: "✅ 已預約 ‧ 海灘走回約 20-25 分 ‧ 就在飯店同一個街區",
                         desc: "松尾 1-3-1 エスプリコート 2F，飯店走路 2-3 分。店家精選黑毛和牛燒肉吃到飽 100 分鐘（約 ¥5,478 起，也有吃喝到飽方案），17:00-23:00，不定休。11 人一定要先訂位並確認能坐一起。吃完走路就回飯店。"
@@ -1460,7 +1511,7 @@
                 ],
                 groupTip: "卡丁車已預約 8 人（11/5 11:00），其他 3 位可以在附近國際通逛街或一起去看。⚠️ 預約確認信備註：外國駕駛必須攜帶 1949 年《日內瓦公約》核發的有效國際駕照；台灣不是該公約成員，台灣駕照 + 日文譯本是否被接受，請盡快用 GetYourGuide 或 Email（info@gorillakartt.com）向店家確認，避免當天不能開。卡丁車是上路駕駛，前一晚（Day 1）一定要節制，當天早上不能有酒精。穿包鞋、方便活動的衣服。",
                 routeTotal: "只有午餐開車去魚市場（來回各約 10-15 分），其他全部走路",
-                route: [{"time": "08:30", "end": "10:30", "leg": "早餐、慢慢準備", "dur": "約 2 小時", "mode": "stay", "note": "帶台灣駕照正本 + 日文譯本 + 護照（國際駕照規定請先跟店家確認）；穿包鞋"}, {"time": "10:30", "end": "10:40", "leg": "飯店 → Gorilla Kart Okinawa", "dur": "約 10 分", "mode": "walk", "note": "久茂地 2-6-12，貨櫃辦公室，找 Gorilla Kart 標誌", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=Gorilla Kart Okinawa 那覇 久茂地&travelmode=walking"}, {"time": "10:40", "end": "11:00", "leg": "報到、驗駕照、換裝、行前說明", "dur": "約 20 分", "mode": "stay", "note": "確認信要求 10:40 前到", "group": "✅ 已訂位"}, {"time": "11:00", "end": "12:00", "leg": "Gorilla Kart：公路卡丁車（約 61 分鐘）", "dur": "約 1 小時", "mode": "stay", "note": "8 人；結束後回到出發地", "group": "✅ 已訂位"}, {"time": "12:00", "end": "12:10", "leg": "Gorilla Kart → 飯店取車", "dur": "約 10 分", "mode": "walk", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=Gorilla Kart Okinawa 那覇 久茂地&destination=ホテルモントレ ラ・スール那覇&travelmode=walking"}, {"time": "12:10", "end": "12:25", "leg": "飯店 → 泊いゆまち（泊港漁市場）", "dur": "約 10-15 分", "mode": "drive", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=泊いゆまち&travelmode=driving", "park": "市場有停車場"}, {"time": "12:25", "end": "13:30", "leg": "泊港漁市場：現切鮪魚、生魚片、海鮮丼午餐", "dur": "約 1 小時 15 分", "mode": "stay", "note": "攤販買了在門口大桌吃，或去食堂（約 9:00-15:00）；過中午貨變少，越早到越好"}, {"time": "13:30", "end": "13:45", "leg": "泊港漁市場 → 飯店", "dur": "約 10-15 分", "mode": "drive", "note": "開回飯店停好，晚上要喝酒，車子不再開", "map": "https://www.google.com/maps/dir/?api=1&origin=泊いゆまち&destination=ホテルモントレ ラ・スール那覇&travelmode=driving"}, {"time": "13:45", "end": "17:00", "leg": "下午自由活動", "dur": "約 3 小時", "mode": "stay", "note": "分組去「隨機想去」清單：やちむん通り、牧志市場…；想休息的回飯店"}, {"time": "17:00", "end": "17:25", "leg": "飯店 → 便利商店買酒 → 波之上海灘", "dur": "約 20-25 分", "mode": "walk", "note": "路上的便利商店先買啤酒、Orion、氣泡酒和下酒菜；記得帶垃圾袋", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=波の上ビーチ&travelmode=walking"}, {"time": "17:25", "end": "18:45", "leg": "波之上海灘：看夕陽、散步小酌", "dur": "約 1 小時 20 分", "mode": "stay", "note": "那霸市區唯一的海灘，面西看夕陽；上面就是波上宮。不能放煙火、烤肉；喝酒後別下水；垃圾帶走"}, {"time": "18:45", "end": "19:10", "leg": "波之上海灘 → 琉苑 國際通店", "dur": "約 20-25 分", "mode": "walk", "note": "琉苑就在飯店同一個街區", "map": "https://www.google.com/maps/dir/?api=1&origin=波の上ビーチ&destination=琉苑 国際通り店&travelmode=walking"}, {"time": "19:10", "end": "20:50", "leg": "琉苑：黑毛和牛燒肉吃到飽", "dur": "100 分鐘", "mode": "stay", "note": "✅ 已預約；黑毛和牛燒肉吃到飽 100 分鐘", "group": "✅ 已訂位"}, {"time": "20:50", "end": "20:55", "leg": "琉苑 → 飯店", "dur": "約 2-3 分", "mode": "walk", "note": "想續攤可以去夜生活頁的酒吧、卡拉 OK 或民謠居酒屋"}]
+                route: [{"time": "08:30", "end": "10:30", "leg": "早餐、慢慢準備", "dur": "約 2 小時", "mode": "stay", "note": "帶台灣駕照正本 + 日文譯本 + 護照（國際駕照規定請先跟店家確認）；穿包鞋"}, {"time": "10:30", "end": "10:40", "leg": "飯店 → Gorilla Kart Okinawa", "dur": "約 10 分", "mode": "walk", "note": "久茂地 2-6-12，貨櫃辦公室，找 Gorilla Kart 標誌", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=Gorilla Kart Okinawa 那覇 久茂地&travelmode=walking"}, {"time": "10:40", "end": "11:00", "leg": "報到、驗駕照、換裝、行前說明", "dur": "約 20 分", "mode": "stay", "note": "確認信要求 10:40 前到", "group": "✅ 已訂位"}, {"time": "11:00", "end": "12:00", "leg": "Gorilla Kart：公路卡丁車（約 61 分鐘）", "dur": "約 1 小時", "mode": "stay", "note": "8 人；結束後回到出發地", "group": "✅ 已訂位"}, {"time": "12:00", "end": "12:10", "leg": "Gorilla Kart → 飯店取車", "dur": "約 10 分", "mode": "walk", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=Gorilla Kart Okinawa 那覇 久茂地&destination=ホテルモントレ ラ・スール那覇&travelmode=walking"}, {"time": "12:10", "end": "12:25", "leg": "飯店 → 泊いゆまち（泊港漁市場）", "dur": "約 10-15 分", "mode": "drive", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=泊いゆまち&travelmode=driving", "park": "市場有停車場"}, {"time": "12:25", "end": "13:30", "leg": "泊港漁市場：現切鮪魚、生魚片、海鮮丼午餐", "dur": "約 1 小時 15 分", "mode": "stay", "note": "攤販買了在門口大桌吃，或去食堂（約 9:00-15:00）；過中午貨變少，越早到越好", "group": "🍽️ 午餐"}, {"time": "13:30", "end": "13:45", "leg": "泊港漁市場 → 飯店", "dur": "約 10-15 分", "mode": "drive", "note": "開回飯店停好，晚上要喝酒，車子不再開", "map": "https://www.google.com/maps/dir/?api=1&origin=泊いゆまち&destination=ホテルモントレ ラ・スール那覇&travelmode=driving"}, {"time": "13:45", "end": "17:00", "leg": "下午自由活動", "dur": "約 3 小時", "mode": "stay", "note": "分組去「隨機想去」清單：やちむん通り、牧志市場…；想休息的回飯店"}, {"time": "17:00", "end": "17:25", "leg": "飯店 → 便利商店買酒 → 波之上海灘", "dur": "約 20-25 分", "mode": "walk", "note": "路上的便利商店先買啤酒、Orion、氣泡酒和下酒菜；記得帶垃圾袋", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=波の上ビーチ&travelmode=walking"}, {"time": "17:25", "end": "18:45", "leg": "波之上海灘：看夕陽、散步小酌", "dur": "約 1 小時 20 分", "mode": "stay", "note": "那霸市區唯一的海灘，面西看夕陽；上面就是波上宮。不能放煙火、烤肉；喝酒後別下水；垃圾帶走"}, {"time": "18:45", "end": "19:10", "leg": "波之上海灘 → 琉苑 國際通店", "dur": "約 20-25 分", "mode": "walk", "note": "琉苑就在飯店同一個街區", "map": "https://www.google.com/maps/dir/?api=1&origin=波の上ビーチ&destination=琉苑 国際通り店&travelmode=walking"}, {"time": "19:10", "end": "20:50", "leg": "琉苑：黑毛和牛燒肉吃到飽", "dur": "100 分鐘", "mode": "stay", "note": "✅ 已預約；黑毛和牛燒肉吃到飽 100 分鐘", "group": "🍽️ 晚餐 ‧ ✅ 已訂位"}, {"time": "20:50", "end": "20:55", "leg": "琉苑 → 飯店", "dur": "約 2-3 分", "mode": "walk", "note": "想續攤可以去夜生活頁的酒吧、卡拉 OK 或民謠居酒屋"}]
             },
             {
                 day: 3,
@@ -1476,6 +1527,7 @@
                     },
                     {
                         name: "ラーメン ちゃんや (Ramen Chanya)",
+                        group: "🍽️ 全員晚餐 ‧ 11/6 20:00 ‧ 不用訂位（18 席）",
                         tag: "晚餐 / 味噌拉麵 / 國際通",
                         drive: "飯店步行約 10 分鐘",
                         desc: "北海道出身老闆開的拉麵店，招牌是 Q 彈雞蛋麵配味噌拉麵，也有沖繩麵與煎餃（那霸市牧志 1-2-30，國際通中段、雜貨店裡面，找門口的暖簾）。營業約 19:30-02:00（週五六 20:00-05:00），週日公休；11/6 是週五，20:00 開門。全店只有 18 席，11 人建議開門就到或分兩批。"
@@ -1483,7 +1535,7 @@
                 ],
                 groupTip: "今天只有水族館一個大行程，來回各約 1.5 小時高速公路，各車駕駛記得在休息站休息或換手。水族館門票先在網路買好，入館後各自逛、12:50 在出口集合。11/6 是週五，ちゃんや 20:00 才開門。",
                 routeTotal: "今日開車合計約 3 小時 15 分（3 段，高速公路來回），晚餐步行",
-                route: [{"time": "07:30", "end": "08:30", "leg": "早餐、整理出發", "dur": "約 1 小時", "mode": "stay", "note": "飯店附近早餐或便利商店，準備水和零食"}, {"time": "08:30", "end": "10:00", "leg": "飯店 → 沖繩美麗海水族館", "dur": "約 1 小時 30 分", "mode": "drive", "note": "中途可在休息站換手", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=沖縄美ら海水族館&travelmode=driving", "road": "那霸 IC → 沖繩自動車道 → 許田 IC → 國道 58/449 號，需付過路費（現金或 ETC 卡）", "park": "海洋博公園停車場免費，P7 最靠近水族館"}, {"time": "10:00", "end": "13:00", "leg": "美麗海水族館 & 翡翠海灘", "dur": "約 3 小時", "mode": "stay", "note": "黑潮之海、海豚秀（戶外免費）、海灘散步；入館後各自逛，12:50 出口集合", "group": "🎫 門票待買"}, {"time": "13:00", "end": "13:15", "leg": "水族館 → 本部町午餐", "dur": "約 10-15 分", "mode": "drive", "note": "例如岸本食堂等老字號沖繩麵店，或水族館旁的海邦丸", "map": "https://www.google.com/maps/dir/?api=1&origin=沖縄美ら海水族館&destination=岸本食堂 本部&travelmode=driving"}, {"time": "13:15", "end": "14:15", "leg": "本部町：沖繩麵午餐", "dur": "約 1 小時", "mode": "stay", "note": ""}, {"time": "14:15", "end": "15:45", "leg": "本部町 → 飯店", "dur": "約 1 小時 30 分", "mode": "drive", "note": "許田 IC 上高速 → 那霸 IC", "map": "https://www.google.com/maps/dir/?api=1&origin=岸本食堂 本部&destination=ホテルモントレ ラ・スール那覇&travelmode=driving", "road": "國道 449/58 號 → 許田 IC → 沖繩自動車道 → 那霸 IC，需付過路費（現金或 ETC 卡）"}, {"time": "15:45", "end": "19:50", "leg": "飯店休息、自由時間", "dur": "約 3 小時", "mode": "stay", "note": "可以參考「隨機想去」清單：牧志市場、やちむん通り、波上宮"}, {"time": "19:50", "end": "20:00", "leg": "飯店 → ラーメン ちゃんや", "dur": "約 10 分", "mode": "walk", "note": "11/6 是週五，ちゃんや週五 20:00 才開門", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=ラーメン ちゃんや 那覇 牧志&travelmode=walking"}, {"time": "20:00", "end": "21:15", "leg": "ちゃんや：味噌拉麵晚餐", "dur": "約 1 小時 20 分", "mode": "stay", "note": "只有 18 席，開門就到或分兩批；週日公休"}, {"time": "21:15", "end": "21:25", "leg": "ちゃんや → 飯店", "dur": "約 10 分", "mode": "walk", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=ラーメン ちゃんや 那覇 牧志&destination=ホテルモントレ ラ・スール那覇&travelmode=walking"}]
+                route: [{"time": "07:30", "end": "08:30", "leg": "早餐、整理出發", "dur": "約 1 小時", "mode": "stay", "note": "飯店附近早餐或便利商店，準備水和零食"}, {"time": "08:30", "end": "10:00", "leg": "飯店 → 沖繩美麗海水族館", "dur": "約 1 小時 30 分", "mode": "drive", "note": "中途可在休息站換手", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=沖縄美ら海水族館&travelmode=driving", "road": "那霸 IC → 沖繩自動車道 → 許田 IC → 國道 58/449 號，需付過路費（現金或 ETC 卡）", "park": "海洋博公園停車場免費，P7 最靠近水族館"}, {"time": "10:00", "end": "13:00", "leg": "美麗海水族館 & 翡翠海灘", "dur": "約 3 小時", "mode": "stay", "note": "黑潮之海、海豚秀（戶外免費）、海灘散步；入館後各自逛，12:50 出口集合", "group": "🎫 門票待買"}, {"time": "13:00", "end": "13:15", "leg": "水族館 → 本部町午餐", "dur": "約 10-15 分", "mode": "drive", "note": "例如岸本食堂等老字號沖繩麵店，或水族館旁的海邦丸", "map": "https://www.google.com/maps/dir/?api=1&origin=沖縄美ら海水族館&destination=岸本食堂 本部&travelmode=driving"}, {"time": "13:15", "end": "14:15", "leg": "本部町：沖繩麵午餐", "dur": "約 1 小時", "mode": "stay", "note": "", "group": "🍽️ 午餐"}, {"time": "14:15", "end": "15:45", "leg": "本部町 → 飯店", "dur": "約 1 小時 30 分", "mode": "drive", "note": "許田 IC 上高速 → 那霸 IC", "map": "https://www.google.com/maps/dir/?api=1&origin=岸本食堂 本部&destination=ホテルモントレ ラ・スール那覇&travelmode=driving", "road": "國道 449/58 號 → 許田 IC → 沖繩自動車道 → 那霸 IC，需付過路費（現金或 ETC 卡）"}, {"time": "15:45", "end": "19:50", "leg": "飯店休息、自由時間", "dur": "約 3 小時", "mode": "stay", "note": "可以參考「隨機想去」清單：牧志市場、やちむん通り、波上宮"}, {"time": "19:50", "end": "20:00", "leg": "飯店 → ラーメン ちゃんや", "dur": "約 10 分", "mode": "walk", "note": "11/6 是週五，ちゃんや週五 20:00 才開門", "map": "https://www.google.com/maps/dir/?api=1&origin=ホテルモントレ ラ・スール那覇&destination=ラーメン ちゃんや 那覇 牧志&travelmode=walking"}, {"time": "20:00", "end": "21:15", "leg": "ちゃんや：味噌拉麵晚餐", "dur": "約 1 小時 20 分", "mode": "stay", "note": "只有 18 席，開門就到或分兩批；週日公休", "group": "🍽️ 晚餐"}, {"time": "21:15", "end": "21:25", "leg": "ちゃんや → 飯店", "dur": "約 10 分", "mode": "walk", "note": "", "map": "https://www.google.com/maps/dir/?api=1&origin=ラーメン ちゃんや 那覇 牧志&destination=ホテルモントレ ラ・スール那覇&travelmode=walking"}]
             },
             {
                 day: 4,
@@ -1768,7 +1820,7 @@
 
                 let spotsHTML = dayInfo.spots.map((spot, idx) => `
                     <div class="${spot.group ? 'bg-amber-50 border-4 border-amber-400 ring-2 ring-amber-200' : 'bg-white border border-slate-200/80'} p-4 rounded-xl shadow-sm">
-                        ${spot.group ? `<div class="-mx-4 -mt-4 mb-3 px-4 py-2 rounded-t-lg bg-amber-400 text-amber-950 font-black text-sm flex flex-wrap justify-between gap-1"><span>👥 全員團體活動</span><span>${spot.group}</span></div>` : ''}
+                        ${spot.group ? `<div class="-mx-4 -mt-4 mb-3 px-4 py-2 rounded-t-lg bg-amber-400 text-amber-950 font-black text-sm flex flex-wrap justify-between gap-1"><span>📌 全員一起</span><span>${spot.group}</span></div>` : ''}
                         <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
                             <h4 class="font-bold text-slate-800 text-base flex items-center gap-1.5">
                                 <span class="bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full font-bold">景點 ${idx + 1}</span>
@@ -1802,7 +1854,7 @@
                             <div class="flex-1 min-w-0">
                                 <div class="flex flex-wrap items-center gap-1.5">
                                     <span class="border px-1.5 py-0.5 rounded text-[11px] font-semibold ${cls}">${icon} ${label}${leg.dur ? ' ' + leg.dur : ''}</span>
-                                    ${leg.group ? `<span class="px-1.5 py-0.5 rounded text-[11px] font-black bg-amber-500 text-white">👥 全員 ‧ ${leg.group}</span>` : ''}
+                                    ${leg.group ? `<span class="px-1.5 py-0.5 rounded text-[11px] font-black bg-amber-500 text-white">📌 全員 ‧ ${leg.group}</span>` : ''}
                                     <span class="font-semibold text-slate-800">${leg.leg}</span>
                                     ${leg.book ? `<a href="#booking" class="px-1.5 py-0.5 rounded text-[11px] font-bold bg-rose-600 text-white">📞 ${leg.book}</a>` : ''}
                                 </div>
